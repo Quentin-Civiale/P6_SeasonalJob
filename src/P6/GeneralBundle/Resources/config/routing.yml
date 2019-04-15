@@ -1,3 +1,7 @@
-general_homepage:
+root_homepage:
     path:     /
-    defaults: { _controller: GeneralBundle:Default:index }
+    defaults: { _controller: GeneralBundle:Navigation:home }
+
+general_homepage:
+    path:     /SeasonalJob/accueil
+    defaults: { _controller: GeneralBundle:Navigation:home }
