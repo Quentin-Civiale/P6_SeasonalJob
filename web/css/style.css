@@ -1,0 +1,13 @@
+/* Gestion du responsive */
+
+@media only screen and (max-width: 992px) {
+    /* Titre de bienvenue */
+    h1 {
+        text-align: center !important;
+    }
+
+    /* Introduction du site */
+    .intro {
+        text-align: justify;
+    }
+}
