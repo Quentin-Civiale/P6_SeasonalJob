@@ -3,9 +3,11 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8" />
-        <title>{% block title %}Bienvenue!{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('Images/rdv_logo.png') }}" />
+        <title>{% block title %}Seasonal Job{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('Images/rdv_logo3.png') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/website_title.css') }}" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
@@ -16,10 +18,13 @@
 
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ path('general_homepage') }}">
-                <img src="{{ asset('Images/rdv_logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
-                Seasonal Job
+                <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="title-animation-header">
+                <h1>Seasonal</h1>
+                <h2>- Job -</h2>
+            </div>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -28,11 +33,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ path('general_homepage') }}">Accueil <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Les Annonces</a>
-                    </li>
-                    <li class="nav-item">
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Les Annonces</a>
                     </li>
 {#                    <li class="nav-item">#}
 {#                        <a class="btn btn-outline-light" href="#" role="button">Ajouter une annonce</a>#}
@@ -51,14 +54,59 @@
                 <div class="login">
                     <a class="btn btn-success" href="#" role="button">Connexion</a>
                 </div>
-                <div></div>
                 <div class="ads_button">
-                    <a class="btn btn-primary" href="#" role="button">Ajouter une annonce</a>
+                    <a class="btn btn-primary logoColor-background border-logoColor-border" href="#" role="button">Ajouter une annonce</a>
                 </div>
             </div>
         </nav>
 
+        {% block navigation %}{% endblock %}
+        <br><br><br>
         {% block home %} {% endblock %}
+
+        <br/>
+
+        <footer>
+            <div class="card white-text">
+                <div class="card-body logoColor-background">
+                    <div class="row col-lg-8 offset-lg-2">
+                        <div class="title-website col-lg-3 col-sm-3">
+{#                            <h3 class="card-title white-text"><strong>Seasonal Job</strong></h3>#}
+                            <div class="row">
+                                <a class="navbar-brand" href="{{ path('general_homepage') }}">
+                                    <img src="{{ asset('Images/rdv_logo4.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
+                                </a>
+                                <div class="title-footer">
+                                    <h1>Seasonal</h1>
+                                    <h2>- Job -</h2>
+                                </div>
+                            </div>
+                            <hr>
+                            <h5 class="card-text">Mettre en relation saisonniers et employeurs !</h5>
+                            <hr>
+                        </div>
+                        <div class="col-lg-3 col-sm-3">
+                            <h5><strong>Plus d'infos</strong></h5>
+                            <div class="footer-white-line"></div>
+                            <ul>
+                                <li><a href="#" class="footer-link">Se connecter</a></li>
+                                <li><a href="#" class="footer-link">Charte du saisonnier</a></li>
+                                <li><a href="#" class="footer-link">Charte de l'employeur</a></li>
+                                <li><a href="#" class="footer-link">Sécurité</a> et <a href="#" class="footer-link">CGU</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-sm-3">
+                            <h5><strong>Contacts</strong></h5>
+                            <div class="footer-white-line"></div>
+                            <ul>
+                                <li><a href="#" class="footer-link">Nous contacter</a></li>
+{#                                <li><a href="#" class="footer-link">Kit Presse</a></li>#}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
