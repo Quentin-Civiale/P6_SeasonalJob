@@ -1,0 +1,112 @@
+/* Gestion de l'animation du titre du menu*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+
+.f {
+    font-size: 0.8em;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    color : #070707;
+}
+
+.f a {
+    color : #6200ea;
+}
+
+header {
+    position : fixed;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.title-animation-header h1, h2 {
+    margin : 0 1rem;
+    white-space: nowrap;
+}
+
+.title-animation-header h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    margin-left: -5px;
+    color : #6200ea;
+    font-size : 1.5em;
+    font-weight : bold;
+    text-transform : uppercase;
+    animation : translate1 4s infinite;
+}
+
+.title-animation-header h2 {
+    /*position : absolute;*/
+    margin-top: -10px;
+    margin-left: 60px;
+    top : 30%;
+    right : 5%;
+    color : #070707;
+    font-size : 1.3em;
+    animation : translate2 4s infinite;
+}
+
+@keyframes translate1{
+    0% { opacity : 0; transform: translate(-16px, 0); }
+    20% { opacity : 1; transform: translate(0, 0); }
+    65% { opacity : 1; transform: translate(0, 0); }
+    80% { opacity : 0; transform: translate(16px, 0); }
+    100% { opacity : 0; transform: translate(16px, 0); }
+}
+@keyframes translate2{
+    0% { opacity : 0; transform: translate(-32px, 0); }
+    18% { opacity : 1; transform: translate(0, 0); }
+    64% { opacity : 1; transform: translate(0, 0); }
+    82% { opacity : 0; transform: translate(32px, 0); }
+    100% { opacity : 0; transform: translate(32px, 0); }
+}
+
+/* ________________________________________________________________________________________ */
+
+/* Gestion du titre du footer */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+
+.f {
+    font-size: 0.8em;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    color : #070707;
+}
+
+.f a {
+    color : #6200ea;
+}
+
+header {
+    position : fixed;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.title-footer h1, h2 {
+    margin : 0 1rem;
+    white-space: nowrap;
+}
+
+.title-footer h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    margin-left: -5px;
+    color : white;
+    font-size : 1.5em;
+    font-weight : bold;
+    text-transform : uppercase;
+}
+
+.title-footer h2 {
+    /*position : absolute;*/
+    margin-top: -10px;
+    margin-left: 60px;
+    top : 30%;
+    right : 5%;
+    color : white;
+    font-size : 1.3em;
+}
