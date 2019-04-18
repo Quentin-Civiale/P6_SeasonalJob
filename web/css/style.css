@@ -1,13 +1,159 @@
-/* Gestion du responsive */
+    /* Modification des différents éléments de bootstrap */
+
+/* Nom du site */
+.navbar-brand {
+    color: #6200ea !important;
+}
+
+/* Texte coloré */
+.logoColor-text {
+    color: #6200ea !important;
+}
+.white-text {
+    color: white !important;
+}
+
+/* Texte centré */
+.center {
+    text-align: center;
+}
+
+/* Texte justifié */
+.justify {
+    text-align: justify;
+}
+
+/* Titre de bienvenue */
+h1 {
+    text-align: center !important;
+}
+
+/* Titre de partie */
+h3 {
+    color: #6200ea !important;
+}
+
+/* Espacement entre les liens du menu */
+a.nav-link {
+    padding-left: 20px !important;
+}
+
+/* Modification de la couleur du bouton de connexion du menu */
+.btn-success {
+    background-color: #61d800 !important;
+    border-color: #61d800 !important;
+}
+.btn-success:hover {
+    background-color: white !important;
+    color: #61d800 !important;
+    border-color: #61d800 !important;
+}
+
+/* Modification de la couleur du bouton d'ajout d'annonce du menu */
+.logoColor-background {background-color: #6200ea !important}
+.border-logoColor-border {border-color: #6200ea !important}
+
+/* Btn ajout d'annonce menu */
+.btn-primary:hover {
+    background-color: white !important;
+    color: #6200ea !important;
+}
+
+/* Survol du btn Se connecter block présentation */
+.btn-outline-success:hover {
+    color: white !important;
+    background-color: #6200ea !important;
+}
+
+/* Modif bouton Postuler Block d'annonces */
+.border-white-border {
+    border-color: white !important;
+}
+
+.btn-outline-primary:hover {
+    color: white !important;
+    background-color: #6200ea !important;
+}
+
+.white-background {
+    background-color: white !important;
+}
+
+/* Gestion des icones user */
+.resize-icon {
+    font-size: 30px !important;
+}
+
+/* Couleur ligne blanche footer */
+.footer-white-line {
+    margin-bottom: 10px;
+    border-bottom: white solid 1px;
+    padding-bottom: 10px;
+}
+
+/* Footer retrait des puces de la liste à puces */
+ul {
+    list-style-type: none !important;
+}
+
+li {
+    padding-bottom: 3px !important;
+    margin-left: -15px !important;
+}
+
+a.footer-link:hover {
+    /*text-decoration: underline !important;*/
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+}
+
+a.footer-link {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+/* ________________________________________________________________________________________________________ */
+
+                                      /* Gestion du responsive */
+/* ________________________________________________________________________________________________________ */
 
 @media only screen and (max-width: 992px) {
-    /* Titre de bienvenue */
-    h1 {
-        text-align: center !important;
+
+    /* Couleur barre menu hamburger */
+    .custom-toggler.navbar-toggler {
+        border-color: rgb(98,0,234) !important;
+    }
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(98,0,234, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
     }
 
     /* Introduction du site */
     .intro {
         text-align: justify;
+    }
+
+    /* Modification de la couleur du bouton d'ajout d'annonce */
+    .logoColor-background {background-color: #6200ea !important}
+    .border-logoColor-border {border-color: #6200ea !important}
+    .border-white-border { border-color: white !important}
+
+    /* Texte justifié */
+    .justify {
+        text-align: justify;
+    }
+
+    /* Modif taille police H2 */
+    .resize-sm-h2 {
+        font-size: 25px !important;
+    }
+
+    /* Modif taille police H5 */
+    .resize-sm-h5 {
+        font-size: 17px !important;
+    }
+
+    /* Gestion des icones user */
+    .resize-icon {
+        font-size: 20px !important;
     }
 }
