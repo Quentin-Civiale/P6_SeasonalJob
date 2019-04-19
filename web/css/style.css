@@ -114,6 +114,73 @@ a.footer-link {
 
 /* ________________________________________________________________________________________________________ */
 
+                                        /* Mise en forme du Modal */
+/* ________________________________________________________________________________________________________ */
+
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-color: #6200ea !important;
+    border-radius: 50%;
+}
+
+/* the shadow; displayed while the element is in focus */
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 255, 255, 100);
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before,
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    background-color: #6200ea !important;
+    /*border-radius: 50%;*/
+}
+
+/* the shadow; displayed while the element is in focus */
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(98, 0, 234, 0.25);
+}
+
+.log-modal-line {
+    margin-bottom: 6px;
+    border-bottom: #e9ecef solid 1px;
+    padding-bottom: 6px;
+}
+
+.btn-modal.active {
+    text-decoration: none !important;
+    color: #6200ea !important;
+}
+
+.btn-modal {
+    text-decoration: none !important;
+    color: gray !important;
+    font-size: 1.2em !important;
+}
+
+.btn-modal:hover {
+    color: #6200ea !important;
+    font-weight: bold !important;
+}
+
+.btn-modal:hover.active {
+    color: #6200ea !important;
+}
+
+.no-account {
+    color: gray !important;
+    text-decoration: none !important;
+}
+
+.log {
+    text-decoration: none !important;
+}
+
+.log:hover {
+    text-transform: uppercase !important;
+}
+
+/* ________________________________________________________________________________________________________ */
+
                                       /* Gestion du responsive */
 /* ________________________________________________________________________________________________________ */
 
