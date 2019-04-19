@@ -64,6 +64,55 @@ header {
 
 /* ________________________________________________________________________________________ */
 
+/* Gestion du titre du modal */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+
+.f {
+    font-size: 0.8em;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    color : #070707;
+}
+
+.f a {
+    color : #6200ea;
+}
+
+header {
+    position : fixed;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.title-modal h1, h2 {
+    margin : 0 1rem;
+    white-space: nowrap;
+}
+
+.title-modal h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    margin-left: -5px;
+    color : #6200ea;
+    font-size : 1.2em;
+    font-weight : bold;
+    text-transform : uppercase;
+}
+
+.title-modal h2 {
+    /*position : absolute;*/
+    margin-top: -10px;
+    margin-left: 60px;
+    top : 30%;
+    right : 5%;
+    color : #070707;
+    font-size : 1em;
+}
+
+/* ________________________________________________________________________________________ */
+
 /* Gestion du titre du footer */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
