@@ -16,6 +16,136 @@
 
     <body>
 
+        <!--Modal: Connexion/Inscription-->
+        <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+                <div class="modal-content">
+                    <div class="modal-c-tabs">
+
+                        <!-- Menu -->
+                        <div class="modal-header">
+                            <div class="modal-title" id="exampleModalLabel">
+                                <div class="row">
+                                    <p>&nbsp;&nbsp;&nbsp;</p>
+                                    <a class="navbar-brand" href="{{ path('general_homepage') }}">
+                                        <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
+                                    </a>
+                                    <div class="title-modal">
+                                        <h1>Seasonal</h1>
+                                        <h2>- Job -</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <br/>
+                        <div class="col-12">
+                            <ul class="nav nav-tabs md-tabs tabs-2" role="tablist">
+                                <li class="nav-item col-6 center">
+                                    <a class="nav-link btn-modal" data-toggle="tab" href="#modalRegister" role="tab">Inscription</a>
+                                </li>
+                                <li class="nav-item col-6 center">
+                                    <a class="nav-link active btn-modal active" data-toggle="tab" href="#modalLogin" role="tab">Connexion</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Ensemble des 2 formulaires -->
+                        <div class="tab-content">
+
+                            <!-- Modal Connexion -->
+                            <div class="tab-pane fade in show active" id="modalLogin" role="tabpanel">
+
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="col-lg-10 offset-lg-1">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Adresse mail</label>
+                                                <input type="email" class="form-control border-logoColor-border" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Mot de passe</label>
+                                                <input type="password" class="form-control border-logoColor-border" id="exampleInputPassword1">
+                                            </div>
+{#                                            <div class="form-group form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">#}
+{#                                                <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>#}
+{#                                            </div>#}
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
+                                            </div>
+                                            <br/>
+                                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border">Connexion</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <div class="col-sm-8 offset-sm-2 col-lg-12 row center no-account">
+                                        <p>Vous n'avez pas encore de compte ? <a class="logoColor-text log" href="#modalRegister">Inscrivez-vous</a>.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--Modal Inscription -->
+                            <div class="tab-pane fade" id="modalRegister" role="tabpanel">
+
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="col-lg-10 offset-lg-1">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadioInline1">Je suis professionnel</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadioInline2">Je suis saisonnier</label>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="col-lg-10 offset-lg-1">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Adresse mail</label>
+                                                <input type="email" class="form-control border-logoColor-border" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Mot de passe</label>
+                                                <input type="password" class="form-control border-logoColor-border" id="exampleInputPassword1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Confirmation du mot de passe</label>
+                                                <input type="password" class="form-control border-logoColor-border" id="exampleInputPassword1">
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                <label class="custom-control-label" for="customCheck2">Je confirme avoir pris connaissance des CGU et j'accepte que mes données soient exploitées uniquement dans le cadre de l'utilisation su site.</label>
+                                            </div>
+                                            <br/>
+                                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border">Inscription</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <div class="col-sm-8 offset-sm-2 col-lg-12 row center no-account">
+                                        <p>Vous avez déjà un compte ? <a class="logoColor-text log" href="#modalLogin">Connectez-vous</a>.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ path('general_homepage') }}">
                 <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
@@ -37,23 +167,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Les Annonces</a>
                     </li>
-{#                    <li class="nav-item">#}
-{#                        <a class="btn btn-outline-light" href="#" role="button">Ajouter une annonce</a>#}
-{#                    </li>#}
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                            Ajouter une annonce#}
-{#                        </a>#}
-{#                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-{#                            <a class="dropdown-item" href="#">Je suis un employeur</a>#}
-{#                            <div class="dropdown-divider"></div>#}
-{#                            <a class="dropdown-item" href="#">Je suis un saisonnier</a>#}
-{#                        </div>#}
-{#                    </li>#}
                 </ul>
-                <div class="login">
-                    <a class="btn btn-success" href="#" role="button">Connexion</a>
-                </div>
+{#                <div class="login">#}
+{#                    <a class="btn btn-success" href="#" role="button">Connexion</a>#}
+{#                </div>#}
+                <!--Modal: Connexion/Inscription-->
+                <a href="" class="btn btn-success" data-toggle="modal" data-target="#modalLRForm">
+                    Connexion
+                </a>
+
                 <div class="ads_button">
                     <a class="btn btn-primary logoColor-background border-logoColor-border" href="#" role="button">Ajouter une annonce</a>
                 </div>
@@ -109,6 +231,8 @@
         </footer>
 
         <!-- Optional JavaScript -->
+        <script type="text/javascript" src="{{ asset('js/log_modal.js') }}"></script>
+
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
