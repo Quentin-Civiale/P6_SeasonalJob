@@ -5,3 +5,7 @@ root_homepage:
 general_homepage:
     path:     /SeasonalJob/accueil
     defaults: { _controller: GeneralBundle:Navigation:home }
+
+posting_ad:
+    path:     /SeasonalJob/accueil/publier-une-annonce
+    defaults: { _controller: GeneralBundle:PostingAd:posting }
