@@ -9,3 +9,7 @@ general_homepage:
 posting_ad:
     path:     /SeasonalJob/accueil/publier-une-annonce
     defaults: { _controller: GeneralBundle:PostingAd:posting }
+
+user_ad:
+    path:     /SeasonalJob/accueil/mon-compte/mes-annonces
+    defaults: { _controller: GeneralBundle:UserAd:userAd }
