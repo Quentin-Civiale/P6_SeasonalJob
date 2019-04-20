@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block userAccount %}
+
+    <br/>
+
+    <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
+        <h2 class="logoColor-text resize-sm-h2"><strong>Mon compte</strong></h2>
+    </div>
+
+    <br>
+
+    <div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3">
+        <div class="card border-logoColor-border">
+            <div class="card-header logoColor-background white-text"><h4>Mes informations</h4></div>
+            <div class="card-body">
+
+                <div class="col-lg-8 offset-lg-2">
+                    <img src="{{ asset('Images/recherche-emploi-en-ligne.jpg') }}" class="mx-auto d-block account-profil" alt="...">
+
+                    <br/>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Nom :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            Civiale
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Prénom :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            Quentin
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Mail :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            quentin.civiale@gmail.com
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Statut :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            Saisonnier
+                        </p>
+                    </div>
+                </div>
+
+                <br/>
+                <br/>
+
+                <div class="row col-lg-6 offset-lg-3">
+                    <div class="login col-lg-6">
+                        <a href="{{ path('user_ad') }}" class="btn btn-outline-success border-logoColor-border logoColor-text">Mes annonces</a>
+                    </div>
+
+                    <div class="login col-lg-6">
+                        <a href="{{ path('user_ad') }}" class="btn btn-danger">Déconnexion</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+{% endblock %}

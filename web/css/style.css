@@ -52,6 +52,23 @@ a.nav-link {
     border-color: #61d800 !important;
 }
 
+.account-profil {
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 100% !important;
+}
+
+/* Modification de la couleur du bouton de déconnexion */
+.btn-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+.btn-danger:hover {
+    background-color: white !important;
+    color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
 /* Modification de la couleur du bouton d'ajout d'annonce du menu */
 .logoColor-background {background-color: #6200ea !important}
 .border-logoColor-border {border-color: #6200ea !important}
