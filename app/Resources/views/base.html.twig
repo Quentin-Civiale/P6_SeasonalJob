@@ -177,7 +177,7 @@
                 </a>
 
                 <div class="ads_button">
-                    <a class="btn btn-primary logoColor-background border-logoColor-border" href="#" role="button">Ajouter une annonce</a>
+                    <a class="btn btn-primary logoColor-background border-logoColor-border" href="{{ path('posting_ad') }}" role="button">Publier une annonce</a>
                 </div>
             </div>
         </nav>
@@ -185,6 +185,7 @@
         {% block navigation %}{% endblock %}
         <br><br><br>
         {% block home %} {% endblock %}
+        {% block postingAd %} {% endblock %}
 
         <br/>
 
