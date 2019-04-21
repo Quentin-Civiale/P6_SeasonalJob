@@ -176,7 +176,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Les Annonces</a>
+                        <a class="nav-link" href="{{ path('general_ad_list') }}"> Les Annonces</a>
                     </li>
                 </ul>
 {#                <div class="login">#}
@@ -199,6 +199,7 @@
         {% block postingAd %} {% endblock %}
         {% block userAccount %} {% endblock %}
         {% block userAd %} {% endblock %}
+        {% block adList %} {% endblock %}
 
         <br/>
 

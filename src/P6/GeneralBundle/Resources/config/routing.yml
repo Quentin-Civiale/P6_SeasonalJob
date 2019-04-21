@@ -17,3 +17,7 @@ user_account:
 user_ad:
     path:     /SeasonalJob/accueil/mon-compte/mes-annonces
     defaults: { _controller: GeneralBundle:UserAd:userAd }
+
+general_ad_list:
+    path:     /SeasonalJob/accueil/les-annonces
+    defaults: { _controller: GeneralBundle:AdList:list }

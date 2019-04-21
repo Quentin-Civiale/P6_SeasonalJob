@@ -1,0 +1,250 @@
+{% extends 'base.html.twig' %}
+
+{% block adList %}
+
+    <br/>
+
+    <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
+        <h2 class="logoColor-text resize-sm-h2"><strong>Les annonces</strong></h2>
+    </div>
+
+    <br>
+
+    <div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3">
+        <div class="card border-logoColor-border">
+            <div class="card-header logoColor-background white-text"><h4>Recherche</h4></div>
+            <div class="card-body">
+
+                <div class="col-lg-6 offset-lg-3 center">
+                    <p>Type de recherche :</p>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline5" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline5">Annonces saisonnières</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline6" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline6">Annonces employeurs</label>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row col-lg-8 offset-lg-2">
+                    <div class="form-group col-lg-6">
+                        <label for="ad_type">Catégorie de l'annonce</label>
+                        <select id="ad_type" class="form-control border-logoColor-border">
+                            <option selected>Sélectionner une catégorie</option>
+                            <option>Agriculture</option>
+                            <option>Animation</option>
+                            <option>Entretien</option>
+                            <option>Camping</option>
+                            <option>Grande distribution</option>
+                            <option>Parc de loisirs</option>
+                            <option>Club nautique</option>
+                            <option>Restauration</option>
+                            <option>Magasin</option>
+                            <option>Crêche</option>
+                            <option>Hôtellerie</option>
+                            <option>Tourisme</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label for="inputRegion">Région</label>
+                        <input type="text" class="form-control border-logoColor-border" id="inputRegion">
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="login center">
+                    <a href="" class="btn btn-outline-success border-logoColor-border logoColor-text">Rechercher</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card border-logoColor-border">
+                    <div class="card-header logoColor-text">
+                        <div class="row">
+                            <div class="col-sm-8 col-lg-10">
+                                <h5 class="resize-sm-h5"><strong>Annonce Employeur N°351</strong></h5>
+                            </div>
+                            <div class="col-sm-4 col-lg-2">
+                                <i class="fas fa-user-tie resize-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body logoColor-background">
+                        <h5 class="card-title white-text center"><strong>Recherche Skiman</strong></h5>
+                        <br/>
+                        <div>
+                            <div class="row">
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <i class="fas fa-user-tie resize-icon white-text"></i>
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <p class="white-text"><strong>Magasin Skiset</strong></p>
+                            </div>
+                            <br/>
+                            <h6 class="white-text"><strong>Catégorie</strong></h6>
+                            <p class="white-text">Skiman</p>
+                            <h6 class="white-text"><strong>Description du poste</strong></h6>
+                            <p class="white-text justify">
+                                Skiman (H/F) Vendeur boutique de Sport (H/F)
+                                <br/>
+                                <br/>
+                                Il/Elle propose et loue le matériel de ski en apportant ...
+                            </p>
+                            <br/>
+                        </div>
+                        <br/>
+                        <div class="center">
+                            <a class="btn btn-outline-primary border-white-border white-background logoColor-text" href="#" role="button"><strong>Voir l'annonce</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card border-logoColor-border">
+                    <div class="card-header logoColor-text">
+                        <div class="row">
+                            <div class="col-sm-8 col-lg-10">
+                                <h5 class="resize-sm-h5"><strong>Annonce Employeur N°352</strong></h5>
+                            </div>
+                            <div class="col-sm-4 col-lg-2">
+                                <i class="fas fa-user-tie resize-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body logoColor-background">
+                        <h5 class="card-title white-text center"><strong>Recherche Skiman</strong></h5>
+                        <br/>
+                        <div>
+                            <div class="row">
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <i class="fas fa-user-tie resize-icon white-text"></i>
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <p class="white-text"><strong>Magasin Skiset</strong></p>
+                            </div>
+                            <br/>
+                            <h6 class="white-text"><strong>Catégorie</strong></h6>
+                            <p class="white-text">Skiman</p>
+                            <h6 class="white-text"><strong>Description du poste</strong></h6>
+                            <p class="white-text justify">
+                                Skiman (H/F) Vendeur boutique de Sport (H/F)
+                                <br/>
+                                <br/>
+                                Il/Elle propose et loue le matériel de ski en apportant ...
+                            </p>
+                            <br/>
+                        </div>
+                        <br/>
+                        <div class="center">
+                            <a class="btn btn-outline-primary border-white-border white-background logoColor-text" href="#" role="button"><strong>Voir l'annonce</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card border-logoColor-border">
+                    <div class="card-header logoColor-text">
+                        <div class="row">
+                            <div class="col-sm-8 col-lg-10">
+                                <h5 class="resize-sm-h5"><strong>Annonce Employeur N°353</strong></h5>
+                            </div>
+                            <div class="col-sm-4 col-lg-2">
+                                <i class="fas fa-user-tie resize-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body logoColor-background">
+                        <h5 class="card-title white-text center"><strong>Recherche Skiman</strong></h5>
+                        <br/>
+                        <div>
+                            <div class="row">
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <i class="fas fa-user-tie resize-icon white-text"></i>
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <p class="white-text"><strong>Magasin Skiset</strong></p>
+                            </div>
+                            <br/>
+                            <h6 class="white-text"><strong>Catégorie</strong></h6>
+                            <p class="white-text">Skiman</p>
+                            <h6 class="white-text"><strong>Description du poste</strong></h6>
+                            <p class="white-text justify">
+                                Skiman (H/F) Vendeur boutique de Sport (H/F)
+                                <br/>
+                                <br/>
+                                Il/Elle propose et loue le matériel de ski en apportant ...
+                            </p>
+                            <br/>
+                        </div>
+                        <br/>
+                        <div class="center">
+                            <a class="btn btn-outline-primary border-white-border white-background logoColor-text" href="#" role="button"><strong>Voir l'annonce</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card border-logoColor-border">
+                    <div class="card-header logoColor-text">
+                        <div class="row">
+                            <div class="col-sm-8 col-lg-10">
+                                <h5 class="resize-sm-h5"><strong>Annonce Employeur N°354</strong></h5>
+                            </div>
+                            <div class="col-sm-4 col-lg-2">
+                                <i class="fas fa-user-tie resize-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body logoColor-background">
+                        <h5 class="card-title white-text center"><strong>Recherche Skiman</strong></h5>
+                        <br/>
+                        <div>
+                            <div class="row">
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <i class="fas fa-user-tie resize-icon white-text"></i>
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <p class="white-text"><strong>Magasin Skiset</strong></p>
+                            </div>
+                            <br/>
+                            <h6 class="white-text"><strong>Catégorie</strong></h6>
+                            <p class="white-text">Skiman</p>
+                            <h6 class="white-text"><strong>Description du poste</strong></h6>
+                            <p class="white-text justify">
+                                Skiman (H/F) Vendeur boutique de Sport (H/F)
+                                <br/>
+                                <br/>
+                                Il/Elle propose et loue le matériel de ski en apportant ...
+                            </p>
+                            <br/>
+                        </div>
+                        <br/>
+                        <div class="center">
+                            <a class="btn btn-outline-primary border-white-border white-background logoColor-text" href="#" role="button"><strong>Voir l'annonce</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
