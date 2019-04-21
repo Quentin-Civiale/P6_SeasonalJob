@@ -21,3 +21,7 @@ user_ad:
 general_ad_list:
     path:     /SeasonalJob/accueil/les-annonces
     defaults: { _controller: GeneralBundle:AdList:list }
+
+ad_detail:
+    path:     /SeasonalJob/accueil/les-annonces/annonce
+    defaults: { _controller: GeneralBundle:AdDetail:detail }
