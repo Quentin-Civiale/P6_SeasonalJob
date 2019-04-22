@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Seasonal extends User
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
@@ -42,16 +33,6 @@ class Seasonal extends User
      */
     private $profilPicture;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set firstname

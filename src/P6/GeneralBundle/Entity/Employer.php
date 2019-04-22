@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Employer extends User
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="Company", type="string", length=255)
@@ -35,16 +26,6 @@ class Employer extends User
      */
     private $contact;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set company
