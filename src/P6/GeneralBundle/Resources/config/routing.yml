@@ -5,3 +5,23 @@ root_homepage:
 general_homepage:
     path:     /SeasonalJob/accueil
     defaults: { _controller: GeneralBundle:Navigation:home }
+
+posting_ad:
+    path:     /SeasonalJob/accueil/publier-une-annonce
+    defaults: { _controller: GeneralBundle:PostingAd:posting }
+
+user_account:
+    path:     /SeasonalJob/accueil/mon-compte
+    defaults: { _controller: GeneralBundle:UserAccount:account }
+
+user_ad:
+    path:     /SeasonalJob/accueil/mon-compte/mes-annonces
+    defaults: { _controller: GeneralBundle:UserAd:userAd }
+
+general_ad_list:
+    path:     /SeasonalJob/accueil/les-annonces
+    defaults: { _controller: GeneralBundle:AdList:list }
+
+ad_detail:
+    path:     /SeasonalJob/accueil/les-annonces/annonce
+    defaults: { _controller: GeneralBundle:AdDetail:detail }
