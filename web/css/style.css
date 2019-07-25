@@ -1,7 +1,6 @@
-/* ________________________________________________________________________________________________________ */
-
-                           /* Modification des différents éléments de bootstrap */
-/* ________________________________________________________________________________________________________ */
+/*----------------------------------------------------------------------------------------------------------*/
+/* Modification des différents éléments de bootstrap */
+/*----------------------------------------------------------------------------------------------------------*/
 
 /* Nom du site */
 .navbar-brand {
@@ -26,6 +25,11 @@
     text-align: justify;
 }
 
+/*Texte aligné à droite */
+.right-align {
+    text-align: right;
+}
+
 /* Titre de bienvenue */
 h1 {
     text-align: center !important;
@@ -36,22 +40,70 @@ h3 {
     color: #6200ea !important;
 }
 
+/* Titre des éléments de la charte */
+h4 {
+    font-size: 25px !important;
+}
+
 /* Espacement entre les liens du menu */
 a.nav-link {
     padding-left: 20px !important;
 }
 
+/* Modification de la couleur du bouton d'inscription du menu */
+.btn-register {
+    color: #6200ea !important;
+    border-color: #6200ea !important;
+    background-color: white !important;
+}
+
+.btn-register:hover {
+    color: white !important;
+    border-color: #6200ea !important;
+    background-color: #6200ea !important;
+}
+
+/* Modification de la couleur du bouton de liens simples du menu (accueil et les annonces) */
+.btn-menu {
+    color: #6200ea !important;
+}
+
+.btn-menu:hover {
+    background-color: #6200ea !important;
+    color: white !important;
+    border-color: #6200ea !important;
+}
+
+/* Modification de la couleur du bouton dropdown MON COMPTE lorsque le user est connecté */
+.btn-account {
+    color: #6200ea !important;
+    border-color: #6200ea !important;
+}
+
+.btn-account:hover {
+    background-color: #6200ea !important;
+    color: white !important;
+    border-color: #6200ea !important;
+}
+
+/* Liens du btn Dropdown */
+.dropdown-item:hover {
+    color: #6200ea !important;
+}
+
 /* Modification de la couleur du bouton de connexion du menu */
 .btn-success {
-    background-color: #61d800 !important;
+    color: limegreen !important;
+    background-color: white !important;
     border-color: #61d800 !important;
 }
 .btn-success:hover {
-    background-color: white !important;
-    color: #61d800 !important;
+    background-color: #61d800 !important;
+    color: white !important;
     border-color: #61d800 !important;
 }
 
+/* Taille de l'affichage du profilPicture de la vue compte utilisateur */
 .account-profil {
     width: 180px !important;
     height: 180px !important;
@@ -73,7 +125,7 @@ a.nav-link {
 .logoColor-background {background-color: #6200ea !important}
 .border-logoColor-border {border-color: #6200ea !important}
 
-/* Btn ajout d'annonce menu */
+/* Btn publication d'annonce du menu */
 .btn-primary:hover {
     background-color: white !important;
     color: #6200ea !important;
@@ -132,16 +184,27 @@ a.footer-link {
     color: white !important;
 }
 
-/* ________________________________________________________________________________________________________ */
+/*----------------------------------------------------------------------------------------------------------*/
+/* Design du Modal Formulaire Incription/Connexion */
+/*----------------------------------------------------------------------------------------------------------*/
 
-                         /* Design du Modal Formulaire Incription/Connexion */
-/* ________________________________________________________________________________________________________ */
+input {
+    border-radius: .25rem !important;
+    border: #6200ea solid 1px !important;
+    height: 30px !important;
+    width: 300px !important;
+}
 
+input[type="checkbox"] {
+    height: 30px !important;
+    width: 0 !important;
+}
 
 .custom-radio .custom-control-input:checked~.custom-control-label::before,
 .custom-radio .custom-control-input:checked~.custom-control-label::after {
     background-color: #6200ea !important;
     border-radius: 50%;
+    margin-left: -1px !important;
 }
 
 /* the shadow; displayed while the element is in focus */
@@ -169,6 +232,7 @@ a.footer-link {
 .btn-modal.active {
     text-decoration: none !important;
     color: #6200ea !important;
+    font-weight: bold !important;
 }
 
 .btn-modal {
@@ -199,27 +263,152 @@ a.footer-link {
     text-transform: uppercase !important;
 }
 
-/* ________________________________________________________________________________________________________ */
+/*.modal {*/
+/*    display: block !important;*/
+/*}*/
 
-                        /* Design du formulaire de publication d'annonce */
-/* ________________________________________________________________________________________________________ */
+/* Sélection radio du choix de formulaire employeur-saisonnier */
+
+user_type_form {
+    display: none !important;
+}
+
+#employer_input:checked~#employer_form,
+#seasonal_input:checked~#seasonal_form{
+    display: block !important;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Design de la vue du compte utilisateur */
+/*----------------------------------------------------------------------------------------------------------*/
+
+.account-picture {
+    border: #6200ea 7px solid !important;
+    /*border-image: linear-gradient(#6200ea, white) 30 !important;*/
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Design du formulaire de publication d'annonce */
+/*----------------------------------------------------------------------------------------------------------*/
 
 .ad-form {
     font-size: 18px !important;
 }
 
-/* ________________________________________________________________________________________________________ */
+/* Bouton radio de mobilité */
+/*input#p6_generalbundle_ad_place_0_mobility_0, #p6_generalbundle_ad_place_0_mobility_1 {*/
+/*    !*border-radius: .25rem !important;*!*/
+/*    border: #6200ea solid 1px !important;*/
+/*    height: 30px !important;*/
+/*    width: 50px !important;*/
+/*}*/
 
-                            /* Design page des annonces utilisateurs */
-/* ________________________________________________________________________________________________________ */
+/*input[type="radio"] {*/
+/*    color: #6200ea !important;*/
+/*    border: #6200ea solid 1px !important;*/
+/*    height: 30px !important;*/
+/*    width: 50px !important;*/
+/*}*/
+
+/*--------------Radio Bouton de Mobilité--------------*/
+
+/* Masquer le bouton radio d'origine */
+input[type="radio"] {
+    display: none;
+}
+
+/* Simuler l'apparence du radiobouton à l'aide du pseudoselector */
+input[type="radio"] + label:before {
+    content: "";
+    /* créer une apparence personnalisée du radiobouton */
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+    /* couleur de fond uniquement pour le contenu */
+    background-clip: content-box;
+    border: 1px solid #6200ea;
+    background-color: #e7e6e7;
+    border-radius: 50%;
+}
+
+/* Apparence du radiobouton sélectionné */
+input[type="radio"]:checked + label:before {
+    background-color: #6200ea;
+}
+
+/* Réinitialiser la taille du box-sizing */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Styles optionnels pour centrer les radioboutons */
+.mobility label {
+    display: inline-flex;
+    align-items: center;
+}
+
+/*-------------------------------------------------*/
+
+/* Zone de texte description de l'annonce */
+textarea#p6_generalbundle_ad_description {
+    border-radius: .25rem !important;
+    border: #6200ea solid 1px !important;
+    height: 300px !important;
+    width: 1030px !important;
+}
+
+/* Champ de sélection catégorie et lieu de l'annonce */
+select#p6_generalbundle_ad_category_0_name, #p6_generalbundle_ad_place_0_place {
+    border-radius: .25rem !important;
+    border: #6200ea solid 1px !important;
+    height: 30px !important;
+    width: 300px !important;
+}
+
+/* Zone de texte description de la mobilité */
+textarea#p6_generalbundle_ad_place_0_mobility {
+    border-radius: .25rem !important;
+    border: #6200ea solid 1px !important;
+    height: 150px !important;
+    width: 1030px !important;
+}
+
+/*select#p6_generalbundle_ad_place_0_mobility {*/
+/*    border-radius: .25rem !important;*/
+/*    border: #6200ea solid 1px !important;*/
+/*    height: 30px !important;*/
+/*    width: 75px !important;*/
+/*}*/
+
+/* Retrait des label vue postingAd */
+
+/*#p6_generalbundle_ad_category > .row > .input-field:first-child > label {*/
+/*    display: none !important;*/
+/*}*/
+
+/*#p6_generalbundle_ad_category > div >.row > .input-field:first-child > label {*/
+/*    display: none !important;*/
+/*}*/
+
+/*.input-field > select + label {*/
+/*    display: none !important;*/
+/*}*/
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Design page des annonces utilisateurs */
+/*----------------------------------------------------------------------------------------------------------*/
 
 
 
 
-/* ________________________________________________________________________________________________________ */
-
-                            /* Gestion du responsive mobile et tablette */
-/* ________________________________________________________________________________________________________ */
+/*----------------------------------------------------------------------------------------------------------*/
+/* Gestion du responsive mobile et tablette */
+/*----------------------------------------------------------------------------------------------------------*/
 
 @media only screen and (max-width: 992px) {
 

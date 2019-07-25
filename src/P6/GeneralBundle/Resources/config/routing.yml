@@ -3,25 +3,61 @@ root_homepage:
     defaults: { _controller: GeneralBundle:Navigation:home }
 
 general_homepage:
-    path:     /SeasonalJob/accueil
+    path:     /MySeason/accueil
     defaults: { _controller: GeneralBundle:Navigation:home }
 
 posting_ad:
-    path:     /SeasonalJob/accueil/publier-une-annonce
+    path:     /MySeason/accueil/publier-une-annonce
     defaults: { _controller: GeneralBundle:PostingAd:posting }
 
-user_account:
-    path:     /SeasonalJob/accueil/mon-compte
-    defaults: { _controller: GeneralBundle:UserAccount:account }
+employer_account:
+    path:     /MySeason/{role}/{id}/mon-compte-employeur
+    defaults: { _controller: GeneralBundle:UserAccount:employerAccount }
+
+seasonal_account:
+    path:     /MySeason/{role}/{id}/mon-compte-saisonnier
+    defaults: { _controller: GeneralBundle:UserAccount:seasonalAccount }
 
 user_ad:
-    path:     /SeasonalJob/accueil/mon-compte/mes-annonces
+    path:     /MySeason/mon-compte/mes-annonces
     defaults: { _controller: GeneralBundle:UserAd:userAd }
 
 general_ad_list:
-    path:     /SeasonalJob/accueil/les-annonces
+    path:     /MySeason/accueil/les-annonces
     defaults: { _controller: GeneralBundle:AdList:list }
 
 ad_detail:
-    path:     /SeasonalJob/accueil/les-annonces/annonce
+    path:     /MySeason/accueil/les-annonces/annonce
     defaults: { _controller: GeneralBundle:AdDetail:detail }
+
+employer_charter:
+    path:     /MySeason/accueil/charte-de-l'employeur
+    defaults: { _controller: GeneralBundle:Charter:employerCharter }
+
+seasonal_charter:
+    path:     /MySeason/accueil/charte-du-saisonnier
+    defaults: { _controller: GeneralBundle:Charter:seasonalCharter }
+
+#_______________________________________________________________
+#    Inscription et Connexion
+#_______________________________________________________________
+
+#registerEmployerOneModal:
+#    path:     /MySeason/accueil/inscription/employeur
+#    defaults: { _controller: GeneralBundle:Security:employerRegistrationOneModal }
+
+registerUser:
+    path:     /MySeason/accueil/inscription
+    defaults: { _controller: GeneralBundle:Security:userRegistration }
+
+#registerSeasonalTwoModal:
+#    path:     /MySeason/accueil/inscription/saisonnier
+#    defaults: { _controller: GeneralBundle:Security:seasonalRegistrationTwoModal }
+
+login:
+    path:     /MySeason/accueil/connexion
+    defaults: { _controller: GeneralBundle:Login:login }
+
+logout:
+    path:     /MySeason/accueil/déconnexion
+    defaults: { _controller: GeneralBundle:Login:logout }

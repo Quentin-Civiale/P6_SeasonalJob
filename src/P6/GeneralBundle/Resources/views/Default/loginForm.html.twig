@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block loginForm %}
+
+    <br/>
+
+    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+        <h2 class="logoColor-text resize-sm-h2"><strong>Connexion :</strong></h2>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="container">
+        {% if error %}
+            <div class="col-lg-6 offset-lg-3 alert alert-danger center">
+                {#                {{ error.messageKey|trans(error.messageData, 'security') }}#}
+                Votre e-mail ou votre mot de passe est incorrect !
+            </div>
+        {% endif %}
+
+        {{ form_start(formLogin) }}
+        <div class="col-lg-4 offset-lg-4 center" id="login_type">
+            <div class="form-group">
+                <label>Votre e-mail :</label><br/>
+                {{ form_widget(formLogin._username) }}
+            </div>
+            <div class="form-group">
+                <label>Votre mot de passe :</label><br/>
+                {{ form_widget(formLogin._password) }}
+            </div>
+
+            <br>
+
+            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border">Se connecter &nbsp;<i class="fas fa-sign-in-alt"></i></button>
+        </div>
+        {{ form_end(formLogin) }}
+    </div>
+
+    <br>
+
+{% endblock %}

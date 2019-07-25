@@ -10,6 +10,104 @@
 
     <br>
 
+    {{ form_start(formAd) }}
+
+    <div class="col-lg-8 offset-lg-2 ad-form">
+        <div class="row col-lg-8 offset-lg-2">
+            <div class="form-group col-lg-8">
+                <p>Titre de l'annonce</p>
+                {{ form_widget(formAd.title) }}
+            </div>
+            <div class="form-group col-lg-4">
+                {#                <p>Catégorie de l'annonce</p>#}
+                {{ form_widget(formAd.category) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <p>Description :</p>
+            {{ form_widget(formAd.description) }}
+        </div>
+        <div class="mobility">
+            {#            <p>Lieu du poste :</p>#}
+            {{ form_widget(formAd.place) }}
+        </div>
+        <br/>
+        <div class="row col-lg-8 offset-lg-2">
+            <div class="form-group col-lg-6">
+                <p>Date de début de contrat:</p>
+                {{ form_widget(formAd.dateStart) }}
+            </div>
+            <div class="form-group col-lg-6">
+                <p>Date de fin de contrat:</p>
+                {{ form_widget(formAd.dateEnd) }}
+            </div>
+        </div>
+
+        <br/>
+
+        <button type="submit" class="col-sm-12 col-lg-6 offset-lg-3 btn btn-primary btn-lg logoColor-background border-logoColor-border">Publier mon annonce</button>
+
+    </div>
+
+    {{ form_end(formAd) }}
+
+    {#            <div class="col-lg-8 offset-lg-2 ad-form">#}
+    {#                <div class="row col-lg-8 offset-lg-2">#}
+    {#                    <div class="form-group col-lg-8">#}
+    {#                        <label for="ad_title">Titre de l'annonce</label>#}
+    {#                        {{ form_widget(formAd.title) }}#}
+    {#                    </div>#}
+
+    {#                    <div class="form-group col-lg-4">#}
+    {#                        <label for="ad_type">Catégorie de l'annonce</label>#}
+    {#                        {{ form_widget(formAd.category) }}#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="form-group">#}
+    {#                    <label for="exampleFormControlTextarea1">Description</label>#}
+    {#                    {{ form_widget(formAd.description) }}#}
+    {#                </div>#}
+    {#                <div class="row">#}
+    {#                    <div class="form-group col-lg-6">#}
+    {#                        <label for="inputRegion">Région</label>#}
+    {#                        {{ form_widget(formAd.place) }}#}
+    {#                    </div>#}
+    {#                    <div class="form-group col-lg-6">#}
+    {#                        <label for="inputCity">Ville</label>#}
+    {#                        <input type="text" class="form-control border-logoColor-border" id="inputCity">#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-lg-8">#}
+    {#                    <p>Êtes-vous dans la capacité de vous déplacer dans toute la France ?</p>#}
+    {#                    <div class="custom-control custom-radio custom-control-inline">#}
+    {#                        <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">#}
+    {#                        <label class="custom-control-label" for="customRadioInline3">Oui</label>#}
+    {#                    </div>#}
+    {#                    <div class="custom-control custom-radio custom-control-inline">#}
+    {#                        <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">#}
+    {#                        <label class="custom-control-label" for="customRadioInline4">Non</label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <br/>#}
+    {#                <div class="form-group">#}
+    {#                    <label for="exampleFormControlTextarea2">Si oui, veuillez indiquez votre mobilité :</label>#}
+    {#                    <textarea class="form-control border-logoColor-border" id="exampleFormControlTextarea2" rows="1"></textarea>#}
+    {#                </div>#}
+    {#                <div class="form-group row col-lg-8 offset-lg-2">#}
+    {#                    <label for="example-date-input" class="col-4 col-form-label">Date de disponibilité</label>#}
+    {#                    <div class="col-8">#}
+    {#                        {{ form_widget(formAd.date) }}#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <br/>#}
+    {#                <button type="submit" class="col-sm-12 col-lg-6 offset-lg-3 btn btn-primary btn-lg logoColor-background border-logoColor-border">Publier mon annonce</button>#}
+    {#            </div>#}
+
+    <br/>
+    <hr/>
+    <hr/>
+    <br/>
+
     <form>
         <div class="col-lg-8 offset-lg-2 ad-form">
             <div class="row col-lg-8 offset-lg-2">
@@ -63,7 +161,7 @@
             </div>
             <br/>
             <div class="form-group">
-                <label for="exampleFormControlTextarea2">Si oui, veuillez indiquez votre mobilité :</label>
+                <label for="exampleFormControlTextarea2">Si oui, veuillez indiquez votre zone de mobilité :</label>
                 <textarea class="form-control border-logoColor-border" id="exampleFormControlTextarea2" rows="1"></textarea>
             </div>
             <div class="form-group row col-lg-8 offset-lg-2">

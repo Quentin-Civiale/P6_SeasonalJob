@@ -2,6 +2,8 @@
 
 {% block userAccount %}
 
+    {#    {{ render(controller('GeneralBundle:UserAccount:userAccount')) }}#}
+
     <br/>
 
     <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
@@ -15,24 +17,34 @@
             <div class="card-header logoColor-background white-text"><h4>Mes informations</h4></div>
             <div class="card-body">
 
+                {#                {% if employer is defined %}#}
+
                 <div class="col-lg-8 offset-lg-2">
                     <img src="{{ asset('Images/recherche-emploi-en-ligne.jpg') }}" class="mx-auto d-block account-profil" alt="...">
 
                     <br/>
 
                     <div class="row">
-                        <h5 class="card-title logoColor-text">Nom :</h5>
+                        <h5 class="card-title logoColor-text">Id :</h5>
                         &nbsp;
                         <p class="card-text justify">
-                            Civiale
+                            {#                                {{ employer.id }}#}
                         </p>
                     </div>
 
                     <div class="row">
-                        <h5 class="card-title logoColor-text">Prénom :</h5>
+                        <h5 class="card-title logoColor-text">Entreprise :</h5>
                         &nbsp;
                         <p class="card-text justify">
-                            Quentin
+                            {#                                {{ employer.company}}#}
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Prénom et nom :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            {#                                {{ employer.contact }}#}
                         </p>
                     </div>
 
@@ -40,7 +52,7 @@
                         <h5 class="card-title logoColor-text">Mail :</h5>
                         &nbsp;
                         <p class="card-text justify">
-                            quentin.civiale@gmail.com
+                            {#                                {{ employer.email }}#}
                         </p>
                     </div>
 
@@ -48,10 +60,63 @@
                         <h5 class="card-title logoColor-text">Statut :</h5>
                         &nbsp;
                         <p class="card-text justify">
-                            Saisonnier
+                            {#                                {{ employer.role }}#}
                         </p>
                     </div>
+
                 </div>
+
+                {#                {% endif %}#}
+
+                {#                {% elseif seasonal is defined %}#}
+
+                <div class="col-lg-8 offset-lg-2">
+                    <img src="{{ asset('Images/recherche-emploi-en-ligne.jpg') }}" class="mx-auto d-block account-profil" alt="...">
+
+                    <br/>
+
+                    {#                        <img src="{{ seasonal.profilPicture }}" class="mx-auto d-block account-profil" alt="...">#}
+
+                    <br/>
+
+                    {#                        {{ seasonal.profilPicture }}#}
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Id :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            {#                                {{ seasonal.id }}#}
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Prénom et nom:</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            {#                                {{ seasonal.firstname }} {{ seasonal.lastname }}#}
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Mail :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            {#                                {{ seasonal.email }}#}
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <h5 class="card-title logoColor-text">Statut :</h5>
+                        &nbsp;
+                        <p class="card-text justify">
+                            {#                                {{ seasonal.role }}#}
+                        </p>
+                    </div>
+
+                </div>
+
+                {#                {% endif %}#}
+
 
                 <br/>
                 <br/>

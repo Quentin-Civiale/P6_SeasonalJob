@@ -1,0 +1,177 @@
+<div class="modal fade" id="ModalForm" tabindex="-1" role="dialog" aria-labelledby="logModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div class="modal-title" id="exampleModalLabel">
+                    <div class="row">
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <a class="navbar-brand" href="{{ path('general_homepage') }}">
+                            <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
+                        </a>
+                        <div class="title-modal">
+                            <h1>- My -</h1>
+                            <h2>Season</h2>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <br/>
+
+            {#            <div class="col-lg-10 offset-lg-1 center">#}
+            <ul class="nav" style="margin-left: auto; margin-right: auto;" role="tablist">
+                <li class="nav-item col-lg-6 center">
+                    <a class="nav-link btn-modal" data-toggle="tab" href="#modalRegister" role="tab">Inscription</a>
+                </li>
+                <li class="nav-item col-lg-6 center">
+                    <a class="nav-link btn-modal active" data-toggle="tab" href="#modalLogin" role="tab">Connexion</a>
+                </li>
+            </ul>
+            {#            </div>#}
+
+            <div class="tab-content">
+
+                <div class="tab-pane fade in show" id="modalRegister" role="tabpanel">
+                    <div class="modal-body">
+
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="user-type custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="employer_input" name="user_type_form" class="custom-control-input" value="employer_input" checked>
+                                <label class="custom-control-label" for="employer_input">Je suis professionnel</label>
+                            </div>
+                            <div class="user-type custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="seasonal_input" name="user_type_form" class="custom-control-input" value="seasonal_input">
+                                <label class="custom-control-label" for="seasonal_input">Je suis saisonnier</label>
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        {{ form_start(formEmployer) }}
+                        <div class="col-lg-10 offset-lg-1" id="employer_type">
+                            <div class="form-group">
+                                <label>Nom de l'entreprise</label><br/>
+                                {{ form_widget(formEmployer.company) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Personne à contacter</label><br/>
+                                {{ form_widget(formEmployer.contact) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Votre e-mail</label><br/>
+                                {{ form_widget(formEmployer.email) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Indiquez un mot de passe</label><br/>
+                                {{ form_widget(formEmployer.password) }}
+                            </div>
+                            <div class="form-group justify">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            {{ form_widget(formEmployer.registration) }}
+                                        </div>
+                                        <div class="col-lg-11">
+                                            <label>En confirmant mon inscription, j'accepte que les informations saisies soient exploitées par My Season (pour plus d'informations, veuillez vous diriger vers les Conditions Générales d'Utilisation du site.</label><br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border" name="employerSubmit">S'inscrire</button>
+                        </div>
+                        {{ form_end(formEmployer) }}
+
+                        {{ form_start(formSeasonal) }}
+                        <div class="col-lg-10 offset-lg-1" id="seasonal_type">
+                            <div class="form-group">
+                                <label>Votre prénom</label><br/>
+                                {{ form_widget(formSeasonal.firstname) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Votre nom</label><br/>
+                                {{ form_widget(formSeasonal.lastname) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Votre image de profil</label><br/>
+                                {{ form_widget(formSeasonal.file) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Votre e-mail</label><br/>
+                                {{ form_widget(formSeasonal.email) }}
+                            </div>
+                            <div class="form-group">
+                                <label>Indiquez un mot de passe</label><br/>
+                                {{ form_widget(formSeasonal.password) }}
+                            </div>
+                            <div class="form-group justify">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            {{ form_widget(formSeasonal.registration) }}
+                                        </div>
+                                        <div class="col-lg-11">
+                                            <label>En confirmant mon inscription, j'accepte que les informations saisies soient exploitées par My Season (pour plus d'informations, veuillez vous diriger vers les Conditions Générales d'Utilisation du site.</label><br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border" name="seasonalSubmit">S'inscrire</button>
+                        </div>
+                        {{ form_end(formSeasonal) }}
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="col-lg-12">
+                            <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2 row center no-account">
+                                <p>Déjà inscrit ? <a class="logoColor-text log" data-toggle="tab" href="#modalLogin">Connectez-vous</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade in show active" id="modalLogin" role="tabpanel">
+                    <div class="modal-body">
+
+                        {#                        {% if error %}#}
+                        {#                            <div class="alert alert-danger">#}
+                        {#                                {{ error.messageKey|trans(error.messageData, 'security') }}#}
+                        {#                            </div>#}
+                        {#                        {% endif %}#}
+
+                        {#                        {{ form_start(formLogin) }}#}
+                        {#                        <div class="col-lg-10 offset-lg-1" id="login_type">#}
+                        {#                            <div class="form-group">#}
+                        {#                                <label>Votre e-mail:</label><br/>#}
+                        {#                                {{ form_widget(formLogin._username) }}#}
+                        {#                            </div>#}
+                        {#                            <div class="form-group">#}
+                        {#                                <label>Votre mot de passe:</label><br/>#}
+                        {#                                {{ form_widget(formLogin._password) }}#}
+                        {#                            </div>#}
+                        {#                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border">Se connecter</button>#}
+                        {#                        </div>#}
+                        {#                        {{ form_end(formLogin) }}#}
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="col-lg-12">
+                            <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2 row center no-account">
+                                <p>Vous n'avez pas encore de compte ? <a class="logoColor-text log" data-toggle="tab" href="#modalRegister">Inscrivez-vous</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

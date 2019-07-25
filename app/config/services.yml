@@ -33,3 +33,26 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    # ajout du feature $authenticationUtils pour la connexion
+#    P6\GeneralBundle\Controller\SecurityController:
+#        public: true
+#        bind:
+#            $authenticationUtils: '@security.authentication_utils'
+
+    # éléments permettants de upload et download des images de profil utilisateurs à partir d'un formulaire
+    upload.annotation_reader:
+        class: P6\GeneralBundle\Annotation\UploadAnnotationReader
+        arguments: ["@annotations.reader"]
+    upload.handler:
+        class: P6\GeneralBundle\Handler\UploadHandler
+    upload.subscriber:
+        class: P6\GeneralBundle\Listener\UploadSubscriber
+        arguments: ["@upload.annotation_reader", "@upload.handler"]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    # authentification de connexion
+    p6.general.security.login_form_authenticator:
+        class: P6\GeneralBundle\Security\LoginFormAuthenticator
+        autowire: true
