@@ -12,20 +12,46 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Employer extends User
 {
+    const ROLE_USER = 'EMPLOYER';
+
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="Company", type="string", length=255)
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
      */
-    private $company;
+    protected $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Contact", type="string", length=255)
+     * @ORM\Column(name="company", type="string", length=255)
      */
-    private $contact;
+    protected $company;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contact", type="string", length=255)
+     */
+    protected $contact;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $role = self::ROLE_USER;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return parent::getId();
+    }
 
     /**
      * Set company
@@ -74,5 +100,28 @@ class Employer extends User
     {
         return $this->contact;
     }
-}
 
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return Employer
+     */
+    public function setRole(string $role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+}
