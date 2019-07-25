@@ -3,14 +3,19 @@
 namespace P6\GeneralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="P6\GeneralBundle\Repository\UserRepository")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "employer" = "Employer", "seasonal" = "Seasonal"})
  */
-abstract class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -19,28 +24,30 @@ abstract class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\NotBlank(message="Veuillez indiquez un email valide !")
+     *
+     * @ORM\Column(name="email", type="string", length=255)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
-    private $password;
+    protected $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="plainPassword", type="string", length=255)
+     * @ORM\Column(name="registration", type="string", length=255)
      */
-    private $plainPassword;
+    protected $registration;
 
 
     /**
@@ -102,27 +109,50 @@ abstract class User
     }
 
     /**
-     * Set plainPassword
+     * Set registration
      *
-     * @param string $plainPassword
+     * @param string $registration
      *
      * @return User
      */
-    public function setPlainPassword($plainPassword)
+    public function setRegistration($registration)
     {
-        $this->plainPassword = $plainPassword;
+        $this->registration = $registration;
 
         return $this;
     }
 
     /**
-     * Get plainPassword
+     * Get registration
      *
      * @return string
      */
-    public function getPlainPassword()
+    public function getRegistration()
     {
-        return $this->plainPassword;
+        return $this->registration;
+    }
+
+//    ---------- Méthode pour la gestion de la connexion ----------
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+//        return ['EMPLOYER', 'SEASONAL'];
+    }
+
+    public function getSalt()
+    {
+
+    }
+
+    public function eraseCredentials()
+    {
+
     }
 }
 
