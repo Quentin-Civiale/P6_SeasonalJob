@@ -2,274 +2,124 @@
 
 {% block home %}
 
-    {#    <h1>My Season Job</h1>#}
+    {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
 
-    <br/>
+    {% else %}
 
-    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
-        <h2 class="logoColor-text resize-sm-h2"><strong>Saisonniers, employeurs !</strong></h2>
-        <div>
-            <h4>Offrez vos compétences ou proposez un emploi et mettez-vous en contact plus facilement grâce à My Season !</h4>
+        <br/>
+
+        <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+            <h2 class="logoColor-text resize-sm-h2-1 center-sm"><strong>Saisonniers, employeurs !</strong></h2>
+            <br/>
+            <div>
+                <h4>Offrez vos compétences ou proposez un emploi et mettez-vous en contact plus facilement grâce à My Season !</h4>
+            </div>
         </div>
-    </div>
 
-    <br>
+        <br>
 
-    <div class="col-sm-6 offset-sm-3 col-lg-8 offset-lg-2">
-        <div class="card border-logoColor-border">
-            <div class="card-header logoColor-background white-text"><h4>Comment ça marche ?</h4></div>
-            <div class="card-body">
+        <div class="col-sm-6 offset-sm-3 col-lg-8 offset-lg-2">
+            <div class="card border-logoColor-border explain-card">
+                <div class="card-header logoColor-background white-text"><h4>Comment ça marche ?</h4></div>
+                <div class="card-body">
 
-                <h5 class="card-title logoColor-text"><strong>Saisonniers</strong></h5>
-                <p class="card-text justify">
-                    Difficile de trouver un emploi d'une saison à l'autre, My Season vous aide à vous mettre en relation avec les employeurs.
-                    <br>
-                    Créez une annonce en indiquant la catégorie de l'emploi recherché, le lieu (ou mobilité) et votre disponibilité. Elle sera visible par nos différents employeurs inscrits.
-                </p>
+                    <div class="col-lg-10 offset-lg-1">
+                        <h5 class="card-title logoColor-text"><i class="far fa-user resize-icon fa-fw"></i><strong>Saisonniers</strong></h5>
+                        <p class="card-text justify">
+                            Difficile de trouver un emploi d'une saison à l'autre, My Season vous aide à vous mettre en relation avec les employeurs.
+                            <br>
+                            Créez une annonce en indiquant la catégorie de l'emploi recherché, le lieu (ou mobilité) et votre disponibilité. Elle sera visible par nos différents employeurs inscrits.
+                        </p>
 
-                <h5 class="card-title logoColor-text"><strong>Employeurs</strong></h5>
-                <p class="card-text justify">
-                    Pas toujours évident de garder un employé saisonnier à chaque nouvelle saison, My Season vous propose de déposer vos annonces afin de vous mettre en relation avec les saisonniers.
-                    <br>
-                    Créez une annonce en indiquant le poste proposé, le lieu ainsi que les dates du contrat. Elle sera visible par nos différents saisonniers inscrits.
-                </p>
+                        <h5 class="card-title logoColor-text"><i class="fas fa-user-tie resize-icon fa-fw"></i><strong>Employeurs</strong></h5>
+                        <p class="card-text justify">
+                            Pas toujours évident de garder un employé saisonnier à chaque nouvelle saison, My Season vous propose de déposer vos annonces afin de vous mettre en relation avec les saisonniers.
+                            <br>
+                            Créez une annonce en indiquant le poste proposé, le lieu ainsi que les dates du contrat. Elle sera visible par nos différents saisonniers inscrits.
+                        </p>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+
+    {% endif %}
+
+    <div class="parallax">
+        <div class="col-lg-6 offset-lg-3 parallax-element center">
+
+            {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+
+                <h4 class="logoColor-text"><strong>Bienvenue</strong> sur
+                    <strong><span style="color: black !important;">My</span> SEASON</strong>
+                    <img src="{{ asset('Images/My_Season_Icon_reverse3white.png') }}" width="55" height="45" class="d-inline-block align-top logo-parallax" alt="">
+                    !
+                </h4>
+                <hr/>
+                <p class="logoColor-text">De nouvelles annonces sont en ligne. Profitez-en, il y en a peut-être une pour vous.</p>
+
+            {% else %}
+
+                <h4 class="logoColor-text"><strong>REJOIGNEZ-NOUS VITE</strong> sur
+                    <strong><span style="color: black !important;">My</span> SEASON</strong>
+                    <img src="{{ asset('Images/My_Season_Icon_reverse3white.png') }}" width="55" height="45" class="d-inline-block align-top logo-parallax" alt="">
+                    !
+                </h4>
+                <br/>
                 <div class="login center">
-                    <a href="" class="btn btn-outline-success border-logoColor-border logoColor-text" data-toggle="modal" data-target="#modalLRForm">Se connecter</a>
+                    <button class="btn btn-connect round-button" data-toggle="modal" data-target="#ModalForm" title="Inscription ou connexion">
+                        Se connecter
+                    </button>
                 </div>
 
-            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="col-lg-8 offset-lg-2 col-sm-12" id="onWeb">
+        <h2 class="logoColor-text"><strong>Les dernières annonces publiées :</strong></h2>
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-sm-10 offset-sm-1" id="onMobile">
+        <div class="col-sm-10 offset-sm-1 logoColor-text resize-sm-h2">
+            <p><strong>Les dernières annonces publiées :</strong></p>
         </div>
     </div>
 
     <br/>
 
-    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
-        <h3>Les dernières annonces publiées :</h3>
-    </div>
-
-    <br/>
-
-    <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
-        <div class="row">
-
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <div class="card border-logoColor-border">
-                    <div class="card-header logoColor-text">
-                        <div class="row">
-                            <div class="col-sm-8 col-lg-10">
-                                <h5 class="resize-sm-h5"><strong>Annonce Employeur N°352</strong></h5>
-                            </div>
-                            <div class="col-sm-4 col-lg-2">
-                                <i class="fas fa-user-tie resize-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body logoColor-background">
-                        <h5 class="card-title white-text center"><strong>Recherche Skiman</strong></h5>
+    <div class="col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <i class="fas fa-chevron-left carousel-prev"></i>
+        <span class="sr-only">Previous</span>
+    </a>
+    <div class="col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for advert in adverts %}
+                {% if loop.index == 1 %}
+                <div class="carousel-item active">
+                    {% else %}
+                    <div class="carousel-item">
+                        {% endif %}
+                        {% include 'advertCard.html.twig' %}
                         <br/>
-                        <div>
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="fas fa-user-tie resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text"><strong>Magasin Skiset</strong></p>
-                            </div>
-                            <br/>
-                            <h6 class="white-text"><strong>Catégorie</strong></h6>
-                            <p class="white-text">Skiman</p>
-                            <br/>
-                            <h6 class="white-text"><strong>Description du poste</strong></h6>
-                            <p class="white-text justify">
-                                Skiman (H/F) Vendeur boutique de Sport (H/F)
-                                <br/>
-                                <br/>
-                                Il/Elle propose et loue le matériel de ski en apportant les conseils appropriés aux clients et à leurs niveaux.
-                                <br/>
-                                Il/Elle prépare et répare le matériel de ski (utilisation d’une farteuse).
-                                <br/>
-                                Il/ Elle participe à la vente des vêtements et accessoires proposés au sein du proshop.
-                                <br/>
-                                Il/Elle prend part au rangement des produits dans le magasin et les réserves, ainsi qu'à leur exposition en vitrine.
-                                <br/>
-                                <br/>
-                                Missions :
-                                <br/>
-                                Il/Elle parle couramment français et maitrise l'anglais.
-                                <br/>
-                                Expérience exigée sur un poste similaire.
-                                <br/>
-                                Poste nourri, logé – à pourvoir immédiatement et ce jusque fin avril.
-                            </p>
-                            <br/>
-                            {#                                <h6 class="white-text"><strong>Lieu</strong></h6>#}
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="fas fa-map-marker-alt resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text">Saint François Longchamp - Savoie (73)</p>
-                            </div>
-                            <br/>
-                            {#                                <h6 class="white-text"><strong>Date(s) du contrat</strong></h6>#}
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="far fa-calendar-alt resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text">Du 1er décembre au 30 avril</p>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="center">
-                            <a class="btn btn-outline-primary border-white-border white-background logoColor-text" href="#" role="button"><strong>Contacter</strong></a>
-                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                <br/>
             </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <div class="card border-logoColor-border">
-                    <div class="card-header logoColor-text">
-                        <div class="row">
-                            <div class="col-sm-8 col-lg-10">
-                                <h5 class="resize-sm-h5"><strong>Annonce Employeur N°353</strong></h5>
-                            </div>
-                            <div class="col-sm-4 col-lg-2">
-                                <i class="fas fa-user-tie resize-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body logoColor-background">
-                        <h5 class="card-title white-text center"><strong>Recherche Skiman</strong></h5>
-                        <br/>
-                        <div>
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="fas fa-user-tie resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text"><strong>Magasin Skiset</strong></p>
-                            </div>
-                            <br/>
-                            <h6 class="white-text"><strong>Catégorie</strong></h6>
-                            <p class="white-text">Skiman</p>
-                            <br/>
-                            <h6 class="white-text"><strong>Description du poste</strong></h6>
-                            <p class="white-text justify">
-                                Skiman (H/F) Vendeur boutique de Sport (H/F)
-                                <br/>
-                                <br/>
-                                Il/Elle propose et loue le matériel de ski en apportant les conseils appropriés aux clients et à leurs niveaux.
-                                <br/>
-                                Il/Elle prépare et répare le matériel de ski (utilisation d’une farteuse).
-                                <br/>
-                                Il/ Elle participe à la vente des vêtements et accessoires proposés au sein du proshop.
-                                <br/>
-                                Il/Elle prend part au rangement des produits dans le magasin et les réserves, ainsi qu'à leur exposition en vitrine.
-                                <br/>
-                                <br/>
-                                Missions :
-                                <br/>
-                                Il/Elle parle couramment français et maitrise l'anglais.
-                                <br/>
-                                Expérience exigée sur un poste similaire.
-                                <br/>
-                                Poste nourri, logé – à pourvoir immédiatement et ce jusque fin avril.
-                            </p>
-                            <br/>
-                            {#                                <h6 class="white-text"><strong>Lieu</strong></h6>#}
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="fas fa-map-marker-alt resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text">Saint François Longchamp - Savoie (73)</p>
-                            </div>
-                            <br/>
-                            {#                                <h6 class="white-text"><strong>Date(s) du contrat</strong></h6>#}
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="far fa-calendar-alt resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text">Du 1er décembre au 30 avril</p>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="center">
-                            <a class="btn btn-outline-primary border-white-border white-background logoColor-text" href="#" role="button"><strong>Contacter</strong></a>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <div class="card border-logoColor-border">
-                    <div class="card-header logoColor-text">
-                        <div class="row">
-                            <div class="col-sm-8 col-lg-10">
-                                <h5 class="resize-sm-h5"><strong>Annonce Saisonnier N°297</strong></h5>
-                            </div>
-                            <div class="col-sm-4 col-lg-2">
-                                <i class="fas fa-user resize-icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body logoColor-background">
-                        <h5 class="card-title white-text center"><strong>Serveur</strong></h5>
-                        <br/>
-                        <div>
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="fas fa-user resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text"><strong>Sam DUPONT</strong></p>
-                            </div>
-                            <br/>
-                            <h6 class="white-text"><strong>Catégorie</strong></h6>
-                            <p class="white-text">Restauration</p>
-                            <br/>
-                            <h6 class="white-text"><strong>Description du poste</strong></h6>
-                            <p class="white-text justify">
-                                Bonjour, je fini ma saison d'hiver fin avril et je serais disponible pour un poste de serveur.
-                                <br/>
-                                Avec 6 ans d'expérience à travers des saisons hivernales et estivales, je suis motivé, sérieux et ponctuel.
-                                <br/>
-                                Je suis en ce moment sur la région des Pyrénnées mais je suis mobile sur toute la France.
-                            </p>
-                            <br/>
-                            {#                                <h6 class="white-text"><strong>Lieu</strong></h6>#}
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="fas fa-map-marker-alt resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text">Pyrénnées</p>
-                            </div>
-                            <br/>
-                            {#                                <h6 class="white-text"><strong>Mobilité</strong></h6>#}
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="fas fa-car-side resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text">Toute la France</p>
-                            </div>
-                            <br/>
-                            {#                                <h6 class="white-text"><strong>Date(s) de disponibilité</strong></h6>#}
-                            <div class="row">
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <i class="far fa-calendar-alt resize-icon white-text"></i>
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text">A partir de début mai</p>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="center">
-                            <a class="btn btn-outline-primary border-white-border white-background logoColor-text" href="#" role="button"><strong>Contacter</strong></a>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-            </div>
-
         </div>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <i class="fas fa-chevron-right carousel-next"></i>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
 {% endblock %}
