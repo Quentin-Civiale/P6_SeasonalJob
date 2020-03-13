@@ -2,138 +2,277 @@
 
 {% block userAccount %}
 
-    {#    {{ render(controller('GeneralBundle:UserAccount:userAccount')) }}#}
-
     <br/>
 
-    <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
+    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
         <h2 class="logoColor-text resize-sm-h2"><strong>Mon compte</strong></h2>
     </div>
 
     <br>
 
-    <div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3">
-        <div class="card border-logoColor-border">
-            <div class="card-header logoColor-background white-text"><h4>Mes informations</h4></div>
-            <div class="card-body">
+    {% if is_granted('ROLE_EMPLOYER') %}
 
-                {#                {% if employer is defined %}#}
+        <div class="col-sm-6 offset-sm-3 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+            <div class="card border-logoColor-border">
+                <div class="card-header logoColor-background white-text"><h4>Mes informations</h4></div>
+                <div class="card-body">
 
-                <div class="col-lg-8 offset-lg-2">
-                    <img src="{{ asset('Images/recherche-emploi-en-ligne.jpg') }}" class="mx-auto d-block account-profil" alt="...">
+                    <div class="col-lg-8 offset-lg-2">
+
+                        <div class="mx-auto d-block account-circle">
+                            <img src="{{ asset(app.user.profilPicture) }}" class="account-image" alt="TestCodepen" />
+                        </div>
+
+                        <br/>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">ID :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {#                            {{ employer.id }}#}
+                                {{ app.user.id }}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Entreprise :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {#                            {{ employer.company }}#}
+                                {{ app.user.company }}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Contact :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {#                            {{ employer.contact }}#}
+                                {{ app.user.contact }}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Mail :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {#                            {{ employer.email }}#}
+                                {{ app.user.email }}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Statut :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {#                            {{ employer.role }}#}
+                                Employeur
+                            </p>
+                        </div>
+
+                        <br/>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Nombre d'annonces publiées :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {{ advertNumber }}
+                            </p>
+                        </div>
+
+                    </div>
+
 
                     <br/>
+                    <br/>
 
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Id :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ employer.id }}#}
-                        </p>
-                    </div>
+                    <div class="row col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+                        <div class="login col-lg-6 col-md-4 offset-md-1">
+                            <a href="{{ path('user_ad', {id: app.user.id}) }}" class="btn btn-main round-button">Mes annonces</a>
+                        </div>
 
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Entreprise :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ employer.company}}#}
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Prénom et nom :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ employer.contact }}#}
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Mail :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ employer.email }}#}
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Statut :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ employer.role }}#}
-                        </p>
+                        <div class="login col-lg-6 col-md-4 offset-md-1">
+                            <a href="{{ path('logout') }}" class="btn btn-logout round-button">Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+                        </div>
                     </div>
 
                 </div>
-
-                {#                {% endif %}#}
-
-                {#                {% elseif seasonal is defined %}#}
-
-                <div class="col-lg-8 offset-lg-2">
-                    <img src="{{ asset('Images/recherche-emploi-en-ligne.jpg') }}" class="mx-auto d-block account-profil" alt="...">
-
-                    <br/>
-
-                    {#                        <img src="{{ seasonal.profilPicture }}" class="mx-auto d-block account-profil" alt="...">#}
-
-                    <br/>
-
-                    {#                        {{ seasonal.profilPicture }}#}
-
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Id :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ seasonal.id }}#}
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Prénom et nom:</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ seasonal.firstname }} {{ seasonal.lastname }}#}
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Mail :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ seasonal.email }}#}
-                        </p>
-                    </div>
-
-                    <div class="row">
-                        <h5 class="card-title logoColor-text">Statut :</h5>
-                        &nbsp;
-                        <p class="card-text justify">
-                            {#                                {{ seasonal.role }}#}
-                        </p>
-                    </div>
-
-                </div>
-
-                {#                {% endif %}#}
-
-
-                <br/>
-                <br/>
-
-                <div class="row col-lg-6 offset-lg-3">
-                    <div class="login col-lg-6">
-                        <a href="{{ path('user_ad') }}" class="btn btn-outline-success border-logoColor-border logoColor-text">Mes annonces</a>
-                    </div>
-
-                    <div class="login col-lg-6">
-                        <a href="{{ path('user_ad') }}" class="btn btn-danger">Déconnexion</a>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
+
+    {% elseif is_granted('ROLE_SEASONAL') %}
+
+        <div class="col-sm-6 offset-sm-3 col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+            <div class="card border-logoColor-border">
+                <div class="card-header logoColor-background white-text"><h4>Mes informations</h4></div>
+                <div class="card-body">
+
+
+                    <div class="col-lg-8 offset-lg-2">
+
+                        {% for message in app.flashes('editSeasonalAccount') %}
+                            <br/>
+
+                            <div id="flashEditSeasonalAccount" class="col-lg-12 alert alert-success editedAccount center">
+                                <div class="col-lg-12">
+                                    <i class="fas fa-check-circle"></i>&nbsp;Modification réussie !
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                </div>
+                            </div>
+
+                            <br/>
+                        {% endfor %}
+
+                        <script>
+                            $(function() {
+                                setTimeout(function() {
+                                    $('#flashEditSeasonalAccount').fadeOut(3000); // <-- s'efface dans le fond
+                                }, 6000); // <-- 6 secs
+                            });
+
+                            $('#flashEditSeasonalAccount').click(function(){
+                                $('.alert').alert('close'); // <-- se ferme lorsque l'on clique sur la croix
+                            });
+                        </script>
+
+                        <div class="mx-auto d-block account-circle">
+                            <img src="{{ asset(app.user.profilPicture) }}" class="account-image" alt="TestCodepen" />
+                        </div>
+
+                        <br/>
+
+                        <div class="row">
+                            <div class="mx-auto d-block newProfilPicture">
+                                <a href="{{ path('edit_seasonal_account', {id: app.user.id}) }}" class="btn btn-main-reverse round-button">Modifier mes données</a>
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">ID :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {{ app.user.id }}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Prénom et nom :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {{ app.user.firstname }} {{ app.user.lastname }}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Mail :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {{ app.user.email }}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Mon LinkedIn :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                <a href="{{ app.user.resumeLink }}" class="my_account_linkedin" target="_blank">voir mon profil linkedin</a>
+                                {#                                <a href="{{ app.user.resumeLink }}" target="_blank" class="btn btn-link round-button" title="voir le profil LinkedIn">Accéder au profil&nbsp;#}
+                                {#                                    <i class="fab fa-linkedin linkLogo resize-link center"></i>#}
+                                {#                                </a>#}
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Statut :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                Saisonnier
+                            </p>
+                        </div>
+
+                        <br/>
+
+                        <div class="row">
+                            <h5 class="card-title logoColor-text">Nombre d'annonces publiées :</h5>
+                            &nbsp;
+                            <p class="card-text justify">
+                                {{ advertNumber }}
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div class="row col-lg-6 offset-lg-3" id="onWeb">
+                        <div class="login col-lg-6">
+                            <a href="{{ path('user_ad', {id: app.user.id}) }}" class="btn btn-main round-button">Mes annonces</a>
+                        </div>
+
+                        <div class="login col-lg-6">
+                            <a href="{{ path('logout') }}" class="btn btn-logout round-button">Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="row col-md-8 offset-md-2" id="onMobileButton">
+                        <div class="login col-md-4 offset-md-1">
+                            <a href="{{ path('user_ad', {id: app.user.id}) }}" class="btn btn-main round-button">Mes annonces</a>
+                        </div>
+
+                        <div class="login col-md-4 offset-md-1">
+                            <a href="{{ path('logout') }}" class="btn btn-logout round-button">Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+
+        <div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3">
+            <div class="card border_anonymous-user_border advert-card">
+                <div class="card-body">
+
+                    <br/>
+                    <br/>
+
+                    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 anonymous-user_message-box center">
+                        <div>
+                            <h4><i class="fas fa-exclamation-triangle resize-icon fa-fw"></i>
+                                Attention, vous n'êtes pas connecté !
+                            </h4>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1 justify">
+                        <h5>Afin d'accéder à votre compte, connectez-vous ou dans le cas contraire,
+                            créez-en un en vous inscrivant sur
+                            <strong>
+                                <span style="color: black !important;">My</span> <span style="color: #6200ea !important;">SEASON</span>
+                            </strong> !
+                        </h5>
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div class="login center">
+                        <button class="btn btn-connect round-button" data-toggle="modal" data-target="#ModalForm" title="Se connecter ou s'inscrire">
+                            Se connecter ou s'inscrire
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
 
     <br/>
 
