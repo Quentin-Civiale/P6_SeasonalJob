@@ -1,0 +1,185 @@
+{% extends 'base.html.twig' %}
+
+{% block adList %}
+
+    <br/>
+
+    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+        <h2 class="logoColor-text resize-sm-h2"><strong>Les Annonces</strong></h2>
+    </div>
+
+    <br>
+
+    <div class="jumbotron">
+
+        {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+
+            {{ form_start(form) }}
+            <div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3">
+                <div class="card border-logoColor-border search-card">
+                    <div class="card-header logoColor-background white-text"><h4>Rechercher une annonce</h4></div>
+                    <div class="card-body">
+
+                        <div class="col-lg-6 offset-lg-3 center">
+                            <h5>Type d'annonce :</h5>
+                            <span class="row">{{ form_widget(form.userRole) }}</span>
+                        </div>
+
+                        <br/>
+
+                        <div class="row col-lg-10 offset-lg-1">
+                            <div class="form-group col-lg-6">
+                                <h5>Catégorie :</h5>
+                                {{ form_widget(form.category) }}
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <h5>Lieu du poste :</h5>
+                                <p><input type="search" id="citySearch" class="form-control" placeholder="Nom ou CP de la commune"/></p>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-10 offset-lg-1">
+                            <div class="col-lg-3 selected-city">
+                                Ville sélectionnée :
+                            </div>
+                            <div class="col-lg-9">
+                                {{ form_widget(form.place) }}
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="col-lg-8 offset-lg-2">
+                            <button onclick="clearSearchForm()" class="col-sm-12 col-lg-6 offset-lg-3 save">Réinitialiser les filtres</button>
+                        </div>
+
+                        <hr/>
+                        <br/>
+
+                        <button type="submit" class="col-sm-12 col-lg-4 offset-lg-4 btn btn-adSearch btn-lg round-button">Rechercher</button>
+
+                    </div>
+                </div>
+            </div>
+            {{ form_end(form) }}
+
+        {% else %}
+
+            <div class="col-sm-6 offset-sm-3 col-lg-6 offset-lg-3">
+                <div class="card border_anonymous-user_border advert-card">
+                    <div class="card-body">
+
+                        <br/>
+                        <br/>
+
+                        <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 anonymous-user_message-box center">
+                            <div>
+                                <h4><i class="fas fa-exclamation-triangle resize-icon fa-fw"></i>
+                                    Attention, vous n'êtes pas connecté !
+                                </h4>
+                            </div>
+                        </div>
+
+                        <br/>
+
+                        <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1 justify">
+                            <h5>Afin d'effectuer une recherche d'annonce, connectez-vous à votre compte ou dans le cas contraire,
+                                créez-en un en vous inscrivant sur
+                                <strong>
+                                    <span style="color: black !important;">My</span> <span style="color: #6200ea !important;">SEASON</span>
+                                </strong> !
+                            </h5>
+                        </div>
+
+                        <br/>
+                        <br/>
+
+                        <div class="login center">
+                            <button class="btn btn-connect round-button" data-toggle="modal" data-target="#ModalForm" title="Se connecter ou s'inscrire">
+                                Se connecter ou s'inscrire
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    {# Réinitialisation des champs du formulaire de recherche #}
+    <script>
+        function clearSearchForm() {
+            var seasonal = document.getElementById("userRole_0");
+            var employer = document.getElementById("userRole_1");
+            var categoryJob = document.getElementById("category");
+            var placeJob = document.getElementById("place");
+            seasonal.value = "";
+            employer.value = "";
+            categoryJob.value = "";
+            placeJob.value = "";
+        }
+    </script>
+
+    {% for message in app.flashes('advertTotalNumber') %}
+        <div class="col-sm-10 offset-sm-1 col-lg-6 offset-lg-3 alert alert-light advertTotalNumber center">
+            {{ message }}
+        </div>
+        <br/>
+        <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+            <h2 class="logoColor-text resize-sm-h2-2"><strong>Toutes les annonces publiées :</strong></h2>
+        </div>
+        <br/>
+    {% endfor %}
+
+    {% for message in app.flashes('noAdvertFound') %}
+        <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+            <h2 class="logoColor-text resize-sm-h2-2"><strong>Résultat de votre recherche :</strong></h2>
+        </div>
+        <br/>
+        <div class="col-sm-10 offset-sm-1 col-lg-6 offset-lg-3 alert alert-danger center">
+            {{ message }}
+        </div>
+        <br/>
+    {% endfor %}
+
+    {% for message in app.flashes('advertFoundNumber') %}
+        <div class="col-sm-10 offset-sm-1 col-lg-6 offset-lg-3 alert alert-success center">
+            {{ message }}
+        </div>
+        <br/>
+        <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+            <h2 class="logoColor-text resize-sm-h2-2"><strong>Résultat de votre recherche :</strong></h2>
+        </div>
+        <br/>
+    {% endfor %}
+
+
+    {#    Loader pour l'attente lors de l'affichage de la recherche#}
+    <div class="col-lg-8 offset-lg-2 preload">
+        <span class="loader loader-quart"></span>
+    </div>
+
+    <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 content_search">
+        {% for advert in adverts %}
+            {% include 'advertCard.html.twig' %}
+            <br/>
+        {% endfor %}
+        <br/>
+        <div class="navigation">
+            {{ knp_pagination_render(adverts) }}
+        </div>
+    </div>
+
+    {#    Script pour le fonctionnement du loader lors de l'affichage des annonces #}
+    <script>
+        $(function () {
+            $(".preload").fadeOut(1000, function () {
+                $(".content_search").fadeIn(500);
+            });
+        });
+    </script>
+
+{% endblock %}

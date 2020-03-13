@@ -1,0 +1,231 @@
+{% extends 'base.html.twig' %}
+
+{% block postingEmployerAd %}
+
+    {% if is_granted('ROLE_EMPLOYER') %}
+
+        {{ form_start(formAd) }}
+
+        <br/>
+
+        <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2" id="onWeb">
+            <h2 class="logoColor-text"><strong>Employeur - Publier une annonce :</strong></h2>
+        </div>
+
+        <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2" id="onMobile">
+            <div class="col-sm-10 offset-sm-1 logoColor-text resize-sm-h2">
+                <p><strong>Employeur - Publier une annonce :</strong></p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="col-sm-6 offset-sm-3 col-lg-8 offset-lg-2">
+            <div class="card border-logoColor-border advert-card">
+
+                <div class="card-header logoColor-background white-text">
+                    <div class="row">
+                        <div class="col-sm-8 col-lg-10">
+                            <h5 class="resize-sm-h5"><strong>Votre annonce</strong></h5>
+                            <div class="hidden">{{ form_widget(formAd.userRole, { 'value': 'employeur' }) }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row form-group col-lg-8 offset-lg-2 col-sm-12 div-centered">
+                        <div class="col-lg-6 vertAlCenter div-centered-mobile">
+                            <h5>Titre de l'annonce</h5>
+                            {{ form_widget(formAd.title) }}
+                        </div>
+                        <div class="col-lg-6 vertAlCenter div-centered-mobile">
+                            <h5>Catégorie</h5>
+                            {{ form_widget(formAd.category) }}
+                        </div>
+                    </div>
+                    <div class="hidden">{{ form_widget(formAd.publishedDate) }}</div>
+                    <br/>
+                    <div class="form-group col-lg-10 offset-lg-1 div-centered">
+                        <h5>Description du poste :</h5>
+                        {{ form_widget(formAd.description) }}
+                        <input disabled value="0/500" id="counter" class="characterCount">
+                    </div>
+                    <br/><br/>
+                    <div id="yes-mobility_type" class="hidden">
+                        <div class="div-centered">
+                            <br/>
+                            <p>Si oui, veuillez préciser votre zone de mobilité :</p>
+                            {{ form_widget(formAd.mobility) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-10 offset-lg-1 div-centered">
+                        <h5>Date du contrat :</h5>
+                    </div>
+                    <div class="row form-group col-lg-8 offset-lg-2 col-sm-12 div-centered">
+                        <div class="col-lg-4 offset-lg-1 div-centered-mobile">
+                            <p>Date de début :</p>
+                            {{ form_widget(formAd.dateStart) }}
+                        </div>
+                        <div class="col-lg-4 offset-lg-1 div-centered-mobile">
+                            <p>Date de fin :</p>
+                            {{ form_widget(formAd.dateEnd) }}
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="col-sm-6 offset-sm-3 col-lg-8 offset-lg-2">
+            <div class="card border-logoColor-border advert-card">
+
+                <div class="card-header logoColor-background white-text">
+                    <div class="row">
+                        <div class="col-sm-8 col-lg-10">
+                            <h5 class="resize-sm-h5"><strong>Localisation</strong></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group div-centered">
+                        <h5>Lieu du poste :</h5>
+                        {# <p>{{ form_widget(formAd.place) }}</p> #}
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-lg-6 vertAlCenter">
+                            <br/>
+                            <p><input type="search" id="input-map" class="form-control" placeholder="Saisissez le nom ou le CP de la commune"/></p>
+                            {#                            <p>Ville sélectionnée : <strong id="address-city-map" class="logoColor-text">aucune</strong></p>#}
+                            <hr/>
+                            <p>Ville sélectionnée : {{ form_widget(formAd.place) }}</p>
+                        </div>
+                        <div class="col-lg-6 vertAlCenter">
+                            <div id="map-example-container" class="col-lg-10 offset-lg-1 col-sm-12 center"></div><br/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="col-sm-6 offset-sm-3 col-lg-8 offset-lg-2">
+            <div class="card border-logoColor-border advert-card">
+
+                <div class="card-header logoColor-background white-text">
+                    <div class="row">
+                        <div class="col-sm-8 col-lg-10">
+                            <h5 class="resize-sm-h5"><strong>Vos informations</strong></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="row form-group col-lg-10 offset-lg-1 col-sm-12 div-centered">
+                        <div class="form-group div-centered">
+                            <h5>Nom de votre entreprise : <span class="italic logoColor-text">{{ app.user.company }}</span></h5>
+                        </div>
+                        <div class="form-group div-centered">
+                            <h5>Personne à contacter : <span class="italic logoColor-text">{{ app.user.contact }}</span></h5>
+                        </div>
+                        <div class="form-group div-centered">
+                            <h5>Mail : <span class="italic logoColor-text">{{ app.user.email }}</span></h5>
+                        </div>
+                        <div class="form-group div-centered">
+                            <h5>Statut : <span class="italic logoColor-text">employeur</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <br/>
+
+        <button type="submit" class="col-sm-4 offset-sm-4 col-lg-4 offset-lg-4 btn btn-main btn-lg round-button">Publier mon annonce</button>
+
+        {{ form_end(formAd) }}
+
+        <br/>
+        <hr/>
+        <hr/>
+        <br/>
+
+        {# gestion du nombre de caractères dans la description des annonces limité à 500 caractères (voir AdvertType.php)#}
+        {#        <script>#}
+        {#            function textCounter(field,field2,maxlimit)#}
+        {#            {#}
+        {#                var countfield = document.getElementById(field2);#}
+
+        {#                if ( field.value.length > maxlimit ) {#}
+        {#                    field.value = field.value.substring( 0, maxlimit );#}
+        {#                    return false;#}
+        {#                } else {#}
+        {#                    // countfield.value = maxlimit - field.value.length;#}
+        {#                    countfield.value = field.value.length + "/500";#}
+        {#                }#}
+        {#            }#}
+        {#        </script>#}
+
+    {% else %}
+
+        <br/>
+
+        <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+            <h2 class="logoColor-text resize-sm-h2"><strong>Publier une annonce :</strong></h2>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div class="col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
+            <div class="card border_anonymous-user_border advert-card">
+                <div class="card-body">
+
+                    <br/>
+                    <br/>
+
+                    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 anonymous-user_message-box center">
+                        <div>
+                            <h4><i class="fas fa-exclamation-triangle resize-icon"></i>
+                                &nbsp;Attention, vous n'êtes pas connecté !
+                            </h4>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1 justify">
+                        <h5>Afin de pouvoir publier une annonce, connectez-vous à votre compte ou dans le cas contraire,
+                            créez-en un en vous inscrivant sur
+                            <strong>
+                                <span style="color: black !important;">My</span> <span style="color: #6200ea !important;">SEASON</span>
+                            </strong> !
+                        </h5>
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div class="login center">
+                        <button class="btn btn-connect round-button" data-toggle="modal" data-target="#ModalForm" title="Se connecter ou s'inscrire">
+                            Se connecter ou s'inscrire
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <br/>
+        <br/>
+
+    {% endif %}
+
+{% endblock %}

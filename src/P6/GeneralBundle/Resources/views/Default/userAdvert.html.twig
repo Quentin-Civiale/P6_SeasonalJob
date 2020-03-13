@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block userAd %}
+
+    <br/>
+
+    <div class="intro col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+        <h2 class="logoColor-text resize-sm-h2"><strong>Mes annonces :</strong></h2>
+    </div>
+
+    <br/>
+
+    <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        {% for advert in advertsUser %}
+
+            <div class="card border-logoColor-border">
+                <div class="card-header logoColor-text">
+                    <div class="row">
+                        <div class="col-sm-10 col-lg-10">
+                            <h5 class="resize-sm-h5">
+                                <strong>Annonce N°{{ advert.id }}</strong> du {{ advert.publishedDate|date('d/m/Y') }}
+                            </h5>
+                        </div>
+                        {% if advert.userRole == 'employeur' %}
+                            <div class="col-sm-2 col-lg-2 row center">
+                                <h5 class="resize-sm-h5"><strong><span class="capitalize">{{ advert.userRole }}</span></strong></h5>
+                                <i class="fas fa-user-tie resize-icon fa-fw"></i>
+                            </div>
+                        {% else %}
+                            <div class="col-sm-2 col-lg-2 row center">
+                                <h5 class="resize-sm-h5"><strong><span class="capitalize">{{ advert.userRole }}</span></strong></h5>
+                                <i class="far fa-user resize-icon fa-fw"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card-body logoColor-background">
+                    <h5 class="card-title white-text center"><strong>{{ advert.title }}</strong></h5>
+                    <br/>
+                    <div class="col-lg-10 offset-lg-1 row">
+                        <div class="col">
+                            <div class="row">
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                {% if advert.userRole == 'employeur' %}
+                                    <i class="fas fa-user-tie resize-icon white-text"></i>
+                                {% else %}
+                                    <i class="far fa-user resize-icon white-text"></i>
+                                {% endif %}
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <p class="white-text italic"><strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</strong></p>
+                            </div>
+                        </div>
+                        <div class="col right-align">
+                            <h6 class="white-text"><strong>Catégorie</strong></h6>
+                            <p class="white-text capitalize">{{ advert.category }}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 offset-lg-1">
+                        <h6 class="white-text"><strong>Description du poste</strong></h6>
+                        <p class="white-text justify lineBreaks">
+                            {{ advert.description|slice(0, 200) ~ ' . . .'|nl2br }}
+                        </p>
+                    </div>
+                    <br/>
+                    <div class="col-lg-10 offset-lg-1 row">
+                        <div class="col">
+                            <div class="row">
+                                <i class="fas fa-map-marker-alt resize-icon white-text"></i>
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <p class="white-text">{{ advert.place }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 right-align">
+                            <i class="far fa-calendar-alt resize-icon white-text"></i>
+                        </div>
+                        <div class="col-lg-3 right-align">
+                            <div class="row">
+                                <p class="white-text">Du {{ advert.dateStart|date('d/m/Y') }} au {{ advert.dateEnd|date('d/m/Y') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="col-lg-10 offset-lg-1 row">
+                        {% if advert.userRole == 'employeur' %}
+                            {# pas de champ mobilité pour les employeurs #}
+                        {% else %}
+                            {% if advert.mobility == NULL %}
+                                {# pas de champ mobilité pour les employeurs #}
+                            {% else %}
+                                <div class="row">
+                                    <p>&nbsp;&nbsp;&nbsp;</p>
+                                    <i class="fas fa-route resize-icon white-text"></i>
+                                    <p>&nbsp;&nbsp;&nbsp;</p>
+                                    <p class="white-text">{{ advert.mobility }}</p>
+                                </div>
+                                <br/>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    <br/>
+                    <div class="center">
+                        <a class="btn btn-adDetail round-button" href="{{ path('advert_detail', {id: advert.id}) }}" role="button">
+                            <strong>Détail de l'annonce</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br/>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

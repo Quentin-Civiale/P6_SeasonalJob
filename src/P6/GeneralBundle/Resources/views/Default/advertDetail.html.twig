@@ -1,0 +1,285 @@
+{% extends 'base.html.twig' %}
+
+{% block adDetail %}
+
+    <br/>
+
+    {% for message in app.flashes('success') %}
+        <div class="col-lg-6 offset-lg-3">
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="intro col-sm-10 offset-sm-1 col-lg-10 offset-lg-1">
+        <h2 class="logoColor-text resize-sm-h2"><strong>Détail de l'annonce</strong></h2>
+    </div>
+
+    <br>
+
+    <div class="col-sm-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+
+        <div class="card border-logoColor-border">
+            <div class="card-header logoColor-text">
+                <div class="row">
+                    <div class="col-sm-10 col-lg-10">
+                        <h5 class="resize-sm-h5">
+                            <strong>Annonce N°{{ advert.id }}</strong> du {{ advert.publishedDate|date('d/m/Y') }}
+                        </h5>
+                    </div>
+                    {% if advert.userRole == 'employeur' %}
+                        <div class="col-sm-2 col-lg-2 row center">
+                            <h5 class="resize-sm-h5"><strong><span class="capitalize">{{ advert.userRole }}</span></strong></h5>
+                            <i class="fas fa-user-tie resize-icon fa-fw"></i>
+                        </div>
+                    {% else %}
+                        <div class="col-sm-2 col-lg-2 row center">
+                            <h5 class="resize-sm-h5"><strong><span class="capitalize">{{ advert.userRole }}</span></strong></h5>
+                            <i class="far fa-user resize-icon fa-fw"></i>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body logoColor-background">
+                <h5 class="card-title white-text center"><strong>{{ advert.title }}</strong></h5>
+                <br/>
+                <div class="col-lg-8 offset-lg-2">
+
+                    {% if advert.userRole == 'employeur' %}
+                        <div class="row">
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                            <i class="fas fa-user-tie resize-icon white-text"></i>
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                            {#                                <p class="userProfilView"><strong>{{ employer.company }}</strong></p>#}
+                            {#                                <p>#}
+                            {#                                    <a class="btn btn-profilView round-button" data-toggle="collapse" href="#employerProfilView" role="button" aria-expanded="false" aria-controls="userProfilView" title="voir mon profil">#}
+                            {#                                        <strong>{{ employer.company }}</strong>#}
+                            {#                                    </a>#}
+                            {#                                </p>#}
+                            {#                                <p>&nbsp;&nbsp;&nbsp;</p>#}
+                            {#                                <div class="collapse" id="employerProfilView">#}
+                            {#                                    <div class="card card-body logoColor-text">#}
+                            {#                                        <p>#}
+                            {#                                            <span class="mx-auto d-block account-circle">#}
+                            {#                                                <img class="account-image" src="{{ asset(employer.profilPicture) }}">#}
+                            {#                                            </span>#}
+                            {#                                        </p>#}
+                            {#                                        <p><strong>Personne à contacter : </strong>{{ employer.contact }}</p>#}
+                            {#                                        <p><strong>Mon mail : </strong>{{ employer.email }}</p>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            <div>
+                                <button class="btn btn-profilView round-button" data-toggle="modal" data-target="#ModalEmployerDataView" title="voir mon profil">
+                                    <strong>{{ employer.company }}</strong>
+                                </button>
+                            </div>
+                            <div class="modal fade" id="ModalEmployerDataView" tabindex="-1" role="dialog" aria-labelledby="logModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div id="employerProfilView">
+                                            <div class="card card-body logoColor-text background-pattern">
+                                                <p>
+                                                        <span class="mx-auto d-block account-circle">
+                                                            <img class="account-image" src="{{ asset(employer.profilPicture) }}">
+                                                        </span>
+                                                </p>
+                                                <p><strong>Entreprise : </strong>{{ employer.company }}</p>
+                                                <p><strong>Personne à contacter : </strong>{{ employer.contact }}</p>
+
+                                                {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+                                                    <p><strong>Mail : </strong>{{ employer.email }}</p>
+                                                {% else %}
+                                                    <p><strong>Mail : </strong>xxxxxxxxx@xxxxx.com</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                            <p class="white-text"><strong>Personne à contacter : </strong>{{ employer.contact }}</p>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                            <i class="far fa-user resize-icon white-text"></i>
+                            <p>&nbsp;&nbsp;&nbsp;</p>
+                            {#                                <p>#}
+                            {#                                    <a class="btn btn-profilView round-button" data-toggle="collapse" href="#seasonalProfilView" role="button" aria-expanded="false" aria-controls="userProfilView" title="voir mon profil">#}
+                            {#                                        <strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</strong>#}
+                            {#                                    </a>#}
+                            {#                                </p>#}
+                            {#                                <p>&nbsp;&nbsp;&nbsp;</p>#}
+                            <div>
+                                <button class="btn btn-profilView round-button" data-toggle="modal" data-target="#ModalSeasonalDataView" title="voir mon profil">
+                                    <strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</strong>
+                                </button>
+                            </div>
+                            <div class="modal fade" id="ModalSeasonalDataView" tabindex="-1" role="dialog" aria-labelledby="logModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div id="seasonalProfilView">
+                                            <div class="card card-body logoColor-text background-pattern advertMiniUserProfil">
+                                                <p>
+                                                        <span class="mx-auto d-block account-circle">
+                                                            <img class="account-image" src="{{ asset(seasonal.profilPicture) }}">
+                                                        </span>
+                                                </p>
+                                                <p><strong>Prénom et nom : </strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</p>
+                                                <p><strong>Statut : </strong>{{ advert.userRole }}</p>
+                                                <p><strong>Profil LinkedIn : </strong><a class="linkedinProfil" href="{{ seasonal.resumeLink }}">voir mon compte</a></p>
+
+                                                {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+                                                    <p><strong>Mail : </strong>{{ seasonal.email }}</p>
+                                                {% else %}
+                                                    <p><strong>Mail : </strong>xxxxxxxxx@xxxxx.com</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {#                                <p>&nbsp;&nbsp;&nbsp;</p>#}
+                            {#                                <div class="collapse" id="seasonalProfilView">#}
+                            {#                                    <div class="card card-body logoColor-text">#}
+                            {#                                        <p>#}
+                            {#                                            <span class="mx-auto d-block account-circle">#}
+                            {#                                                <img class="account-image" src="{{ asset(seasonal.profilPicture) }}">#}
+                            {#                                            </span>#}
+                            {#                                        </p>#}
+                            {#                                        <p><strong>Prénom et nom : </strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</p>#}
+                            {#                                        <p><strong>Mon profil LinkedIn : </strong><a class="linkedinProfil" href="{{ seasonal.resumeLink }}">voir mon compte</a></p>#}
+                            {#                                        <p><strong>Mon mail : </strong>{{ seasonal.email }}</p>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                        </div>
+                    {% endif %}
+
+                    <script>
+                        $('.collapse').collapse()
+                    </script>
+
+                    <br/>
+                    <h6 class="white-text"><strong>Catégorie</strong></h6>
+                    <p class="white-text capitalize">{{ advert.category }}</p>
+                    <br/>
+                    <h6 class="white-text"><strong>Description du poste</strong></h6>
+                    <p class="white-text justify">
+                        {{ advert.description|nl2br }}
+                    </p>
+                    <br/>
+                    {# <h6 class="white-text"><strong>Lieu</strong></h6>#}
+                    <div class="row">
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <i class="fas fa-map-marker-alt resize-icon white-text"></i>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <p class="white-text">{{ advert.place }}</p>
+                    </div>
+                    <br/>
+                    {% if advert.userRole == 'employeur' %}
+                        {# pas de champ mobilité pour les employeurs #}
+                    {% else %}
+                        {% if advert.mobility == NULL %}
+                            {# pas de champ mobilité pour les employeurs #}
+                        {% else %}
+                            <div class="row">
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <i class="fas fa-route resize-icon white-text"></i>
+                                <p>&nbsp;&nbsp;&nbsp;</p>
+                                <p class="white-text">{{ advert.mobility }}</p>
+                            </div>
+                            <br/>
+                        {% endif %}
+                    {% endif %}
+                    {# <h6 class="white-text"><strong>Disponibilité</strong></h6>#}
+                    <div class="row">
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <i class="far fa-calendar-alt resize-icon white-text"></i>
+                        <p>&nbsp;&nbsp;&nbsp;</p>
+                        <p class="white-text">Du {{ advert.dateStart|date('d/m/Y') }} au {{ advert.dateEnd|date('d/m/Y') }}</p>
+                    </div>
+                    <br/>
+                    {% if advert.userRole == 'employeur' %}
+                        <p class="white-text italic">Pour plus d'informations, veuillez nous contacter.</p>
+                    {% else %}
+                        <p class="white-text italic">Pour plus d'informations, veuillez me contacter.</p>
+                    {% endif %}
+                </div>
+
+                <br/>
+
+                <div class="center">
+                    <button class="btn btn-userContact round-button" data-toggle="modal" data-target="#ModalContactFormView" title="contacter l'annonceur">
+                        <strong>Contacter l'annonceur</strong>
+                    </button>
+                </div>
+
+                <div class="modal fade" id="ModalContactFormView" tabindex="-1" role="dialog" aria-labelledby="logModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div id="ProfilView">
+                                <div class="card card-body logoColor-text background-pattern">
+                                    <h2 class="center underline" id="onWeb"><strong>Formulaire de contact</strong></h2>
+                                    <div class="center-sm" id="onMobile">
+                                        <p class="underline onMobilePlus"><strong>Formulaire de contact</strong></p>
+                                    </div>
+                                    <h4 class="advertInfo">Rappel de l'annonce</h4>
+                                    {% if advert.userRole == 'employeur' %}
+                                        <div class="userAdvertInfo">
+                                            <p><strong>Annonce N°{{ advert.id }} - {{ advert.title }}</strong></p>
+                                            <p><strong>Lieu : </strong> {{ advert.place }}</p>
+                                            <p><strong>Entreprise : </strong>{{ employer.company }}</p>
+                                            <p><strong>Contact : </strong>{{ employer.contact }}</p>
+                                            <p><strong>Statut : </strong>{{ advert.userRole }}</p>
+                                        </div>
+                                    {% else %}
+                                        <div class="userAdvertInfo">
+                                            <p><strong>Annonce N°{{ advert.id }} - {{ advert.title }}</strong></p>
+                                            <p><strong>Lieu : </strong> {{ advert.place }}</p>
+                                            <p><strong>Contact : </strong>{{ seasonal.fullName }}</p>
+                                            <p><strong>Statut : </strong>{{ advert.userRole }}</p>
+                                        </div>
+                                    {% endif %}
+
+                                    <br/>
+                                    <hr/>
+
+                                    {% if is_granted('ROLE_EMPLOYER') %}
+                                        <p><strong>{{ app.user.contact }}</strong></p>
+                                    {% elseif is_granted('ROLE_SEASONAL') %}
+                                        <p><strong>Envoyer un message en tant que {{ app.user.firstname }} {{ app.user.lastname }}</strong></p>
+                                    {% endif %}
+
+                                    {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+                                        {{ form_start(contactForm) }}
+                                        <div class="advertMessage"><strong>Mon message : </strong></div>
+                                        {{ form_widget(contactForm.message) }}
+                                        <div class="center sendContactMessage">
+                                            <button class="btn btn-contactMessage round-button">
+                                                <strong>Envoyer mon message</strong>
+                                            </button>
+                                        </div>
+                                        {{ form_end(contactForm) }}
+                                    {% else %}
+                                        <div class="anonymous-user_contact-message center">
+                                            <p>Impossible d'envoyer un message à l'annonceur si vous n'avez pas de compte My Season !</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <br/>
+
+{% endblock %}
