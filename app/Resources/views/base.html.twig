@@ -3,156 +3,294 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="UTF-8" />
-        <title>{% block title %}My Season{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('Images/rdv_logo3.png') }}" />
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}" />
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/website_title.css') }}" />
+        <title>{% block title %}My Season - Mettre en relation saisonniers et employeurs{% endblock %}</title>
+        {#        <link rel="icon" type="image/x-icon" href="{{ asset('Images/rdv_logo3.png') }}" />#}
+        <link rel="icon" type="image/x-icon" href="{{ asset('Images/My_Season_Icon3.png') }}" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="{{asset('bootstrap-datepicker_1.9.0/css/bootstrap-datepicker.min.css')}}">
+        {#        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext" rel="stylesheet">#}
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/website_title.css') }}" />
+        <!-- Script for registration flash message -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- Link for search city map -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
     </head>
 
-    <body>
-
+    <body class="background-pattern">
 
     {{ render(controller('GeneralBundle:Security:userRegistration')) }}
 
-{#    {{ render(controller('GeneralBundle:Login:login')) }}#}
-
-{#    {{ render(url('registerUser')) }}#}
-
-{#    {% include '@General/Default/modalForm.html.twig' %}#}
-
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ path('general_homepage') }}">
-            <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
-        </a>
-        <div class="title-animation-header">
-            <h1>- My -</h1>
-            <h2>Season</h2>
-        </div>
-        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto center">
-                <div class="nav-item">
-                    <a class="btn btn-menu" href="{{ path('general_homepage') }}" role="button">Accueil</a>
-                </div>
-                &nbsp;
-                <div class="nav-item">
-                    <a class="btn btn-menu" href="{{ path('general_ad_list') }}" role="button">Les Annonces</a>
-                </div>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light headerBottom-logoColor-line">
+            <a class="navbar-brand" href="{{ path('general_homepage') }}">
+                {#                <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">#}
+                <img src="{{ asset('Images/My_Season_Icon_reverse3.png') }}" width="55" height="45" class="d-inline-block align-top logo" alt="">
+            </a>
+            <div class="title-animation-header">
+                <h1>- My -</h1>
+                <h2>Season</h2>
             </div>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            &nbsp;
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto center">
+                    <div class="nav-item">
+                        <a class="btn btn-navbar round-button" href="{{ path('general_homepage') }}" role="button">Accueil</a>
+                    </div>
+                    &nbsp;
+                    <div class="nav-item">
+                        <a class="btn btn-navbar round-button" href="{{ path('general_advert_list') }}" role="button">Les Annonces</a>
+                    </div>
+                </div>
 
-            {% if is_granted('ROLE_USER') %}
-                <div class="dropdown show">
-                    <a class="btn btn-account" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Mon Compte&nbsp;<i class="fas fa-caret-down"></i>
-                    </a>
+                &nbsp;
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Mes informations</a>
-                        <a class="dropdown-item" href="{{ path('user_ad') }}">Mes annonces</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item btn-danger white-text" href="{{ path('logout') }}">
-                            Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i>
+                {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+                    <div class="dropdown show">
+                        <a class="btn btn-main round-button" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mon Compte&nbsp;<i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            {#                            <a class="dropdown-item" href="{{ path('user_account') }}">Mes informations</a>#}
+                            <a class="dropdown-item" href="{{ path('user_profil', {id: app.user.id}) }}">Mon profil</a>
+                            <a class="dropdown-item" href="{{ path('user_ad', {id: app.user.id}) }}">Mes annonces</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item btn-logout-home" href="{{ path('logout') }}">
+                                Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    &nbsp;
+
+                    {#                <div class="dropdown show">#}
+                    {#                    <a class="btn btn-ad round-button" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+                    {#                        Publier une annonce &nbsp;<i class="fas fa-plus"></i>#}
+                    {#                    </a>#}
+
+                    {#                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">#}
+                    {#                    {% if is_granted('ROLE_SEASONAL') %}#}
+                    {#                        <a class="dropdown-item" href="{{ path('posting_seasonal_advert') }}">- Je suis saisonnier</a>#}
+                    {#                    {% elseif is_granted('ROLE_EMPLOYER') %}#}
+                    {#                        <a class="dropdown-item" href="{{ path('posting_employer_advert') }}">- Je suis employeur</a>#}
+                    {#                    {% else %}#}
+                    {#                        <a class="dropdown-item" href="#">- Vous n'êtes pas connecté</a>#}
+                    {#                    {% endif %}#}
+                    {#                    </div>#}
+                    {#                </div>#}
+
+                    {% if is_granted('ROLE_SEASONAL') %}
+                        <div class="nav-item">
+                            <a class="btn btn-ad round-button" href="{{ path('posting_seasonal_advert') }}" role="button">Publier une annonce &nbsp;<i class="fas fa-plus"></i></a>
+                        </div>
+                    {% elseif is_granted('ROLE_EMPLOYER') %}
+                        <div class="nav-item">
+                            <a class="btn btn-ad round-button" href="{{ path('posting_employer_advert') }}" role="button">Publier une annonce &nbsp;<i class="fas fa-plus"></i></a>
+                        </div>
+                    {% else %}
+                        {# rien à afficher ici #}
+                    {% endif %}
+
+                {% else %}
+
+                    <div>
+                        <button class="btn btn-connect round-button" data-toggle="modal" data-target="#ModalForm" title="Inscription ou connexion">
+                            Se connecter
+                        </button>
+                    </div>
+
+                    &nbsp;
+
+                    <div class="ads_button">
+                        <a class="btn btn-main round-button" href="{{ path('posting_advert_no_login') }}" role="button">
+                            Publier une annonce &nbsp;<i class="fas fa-plus"></i>
                         </a>
                     </div>
-                </div>
-            {% else %}
-                <button class="btn btn-register" data-toggle="modal" data-target="#ModalForm">
-                    Inscription&nbsp;<i class="fas fa-user-plus"></i>
-                </button>
+                {% endif %}
+
                 &nbsp;
-                <div class="login_button">
-                    <a class="btn btn-success" href="{{ path('login') }}" role="button">
-                        Connexion&nbsp;<i class="fas fa-sign-in-alt"></i></a>
-                </div>
-            {% endif %}
 
-            &nbsp;
-
-            <div class="ads_button">
-                <a class="btn btn-primary logoColor-background border-logoColor-border" href="{{ path('posting_ad') }}" role="button">Publier une annonce</a>
             </div>
+        </nav>
+
+        <div class="buttonUp">
+            <a href="#top" id="btn-to-top" title="Retour vers le haut"><i class="fas fa-chevron-up"></i></a>
         </div>
-    </nav>
 
-    {% block navigation %}{% endblock %}
-    <br><br><br>
-    {% block home %} {% endblock %}
-    {% block postingAd %} {% endblock %}
-    {% block loginForm %} {% endblock %}
-    {% block userAccount %} {% endblock %}
-    {% block employerAccount %} {% endblock %}
-    {% block seasonalAccount %} {% endblock %}
-    {% block userAd %} {% endblock %}
-    {% block adList %} {% endblock %}
-    {% block adDetail %} {% endblock %}
-    {% block employerCharter %} {% endblock %}
-    {% block seasonalCharter %} {% endblock %}
+        {% block navigation %}{% endblock %}
 
-    <br/>
+        <br><br><br>
 
-    <footer>
-        <div class="card white-text">
-            <div class="card-body logoColor-background">
-                <div class="row col-lg-8 offset-lg-2">
-                    <div class="title-website col-lg-3 col-sm-3">
-{#                            <h3 class="card-title white-text"><strong>Seasonal Job</strong></h3>#}
-                        <div class="row">
-                            <a class="navbar-brand" href="{{ path('general_homepage') }}">
-                                <img src="{{ asset('Images/rdv_logo4.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
-                            </a>
-                            <div class="title-footer">
-                                <h1>- My -</h1>
-                                <h2>Season</h2>
+        {# Message flash indiquant que l'inscription est validée #}
+        {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+
+            {% for message in app.flashes('login') %}
+                <div class="col-lg-4 offset-lg-4 logoColor-text center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            {% for message in app.flashes('registration') %}
+
+                <br/>
+
+                <div id="flashRegistration" class="col-lg-4 offset-lg-4 alert alert-success confirmedRegistration center">
+                    <div class="col-lg-8 offset-lg-2">
+                        <i class="fas fa-check-circle"></i>&nbsp;Inscription réussie !
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    </div>
+                </div>
+
+                <br/>
+
+            {% endfor %}
+
+        {% endif %}
+
+        <script>
+            $(function() {
+                setTimeout(function() {
+                    $('#flashRegistration').fadeOut(3000); // <-- s'efface dans le fond
+                }, 6000); // <-- 6 secs
+            });
+
+            $('#flashRegistration').click(function(){
+                $('.alert').alert('close'); // <-- se ferme lorsque l'on clique sur la croix
+            });
+        </script>
+
+        {% block home %} {% endblock %}
+        {% block postingAdNoLog %} {% endblock %}
+        {% block postingSeasonalAd %} {% endblock %}
+        {% block postingEmployerAd %} {% endblock %}
+        {% block createdAdvert %} {% endblock %}
+        {% block loginForm %} {% endblock %}
+        {% block userAccount %} {% endblock %}
+        {% block editUserAccount %} {% endblock %}
+        {% block employerAccount %} {% endblock %}
+        {% block seasonalAccount %} {% endblock %}
+        {% block userAd %} {% endblock %}
+        {% block adList %} {% endblock %}
+        {% block advertCard %} {% endblock %}
+        {% block searchAdvert %} {% endblock %}
+        {% block resultSearchAdvert %} {% endblock %}
+        {% block adDetail %} {% endblock %}
+        {% block employerCharter %} {% endblock %}
+        {% block seasonalCharter %} {% endblock %}
+        {% block legalNotice %} {% endblock %}
+        {% block privacyPolicy %} {% endblock %}
+
+        <br/>
+
+        <footer>
+            <div class="footer-logoColor-line"></div>
+            <div class="card white-text">
+                <div class="card-body logoColor-background">
+                    <div class="row col-lg-8 offset-lg-2">
+                        <div class="title-website col-lg-3 col-sm-3">
+                            {#                            <h3 class="card-title white-text"><strong>Seasonal Job</strong></h3>#}
+                            <div class="row">
+                                <a class="navbar-brand" href="{{ path('general_homepage') }}">
+                                    {#                                    <img src="{{ asset('Images/rdv_logo4.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">#}
+                                    <img src="{{ asset('Images/My_Season_Icon3.png') }}" width="55" height="45" class="d-inline-block align-top" alt="">
+                                </a>
+                                <div class="title-footer">
+                                    <h1>- My -</h1>
+                                    <h2>Season</h2>
+                                </div>
+                            </div>
+                            <hr>
+                            <h5 class="card-text">Mettre en relation saisonniers et employeurs !</h5>
+                            <hr>
+                        </div>
+                        <div class="col-lg-3 col-sm-3">
+                            <h5><strong>PLUS D'INFOS</strong></h5>
+                            <div class="footer-white-line"></div>
+                            <ul>
+                                {% if is_granted('ROLE_EMPLOYER') or is_granted('ROLE_SEASONAL') %}
+                                {% else %}
+                                    <li><a class="footer-link" data-toggle="modal" data-target="#ModalForm" title="Inscription ou connexion">Se connecter</a></li>
+                                {% endif %}
+                                <li><a href="{{ path('seasonal_charter') }}" class="footer-link">Charte du saisonnier</a></li>
+                                <li><a href="{{ path('employer_charter') }}" class="footer-link">Charte de l'employeur</a></li>
+                                <li><a href="{{ path('legal_notice') }}" class="footer-link">Mentions légales</a></li>
+                                <li><a href="{{ path('privacy_policy') }}" class="footer-link">Politique de confidentialité</a></li>
+                                <li><a href="#" class="footer-link">Sécurité</a> et <a href="#" class="footer-link">CGU</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-sm-3">
+                            <h5><strong>CONTACTS</strong></h5>
+                            <div class="footer-white-line"></div>
+                            <ul>
+                                <li><a href="mailto:myseason.contact@gmail.com" class="footer-link">Nous contacter</a></li>
+                                {#                                <li><a href="#" class="footer-link">Kit Presse</a></li>#}
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-sm-3">
+                            <h5><strong>OÙ NOUS RETROUVER</strong></h5>
+                            <div class="footer-white-line"></div>
+                            <div class="col-lg-10 offset-lg-1 col-sm-12 social-icons-list row">
+                                <div class="social-facebook">
+                                    <a href="#" class="social-icons" target="_blank" title="Facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </div>
+                                <div class="social-twitter">
+                                    <a href="#" class="social-icons" target="_blank" title="Twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="social-instagram">
+                                    <a href="https://www.instagram.com/my_season_off/?hl=fr" class="social-icons" target="_blank" title="Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <hr>
-                        <h5 class="card-text">Mettre en relation saisonniers et employeurs !</h5>
-                        <hr>
                     </div>
-                    <div class="col-lg-3 col-sm-3">
-                        <h5><strong>Plus d'infos</strong></h5>
-                        <div class="footer-white-line"></div>
-                        <ul>
-                            <li><a href="" class="footer-link" data-toggle="modal" data-target="#modalLRForm">Se connecter</a></li>
-                            <li><a href="{{ path('seasonal_charter') }}" class="footer-link">Charte du saisonnier</a></li>
-                            <li><a href="{{ path('employer_charter') }}" class="footer-link">Charte de l'employeur</a></li>
-                            <li><a href="#" class="footer-link">Sécurité</a> et <a href="#" class="footer-link">CGU</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-sm-3">
-                        <h5><strong>Contacts</strong></h5>
-                        <div class="footer-white-line"></div>
-                        <ul>
-                            <li><a href="#" class="footer-link">Nous contacter</a></li>
-{#                                <li><a href="#" class="footer-link">Kit Presse</a></li>#}
-                        </ul>
+
+                    <br/>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+                        <small>&copy; <span id="year"></span> My Season - Tous droits réservés • Développé par
+                            <a href="http://quentin-civiale.fr/" class="copyright" title="Quentin Civiale - Étudiant Développeur Web" target="_blank" rel="author">Quentin Civiale</a>
+                        </small>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
 
-<!-- Optional JavaScript -->
-<script type="text/javascript" src="{{ asset('js/log_modal.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/user-type_radio-button_selection.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/adFormDatepicker.js') }}"></script>
+            <script>
+                document.getElementById("year").innerHTML = new Date().getFullYear();
+            </script>
 
+        </footer>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script type="text/javascript" src="{{asset('bootstrap-datepicker_1.9.0/js/bootstrap-datepicker.min.js')}}"></script>
-</body>
+        <!-- Optional JavaScript -->
+        <script type="text/javascript" src="{{ asset('js/log_modal.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/user-type_radio-button_selection.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/adFormDatepicker.js') }}"></script>
+        <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+        <!-- Script for search city map -->
+        <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.17.0"></script>
+        <script src="{{ asset('js/apiJobPlace.js') }}"></script>
+        <script src="{{ asset('js/apiSearchJobPlace.js') }}"></script>
+        <script src="{{ asset('js/textCounter.js') }}"></script>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{asset('bootstrap-datepicker_1.9.0/js/bootstrap-datepicker.min.js')}}"></script>
+        <!-- Code for Back-to-top Button -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/backToTop.js') }}"></script>
+    </body>
 </html>
