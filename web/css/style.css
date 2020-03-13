@@ -1,18 +1,122 @@
-/*----------------------------------------------------------------------------------------------------------*/
-/* Modification des différents éléments de bootstrap */
-/*----------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Gestion des boutons, couleurs, hover et image de fond */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/*body {*/
+/*    font-family: 'Quicksand', sans-serif !important;*/
+/*}*/
+
+/* Variable CSS des couleurs */
+:root {
+    --main-color-one: #6200ea !important; /* #6200ea */
+    --main-color-two: #ea6200 !important; /* #ea6200 */
+    --main-color-test: #95A844 !important; /* font-color #44494F / background-color #BCC097 */
+    --success-color: limegreen !important;
+    --error-color: #dc3545 !important;
+    --white-color: white !important;
+}
+
+/* Couleur de fond bannière du menu #f8f9fa */
+
+.logo {
+    cursor: pointer !important;
+}
+
+/* Couleur ligne bleu header */
+.headerTop-logoColor-line {
+    border-top: var(--main-color-one) solid 7px !important;
+    /*border-top: #ea6200 solid 7px !important;*/
+}
+
+.headerBottom-logoColor-line {
+    /*border-bottom: #6200ea solid 1px !important;*/
+    box-shadow: 0 3px 2px 0 rgba(0,0,0,0.25) !important;
+}
+
+/* Image de fond du site */
+.background-pattern {
+    background-image: url("../Images/connect.png") !important;
+    background-attachment: fixed !important;
+    background-color: var(--main-color-one) !important;
+    /*background-image: url("../Images/brushed_alu.png") !important;*/
+    /*background-image: url("../Images/lined_paper.png") !important;*/
+    /*background-image: url("../Images/prism.png") !important;*/
+}
+
+/* Bouton de retour vers le haut de la page */
+#btn-to-top {
+    background: var(--main-color-two) !important;
+    color: var(--white-color) !important;
+    font-size: 20px;
+    height: 45px;
+    width: 45px;
+    line-height: 40px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    text-align: center;
+    z-index: 9999;
+    -moz-transition: background 0.8s ease;
+    -o-transition: background 0.8s ease;
+    -webkit-transition: background 0.8s ease;
+    transition: background-color .4s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    display: inline-block;
+    margin: 30px;
+}
+
+#btn-to-top:hover {
+    background-color: var(--white-color) !important;
+    cursor: pointer !important;
+    color: var(--main-color-two) !important;
+    border: 2px solid var(--main-color-two) !important;
+}
+
+#btn-to-top:active {
+    background-color: #666 !important;
+}
+
+#btn-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
 
 /* Nom du site */
 .navbar-brand {
-    color: #6200ea !important;
+    color: var(--main-color-one) !important;
 }
 
 /* Texte coloré */
 .logoColor-text {
-    color: #6200ea !important;
+    color: var(--main-color-one) !important;
 }
 .white-text {
-    color: white !important;
+    color: var(--white-color) !important;
+}
+.login-text {
+    color: var(--success-color) !important;
+}
+.green-text {
+    color: var(--success-color) !important;
+}
+.red-text {
+    color: var(--error-color) !important;
+}
+
+
+
+/* Texte sélectionné */
+::selection{
+    background: var(--main-color-two) !important;
+    color: var(--white-color); !important;
+}
+/* Firefox */
+::-moz-selection {
+    background: var(--main-color-two) !important;
+    color: var(--white-color); !important;
 }
 
 /* Texte centré */
@@ -25,9 +129,29 @@
     text-align: justify;
 }
 
-/*Texte aligné à droite */
+/* Texte souligné */
+.underline {
+    text-decoration: underline !important;
+}
+
+/* Texte aligné à droite */
 .right-align {
     text-align: right;
+}
+
+/*Texte aligné à gauche */
+.left-align {
+    text-align: left;
+}
+
+/*Forme arrondie des boutons*/
+.round-button {
+    border-radius: 30px !important;
+}
+
+/*Texte en italique*/
+.italic {
+    font-style: italic !important;
 }
 
 /* Titre de bienvenue */
@@ -37,7 +161,7 @@ h1 {
 
 /* Titre de partie */
 h3 {
-    color: #6200ea !important;
+    color: var(--main-color-one) !important;
 }
 
 /* Titre des éléments de la charte */
@@ -50,105 +174,371 @@ a.nav-link {
     padding-left: 20px !important;
 }
 
-/* Modification de la couleur du bouton d'inscription du menu */
-.btn-register {
-    color: #6200ea !important;
-    border-color: #6200ea !important;
-    background-color: white !important;
+/* Btn de base du site*/
+.btn-main {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    border-color: var(--main-color-one) !important;
+}
+.btn-main:hover {
+    background-color: var(--white-color) !important;
+    color: var(--main-color-one) !important;
+    border-color: var(--main-color-one) !important;
+    background-image: url("../Images/connect.png");
+}
+.btn-main:focus {
+    box-shadow: 0 0 0 .2rem var(--white-color) !important;
 }
 
-.btn-register:hover {
-    color: white !important;
-    border-color: #6200ea !important;
-    background-color: #6200ea !important;
+/* Btn de base inversé */
+.btn-main-reverse {
+    background-color: var(--white-color) !important;
+    color: var(--main-color-one) !important;
+    border-color: var(--main-color-one) !important;
+}
+.btn-main-reverse:hover {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    border-color: var(--main-color-one) !important;
 }
 
-/* Modification de la couleur du bouton de liens simples du menu (accueil et les annonces) */
-.btn-menu {
-    color: #6200ea !important;
+/* Btn simples des liens navbar (Accueil et Les Annonces) */
+.btn-navbar {
+    color: var(--main-color-one) !important;
 }
-
-.btn-menu:hover {
-    background-color: #6200ea !important;
-    color: white !important;
-    border-color: #6200ea !important;
+.btn-navbar:hover {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    border-color: var(--main-color-one) !important;
 }
-
-/* Modification de la couleur du bouton dropdown MON COMPTE lorsque le user est connecté */
-.btn-account {
-    color: #6200ea !important;
-    border-color: #6200ea !important;
-}
-
-.btn-account:hover {
-    background-color: #6200ea !important;
-    color: white !important;
-    border-color: #6200ea !important;
+.btn-navbar:focus {
+    box-shadow: 0 0 0 .2rem var(--white-color) !important;
 }
 
 /* Liens du btn Dropdown */
 .dropdown-item:hover {
-    color: #6200ea !important;
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
 }
 
-/* Modification de la couleur du bouton de connexion du menu */
-.btn-success {
-    color: limegreen !important;
-    background-color: white !important;
-    border-color: #61d800 !important;
+/* Btn détail des annonces */
+.btn-adDetail {
+    background-color: var(--white-color) !important;
+    color: var(--main-color-one) !important;
+    border-color: var(--white-color) !important;
 }
-.btn-success:hover {
-    background-color: #61d800 !important;
-    color: white !important;
-    border-color: #61d800 !important;
+.btn-adDetail:hover {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    border-color: var(--white-color) !important;
+}
+.btn-adDetail:focus {
+    box-shadow: 0 0 0 .2rem var(--main-color-one) !important;
+}
+
+/* Btn contact annonceurs */
+.btn-userContact {
+    background-color: var(--white-color) !important;
+    color: var(--main-color-one) !important;
+    border-color: var(--white-color) !important;
+}
+.btn-userContact:hover {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    border-color: var(--white-color) !important;
+}
+.btn-userContact:focus {
+    box-shadow: 0 0 0 .2rem var(--main-color-one) !important;
+}
+
+/* Modification des liens de boutons dropdown du menu */
+/*.dropdown-item:active {*/
+/*    background-color: #6200ea !important;*/
+/*    color: white; !important;*/
+/*}*/
+
+/* Bouton d'ajout d'annonce modifié lorsque le user est connecté */
+.btn-ad {
+    color: var(--white-color) !important;
+    background-color: var(--main-color-two) !important;
+    border-color: var(--main-color-two) !important;
+}
+.btn-ad:hover {
+    color: var(--main-color-two) !important;
+    background-color: var(--white-color) !important;
+    border-color: var(--main-color-two) !important;
+    background-image: url("../Images/connect.png");
+}
+.btn-ad:focus {
+    box-shadow: 0 0 0 .2rem var(--white-color) !important;
+}
+
+/* Btn de connexion du menu */
+.btn-connect {
+    color: var(--white-color) !important;
+    background-color: var(--success-color) !important;
+    border-color: var(--success-color) !important;
+}
+.btn-connect:hover {
+    color: var(--success-color) !important;
+    background-color: var(--white-color) !important;
+    border-color: var(--success-color) !important;
+    background-image: url("../Images/connect.png");
+}
+
+/* Btn de déconnexion */
+.btn-logout {
+    color: var(--white-color) !important;
+    background-color: var(--error-color) !important;
+    border-color: var(--error-color) !important;
+}
+.btn-logout:hover {
+    color: var(--error-color) !important;
+    background-color: var(--white-color) !important;
+    border-color: var(--error-color) !important;
+    background-image: url("../Images/connect.png");
+}
+.btn-logout:focus {
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.5) !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design du contenu de la page d'accueil (index.php et non la base !) */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.ad:hover {
+    box-shadow: 3px 3px 5px 6px #666 !important;
+    -webkit-transform:perspective(1000px) translate3d(0,0,21px);
+    transform:perspective(1000px) translate3d(0,0,21px);
+}
+
+.parallax {
+    /* Image */
+    /*background-image: url("../uploads/profilPicture/CWKG04.jpg");*/
+    background-image: url("../Images/Pattern_My_Season.png");
+
+    /* Specific height */
+    min-height: 200px;
+
+    /* Parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Padding permettant de centrer la div à l'intérieur du parallax */
+    padding: 50px !important;
+}
+
+.parallax-element {
+    background-color: var(--white-color) !important;
+    border-radius: .25rem !important;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+.logo-parallax {
+    cursor: pointer !important;
+    margin-top: -5px !important;
+}
+
+/* Bordure de la card Comment ça marche */
+.explain-card {
+    border: var(--main-color-one) solid 2px !important
+}
+
+.carousel-prev, .carousel-next {
+    color: var(--main-color-two) !important;
+    font-size: 50px !important;
+}
+
+.carousel-item {
+
+    padding: 30px !important;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design de la vue du compte utilisateur */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.account-picture {
+    border: var(--main-color-one) 7px solid !important;
+    /*border-image: linear-gradient(#6200ea, white) 30 !important;*/
+}
+
+/* Bouton de liens vers le profil LinkedIn */
+.btn-link {
+    /*color: limegreen !important;*/
+    background-color: rgb(0,140,201) !important;
+    border-color: var(--white-color) !important;
+    color: var(--white-color) !important;
+    text-decoration: none !important;
+}
+.btn-link:hover {
+    /*color: limegreen !important;*/
+    background-color: var(--white-color) !important;
+    border-color: rgb(0,140,201) !important;
+    color: rgb(0,140,201) !important;
+    background-image: url("../Images/connect.png");
+}
+.my_account_linkedin {
+    color: rgb(0,140,201) !important;
+    text-decoration: none !important;
+}
+.my_account_linkedin:hover {
+    color: var(--main-color-two) !important;
 }
 
 /* Taille de l'affichage du profilPicture de la vue compte utilisateur */
-.account-profil {
-    width: 180px !important;
-    height: 180px !important;
-    border-radius: 100% !important;
+/*.round-image {*/
+/*    width: 180px !important;*/
+/*    height: 180px !important;*/
+/*    !*position: relative !important;*!*/
+/*    overflow: hidden !important;*/
+/*    border-radius: 50% !important;*/
+/*}*/
+/*.account-profil {*/
+/*    !*display: inline !important;*!*/
+/*    margin: 0 auto !important;*/
+/*    margin-left: -25px !important;*/
+/*    height: 100% !important;*/
+/*    width: auto !important;*/
+/*    !*width: 180px !important;*!*/
+/*    !*height: 180px !important;*!*/
+/*    display: block !important;*/
+/*    !*height: 180px !important;*!*/
+/*    !*width: 180px !important;*!*/
+/*    !*max-width: 220px !important;*!*/
+/*    !*max-height: 220px !important;*!*/
+/*    !*border-radius: 50% !important;*!*/
+/*}*/
+/*.circle {*/
+/*    width: 190px;*/
+/*    height: 190px;*/
+/*    border: 6px solid var(--main-color-one);*/
+/*    border-radius:100%;*/
+/*    !*background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*!*/
+/*    !*background-size: 150%;*!*/
+/*    !*background-position: 50% !important;*!*/
+/*    overflow: hidden !important;*/
+/*}*/
+/*.avatar1 {*/
+/*    width: 180px;*/
+/*    height: 180px;*/
+/*    background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*/
+/*    background-size: 150%;*/
+/*    background-position: 60% !important;*/
+/*    !*margin-top:7px;*!*/
+/*    !*width: 180px;*!*/
+/*    !*height: 180px;*!*/
+/*    !*border-radius: 50%;*!*/
+/*}*/
+/*.avatar2 {*/
+/*    width: 180px !important;*/
+/*    height: 180px !important;*/
+/*    !*background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*!*/
+/*    background-size: 150% !important;*/
+/*    background-position: 60% !important;*/
+/*    !*margin-top:7px;*!*/
+/*    !*width: 180px;*!*/
+/*    !*height: 180px;*!*/
+/*    !*border-radius: 50%;*!*/
+/*}*/
+/*.avatar3 {*/
+/*    !*width: 180px !important;*!*/
+/*    !*height: 180px !important;*!*/
+/*    !*background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*!*/
+/*    !*background-size: 150% !important;*!*/
+/*    !*background-position: 60% !important;*!*/
+/*    !*margin-left: -15px !important;*!*/
+/*    !*width: 180px;*!*/
+/*    !*height: 180px;*!*/
+/*    !*border-radius: 50%;*!*/
+/*}*/
+
+/* Taille de l'affichage du profilPicture de la vue compte utilisateur */
+.account-circle {
+    display: inline-block;
+    border: 6px solid var(--main-color-one);
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.account-image {
+    width: inherit;
+    height: inherit;
+    margin-top: -10px;
+    margin-left: -10px;
+    /*border-radius: inherit;*/
+}
+
+/* Bonus : keep aspect-ratio */
+.account-image {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Bonus : effect on :hover */
+.account-circle:hover {
+    border: 6px solid var(--main-color-two);
+}
+/*.account-image {*/
+/*    transition: object-position .35s;*/
+/*}*/
+/*.account-image:hover {*/
+/*    object-position: right center;*/
+/*}*/
+
+.account-image:hover {
+    /*animation: shake 0.5s;*/
+    /*animation-iteration-count: infinite;*/
+    /*onmouseover="this.src='{{ asset("Images/Pattern_My_Season.png") }}'" onmouseout="this.src='{{ asset(seasonal.profilPicture) }}'"*/
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 /* Modification de la couleur du bouton de déconnexion */
-.btn-danger {
-    background-color: #dc3545 !important;
-    border-color: #dc3545 !important;
+.btn-logout-home {
+    background-color: var(--white-color) !important;
+    color: var(--error-color) !important;
+    border-color: var(--error-color) !important;
 }
-.btn-danger:hover {
-    background-color: white !important;
-    color: #dc3545 !important;
-    border-color: #dc3545 !important;
+.btn-logout-home:hover {
+    background-color: var(--error-color) !important;
+    color: var(--white-color) !important;
+    border-color: var(--error-color) !important;
+}
+.btn-logout-home:focus {
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.5) !important;
 }
 
 /* Modification de la couleur du bouton d'ajout d'annonce du menu */
-.logoColor-background {background-color: #6200ea !important}
-.border-logoColor-border {border-color: #6200ea !important}
+.logoColor-background {background-color: var(--main-color-one) !important}
+.border-logoColor-border {border-color: var(--main-color-one) !important}
 
 /* Btn publication d'annonce du menu */
-.btn-primary:hover {
-    background-color: white !important;
-    color: #6200ea !important;
-}
-
-/* Survol du btn Se connecter block présentation */
-.btn-outline-success:hover {
-    color: white !important;
-    background-color: #6200ea !important;
-}
-
-/* Modif bouton Postuler Block d'annonces */
-.border-white-border {
-    border-color: white !important;
-}
-
-.btn-outline-primary:hover {
-    color: white !important;
-    background-color: #6200ea !important;
-}
+/*.btn-primary:hover {*/
+/*    background-color: var(--white-color) !important;*/
+/*    color: var(--main-color-one) !important;*/
+/*    background-image: url("../Images/connect.png");*/
+/*}*/
 
 .white-background {
-    background-color: white !important;
+    background-color: var(--white-color) !important;
 }
 
 /* Gestion des icones user */
@@ -156,10 +546,48 @@ a.nav-link {
     font-size: 30px !important;
 }
 
+/* Gestion de l'icône Linkedin */
+.resize-link {
+    font-size: 22px !important;
+}
+
+/* Apparence de l'encadré du flash message de confirmation de modification du compte saisonnier */
+.editedAccount {
+    color: var(--white-color) !important;
+    font-size: 1.25rem !important;
+    background-color: var(--success-color) !important;
+    border: 3px solid var(--success-color) !important;
+    border-radius: 30px !important;
+    text-align: center !important;
+    padding: .15rem .75rem !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design de la page d'édition du compte saisonnier */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.edit_seasonnal_account_resume_link #p6_generalbundle_seasonal_resumeLink,
+.edit_seasonnal_account_profilPicture #p6_generalbundle_seasonal_file {
+    /*min-height: 300px !important;*/
+    width: 100% !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design du Footer */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Couleur ligne bleu footer */
+.footer-logoColor-line {
+    margin-bottom: 10px;
+    border-bottom: var(--main-color-one) solid 7px;
+    /*border-bottom: #ea6200 solid 7px;*/
+    padding-bottom: 10px;
+}
+
 /* Couleur ligne blanche footer */
 .footer-white-line {
     margin-bottom: 10px;
-    border-bottom: white solid 1px;
+    border-bottom: var(--white-color) solid 1px;
     padding-bottom: 10px;
 }
 
@@ -170,27 +598,118 @@ ul {
 
 li {
     padding-bottom: 3px !important;
-    margin-left: -15px !important;
-}
-
-a.footer-link:hover {
-    /*text-decoration: underline !important;*/
-    font-weight: bold !important;
-    text-transform: uppercase !important;
+    /*margin-left: -15px !important;*/
 }
 
 a.footer-link {
     text-decoration: none !important;
-    color: white !important;
+    color: var(--white-color) !important;
+}
+a.footer-link:hover {
+    font-weight: bold !important;
+    /*color: #6200ea !important;*/
 }
 
-/*----------------------------------------------------------------------------------------------------------*/
+/* Gestion des icônes de réseaux sociaux */
+.social-icons {
+    position: relative !important;
+    top: -2px !important;
+    font-size: 20px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    color: var(--white-color) !important;
+}
+
+.social-facebook, .social-twitter, .social-instagram {
+    text-align: center !important;
+    background-color: var(--main-color-one) !important;
+    /*background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;*/
+    color: var(--white-color) !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    padding: 0 !important;
+    width: 40px !important;
+    border: 3px solid var(--white-color) !important;
+    border-radius: 50% !important;
+    margin: 0 3px !important;
+}
+
+.social-facebook:hover {
+    background-color: #4267b2 !important;
+    /*background-image: url("../Images/connect.png");*/
+}
+
+.social-twitter:hover {
+    background-color: #1da1f2 !important;
+    /*background-image: url("../Images/connect.png");*/
+}
+
+.social-instagram:hover {
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+        /* left top*/
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+        /*  right top*/
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+        /* right bottom*/
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+
+        /* create a base coat to smooth */
+        /* corner gradients */
+    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%); !important;
+    /* background-image: url("../Images/connect.png"); */
+}
+
+/*
+    twitter: #1da1f2 rgba(29,161,242)
+    facebook: #4267b2 rgb(66, 103, 178)
+    instagram: #8a3ab9, #4c68d7, #cd486b, #fbad50, #fccc63, #bc2a8d
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+
+    radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    // left top
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+    //  right top
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+    // right bottom
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+
+    // create a base coat to smooth
+    // corner gradients
+    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+*/
+
+.social-facebook:hover .social-icons, .social-twitter:hover .social-icons, .social-instagram:hover .social-icons {
+    color: var(--white-color) !important;
+    -moz-transition: background 1.5s ease !important;
+    -o-transition: background 1.5s ease !important;
+    -webkit-transition: background 1.5s ease !important;
+    transition: background 1.5s ease !important;
+}
+
+.copyright {
+    text-decoration: none !important;
+    color: var(--white-color) !important;
+}
+
+.copyright:hover {
+    color: var(--main-color-two) !important;
+    /*font-weight: bold !important;*/
+    /*text-transform: uppercase !important;*/
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* Design du Modal Formulaire Incription/Connexion */
-/*----------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 input {
     border-radius: .25rem !important;
-    border: #6200ea solid 1px !important;
+    border: var(--main-color-one) solid 1px !important;
     height: 30px !important;
     width: 300px !important;
 }
@@ -202,36 +721,36 @@ input[type="checkbox"] {
 
 .custom-radio .custom-control-input:checked~.custom-control-label::before,
 .custom-radio .custom-control-input:checked~.custom-control-label::after {
-    background-color: #6200ea !important;
+    background-color: var(--main-color-one) !important;
     border-radius: 50%;
     margin-left: -1px !important;
 }
 
 /* the shadow; displayed while the element is in focus */
 .custom-radio .custom-control-input:focus ~ .custom-control-label::before {
-    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(255, 255, 255, 100);
+    box-shadow: 0 0 0 1px var(--white-color), 0 0 0 0.2rem var(--white-color);
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before,
 .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
-    background-color: #6200ea !important;
+    background-color: var(--main-color-one) !important;
     /*border-radius: 50%;*/
 }
 
 /* the shadow; displayed while the element is in focus */
 .custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
-    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(98, 0, 234, 0.25);
+    box-shadow: 0 0 0 1px var(--white-color), 0 0 0 0.2rem rgba(98, 0, 234, 0.25);
 }
 
 .log-modal-line {
     margin-bottom: 6px;
-    border-bottom: #e9ecef solid 1px;
+    border-bottom: var(--white-color) solid 1px;
     padding-bottom: 6px;
 }
 
 .btn-modal.active {
     text-decoration: none !important;
-    color: #6200ea !important;
+    color: var(--main-color-one) !important;
     font-weight: bold !important;
 }
 
@@ -239,15 +758,20 @@ input[type="checkbox"] {
     text-decoration: none !important;
     color: gray !important;
     font-size: 1.2em !important;
+    /*margin-top: 20px !important;*/
+}
+
+.modal-choice-class {
+    margin-left: -15px !important;
 }
 
 .btn-modal:hover {
-    color: #6200ea !important;
+    color: var(--main-color-one) !important;
     font-weight: bold !important;
 }
 
 .btn-modal:hover.active {
-    color: #6200ea !important;
+    color: var(--main-color-one) !important;
 }
 
 .no-account {
@@ -278,21 +802,36 @@ user_type_form {
     display: block !important;
 }
 
-/*----------------------------------------------------------------------------------------------------------*/
-/* Design de la vue du compte utilisateur */
-/*----------------------------------------------------------------------------------------------------------*/
-
-.account-picture {
-    border: #6200ea 7px solid !important;
-    /*border-image: linear-gradient(#6200ea, white) 30 !important;*/
+/* Apparence de l'encadré du flash message de confirmation de l'inscription du user */
+.confirmedRegistration {
+    color: var(--white-color) !important;
+    font-size: 1.25rem !important;
+    background-color: var(--success-color) !important;
+    border: 3px solid var(--success-color) !important;
+    border-radius: 30px !important;
+    text-align: center !important;
+    padding: .15rem .75rem !important;
 }
 
-/*----------------------------------------------------------------------------------------------------------*/
+.close:hover {
+    color: var(--white-color) !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
 /* Design du formulaire de publication d'annonce */
-/*----------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 .ad-form {
     font-size: 18px !important;
+}
+
+/* Alignement verticale centré des div */
+.vertAlCenter {
+    vertical-align: center !important;
+}
+
+.hidden{
+    display: none !important;
 }
 
 /* Bouton radio de mobilité */
@@ -329,14 +868,14 @@ input[type="radio"] + label:before {
     margin-left: 5px;
     /* couleur de fond uniquement pour le contenu */
     background-clip: content-box;
-    border: 1px solid #6200ea;
-    background-color: #e7e6e7;
+    border: 1px solid var(--main-color-one);
+    background-color: var(--white-color);
     border-radius: 50%;
 }
 
 /* Apparence du radiobouton sélectionné */
 input[type="radio"]:checked + label:before {
-    background-color: #6200ea;
+    background-color: var(--main-color-one);
 }
 
 /* Réinitialiser la taille du box-sizing */
@@ -354,28 +893,126 @@ input[type="radio"]:checked + label:before {
 
 /*-------------------------------------------------*/
 
-/* Zone de texte description de l'annonce */
-textarea#p6_generalbundle_ad_description {
-    border-radius: .25rem !important;
-    border: #6200ea solid 1px !important;
-    height: 300px !important;
-    width: 1030px !important;
+/* Design des cards */
+.advert-card {
+    border: var(--main-color-one) solid 2px !important;
 }
 
-/* Champ de sélection catégorie et lieu de l'annonce */
-select#p6_generalbundle_ad_category_0_name, #p6_generalbundle_ad_place_0_place {
+/* Titre de l'annonce */
+input#p6_generalbundle_advert_title {
+    width: 100% !important;
+    color: var(--main-color-one) !important;
+}
+
+/* Zone de texte description de l'annonce */
+.div-centered {
+    /*margin-left:auto !important;*/
+    /*margin-right:auto !important;*/
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+textarea#p6_generalbundle_ad_description, #p6_generalbundle_advert_description {
     border-radius: .25rem !important;
-    border: #6200ea solid 1px !important;
+    border: var(--main-color-one) solid 1px !important;
+    min-height: 300px !important;
+    width: 100% !important;
+    color: var(--main-color-one) !important;
+    /*width: 100% !important;*/
+    /*min-height: 300px !important;*/
+    /*float: left !important;*/
+    /*outline: none !important;*/
+    /*resize: none !important;*/
+    /*margin-bottom: 10px !important;*/
+}
+
+.characterCount {
+    text-align: right !important;
+    width: 65px !important;
+    float: right !important;
+    color: var(--main-color-one) !important;
+    border: var(--white-color) !important;
+}
+
+/* Champ de la ville sélectionnée */
+.selected-city-field {
+    /*border-radius: .25rem !important;*/
+    /*border: #6200ea solid 1px !important;*/
+    font-weight: bold !important;
+    color: var(--main-color-one) !important;
+    min-height: 40px !important;
+    width: 100% !important;
+}
+.form-control[readonly] {
+    background-color: var(--white-color) !important;
+    /*opacity: 0 !important;*/
+}
+
+/* Champ de sélection catégorie */
+select#p6_generalbundle_ad_category_0_name, #p6_generalbundle_ad_place_0_place, #p6_generalbundle_advert_category {
+    border-radius: .25rem !important;
+    border: var(--main-color-one) solid 1px !important;
     height: 30px !important;
-    width: 300px !important;
+    width: 100% !important;
+}
+
+/* Champ de sélection du lieu avec api/librairie de Algolia */
+input#address-input, #city, #input-map {
+    border-radius: .25rem !important;
+    border: var(--main-color-one) solid 1px !important;
+    height: 30px !important;
+    width: 100% !important;
+}
+
+/* Affichage de la MAP */
+#map-example-container {
+    width: 100% !important;
+    height: 450px !important;
+    border: var(--main-color-one) solid 1px !important;
+    border-radius: 1rem !important;
+}
+
+/* Zone de texte des options de mobilité */
+.mobility-option-field {
+    border-radius: .25rem !important;
+    border: var(--main-color-one) solid 1px !important;
+    min-height: 80px !important;
+    width: 100% !important;
+    color: var(--main-color-one) !important;
 }
 
 /* Zone de texte description de la mobilité */
 textarea#p6_generalbundle_ad_place_0_mobility {
     border-radius: .25rem !important;
-    border: #6200ea solid 1px !important;
+    border: var(--main-color-one) solid 1px !important;
     height: 150px !important;
     width: 1030px !important;
+}
+
+/* Champ de sélection des dates */
+input#p6_generalbundle_advert_dateStart, #p6_generalbundle_advert_dateEnd {
+    width: 100% !important;
+}
+
+/* Partie Vos informations - Image de profil */
+.account-circle-adForm {
+    display: inline-block;
+    border: 6px solid var(--main-color-one);
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-left: 75% !important;
+    margin-bottom: -16% !important;
+}
+.account-circle-advertForm {
+    display: inline-block;
+    border: 6px solid var(--main-color-one);
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-left: 75% !important;
+    margin-bottom: -13% !important;
 }
 
 /*select#p6_generalbundle_ad_place_0_mobility {*/
@@ -399,16 +1036,449 @@ textarea#p6_generalbundle_ad_place_0_mobility {
 /*    display: none !important;*/
 /*}*/
 
-/*----------------------------------------------------------------------------------------------------------*/
-/* Design page des annonces utilisateurs */
-/*----------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design page de l'annonce qui vient d'être créée */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Bordure de la carte d'annonce créée */
+.border-green-border {
+    border: var(--success-color) solid 2px !important;
+    border-radius: .75rem !important;
+}
+
+.greenCheckIcon {
+    color: var(--success-color) !important;
+    font-size: 40px; !important;
+}
+
+/* Saut de ligne dans la description */
+.lineBreaks {
+    white-space: pre-line !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design page des annonces générales et Recherche */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Gestion de l'annonce */
+
+.resize-search-icon {
+    font-size: 25px !important;
+}
+
+/* Btn de recherche d'annonces*/
+.btn-adSearch {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    border-color: var(--main-color-one) !important;
+}
+.btn-adSearch:hover {
+    background-color: var(--white-color) !important;
+    color: var(--main-color-one) !important;
+    border-color: var(--main-color-one) !important;
+    background-image: url("../Images/connect.png");
+}
+.btn-adSearch:focus {
+    box-shadow: 0 0 0 .2rem var(--white-color) !important;
+}
 
 
+/* Design page publication d'annonce si user anonyme */
+.border_anonymous-user_border {
+    border-color: var(--error-color) !important
+}
+
+.anonymous-user_message-box {
+    color: var(--error-color) !important;
+}
+
+/*-------------------------------------------*/
+/* Recherche d'annonce en cas de log anonyme */
+
+.search-box {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: var(--main-color-one) !important;
+    height: 50px !important;
+    border-radius: 40px !important;
+    padding: 5px !important;
+}
+
+.search-box:hover > .search-txt {
+    width: 240px !important;
+    padding: 0 6px !important;
+}
+
+.search-box:hover > .search-btn {
+    background: grey !important;
+}
+
+.search-btn {
+    color: var(--white-color) !important;
+    float: right !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: var(--main-color-one) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: 0.4s !important;
+}
+
+.search-txt {
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+    float: left !important;
+    align-items: center !important;
+    padding: 0 !important;
+    color: var(--white-color) !important;
+    font-size: 16px !important;
+    transition: 0.4s !important;
+    line-height: 40px !important;
+    width: 0px !important;
+}
+
+a.search-btn:link {
+    text-decoration:none !important;
+}
+
+/*-------------------------------------*/
+/* Recherche d'annonce en cas de log   */
+
+.jumbotron {
+    background-color: lightgrey !important;
+}
+
+.search-card {
+    border: var(--main-color-one) solid 2px !important;
+}
+
+.capitalize {
+    text-transform: capitalize !important;
+}
+
+/*Champ de recherche de la categorie*/
+#category {
+    border-radius: .25rem !important;
+    border: var(--main-color-one) solid 1px !important;
+    height: 30px; !important;
+    width: 100% !important;
+}
+
+#citySearch {
+    width: 100% !important;
+}
+
+/*Bouton de remise à zéro*/
+.save {
+    border-radius: .25rem !important;
+    border: var(--main-color-one) solid 1px !important;
+}
+
+.selected-city {
+    margin-top: 5px !important;
+}
+/* Champ de la ville sélectionnée */
+.selected-city-search-field {
+    /*border-radius: .25rem !important;*/
+    /*border: #6200ea solid 1px !important;*/
+    font-weight: bold !important;
+    color: var(--main-color-one) !important;
+    max-height: 40px !important;
+    width: 100% !important;
+}
+
+/* Message flash des recherches d'annonces */
+.advertTotalNumber {
+    font-size: 1.25rem !important;
+    color: var(--main-color-one) !important;
+    background-color: var(--white-color) !important;
+    border-color: var(--main-color-two) !important;
+}
+.searchAdvertNoResult {
+    color: red !important;
+    background-color: #e2e3e5 !important;
+    border-color: #d6d8db !important;
+}
+.searchAdvertNumber {
+    color: green !important;
+    background-color: #e2e3e5 !important;
+    border-color: #d6d8db !important;
+}
+
+/* Système de Pagination */
+.page-link {
+    color: var(--main-color-one) !important;
+}
+.page-item.disabled .page-link {
+    color: #6c757d !important;
+}
+li.active > a.page-link {
+    color: var(--white-color) !important;
+    background-color: var(--main-color-one) !important;
+}
+.page-link:hover {
+    color: var(--white-color) !important;
+    background-color: var(--main-color-one) !important;
+}
+
+/* Loader de test avec appel API et Logo du site */
+.box {
+    width: 400px !important;
+    height: 300px !important;
+    background: lightgray !important;
+    margin: 20px auto 0 auto !important;
+    text-align: center !important;
+    position: relative !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.loading {
+    position: absolute !important;
+    width: 350px !important;
+}
+
+.hiddenLoader {
+    display: none !important;
+    animation: disparition 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes disparition {
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+/* Loader pour My Season */
+.loader {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+/* Création du cercle d'origine */
+.loader-quart {
+    border-radius: 50px;
+    border: 6px solid lightgray;
+}
+
+/* Création d'un quart de cercle */
+.loader-quart::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+    border-radius: 50px;
+    border: 6px solid transparent;
+    border-top-color: var(--main-color-one);
+    animation: spin 1s linear 0s infinite;
+    /* animation (nom de l'animation appelée, durée de l'animation, nom de l'animation avec accélération ou pas, délai
+    avant démarrage, nbre d'itération */
+}
+
+/* Animation de rotation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.content_search {
+    display: none;
+}
+.preload {
+    width: 100% !important;
+    height: 450px !important;
+    line-height: 450px !important;
+    align-items: center !important;
+    vertical-align: center !important;
+    text-align: center !important;
+    background-color: transparent !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design page du détail des annonces */
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Bouton de visualisation du profil de l'annonceur */
+.btn-profilView {
+    color: var(--white-color) !important;
+    background-color: var(--main-color-two) !important;
+    border-color: var(--main-color-two) !important;
+}
+.btn-profilView:hover {
+    color: var(--main-color-two) !important;
+    background-color: var(--white-color) !important;
+    border-color: var(--main-color-two) !important;
+    background-image: url("../Images/connect.png");
+}
+.btn-profilView:focus {
+    box-shadow: 0 0 0 .2rem var(--main-color-one) !important;
+}
+
+/* Mini carte de présentation de l'annonceur */
+.advertMiniUserProfil {
+    /*border-radius: .25rem !important;*/
+    /*border: var(--main-color-one) solid 5px !important;*/
+}
+
+/* Lien vers le compte linkedin du saisonnier */
+.linkedinProfil {
+    color: rgb(0,140,201) !important;
+    text-decoration: none !important;
+}
+.linkedinProfil:hover {
+    color: var(--main-color-two) !important;
+}
+
+/* Bouton de soumission du message de contact */
+.btn-contactMessage {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    border-color: var(--main-color-one) !important;
+}
+.btn-contactMessage:hover {
+    background-color: var(--white-color) !important;
+    color: var(--main-color-one) !important;
+    border-color: var(--main-color-one) !important;
+    background-image: url("../Images/connect.png");
+}
+.btn-contactMessage:focus {
+    box-shadow: 0 0 0 .2rem var(--white-color) !important;
+}
+
+/* Formulaires de contact */
+.advertInfo {
+    margin-top: 20px !important;
+}
+.advertMessage {
+    margin-top: -10px !important;
+    margin-bottom: 15px !important;
+}
+.sendContactMessage {
+    margin-top: 20px !important;
+}
+.userAdvertInfo {
+    background-color: var(--main-color-one) !important;
+    color: var(--white-color) !important;
+    width: 100% !important;
+    border-radius: .25rem !important;
+    padding-top: 5px !important;
+    padding-left: 5px !important;
+}
+
+/* Textarea du message de contact */
+textarea#contact_message {
+    border-radius: .25rem !important;
+    border: var(--main-color-one) solid 1px !important;
+    min-height: 110px !important;
+    width: 100% !important;
+    color: var(--main-color-one) !important;
+}
+
+/* En cas de anonymous user, retrait du textarea et mise en avant d'un message */
+.anonymous-user_contact-message {
+    color: var(--error-color) !important;
+    background-color: var(--white-color) !important;
+    border: var(--white-color) solid 1px !important;
+    border-radius: .25rem !important;
+    font-size: large !important;
+    font-weight: bold !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Design page des mentions légales et Politique de confidentialité*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+/* Titre des section des mentions légales/confidentialité */
+.legal-title {
+    color: gray !important;
+}
+
+/* Mise en couleur des liens */
+.legal-link {
+    color: var(--main-color-one) !important;
+    text-decoration: none !important;
+}
+.legal-link:hover {
+    color: var(--main-color-two) !important;
+    text-decoration: none !important;
+    /*font-weight: bold !important;*/
+}
+
+/* mise en forme de la liste des renseignements personnels demandés */
+.personnal_infos {
+    color: gray !important;
+}
+.personnal_infos:after {
+    display:block !important;
+    content:"" !important;
+    clear:both !important;
+}
+
+.personnal_infos_ul {
+    list-style-type: disc !important;
+    float:left !important;
+    padding: 0 10px !important;
+    margin: 0 25px !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Gestion d'apparence selon la taille de l'écran */
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 
-/*----------------------------------------------------------------------------------------------------------*/
-/* Gestion du responsive mobile et tablette */
-/*----------------------------------------------------------------------------------------------------------*/
+#onMobile{
+    display: none !important;
+}
+
+#onMobileButton{
+    display: none !important;
+}
+
+/*-----------------------------------------------------------*/
+
+
+@media only screen and (max-width: 992px) {
+    #onWeb {
+        display: none !important;
+    }
+
+    #onMobile {
+        display: contents !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        hyphens: auto !important;
+        text-align: justify !important;
+    }
+
+    #onMobileButton{
+        display: inline-flex !important;
+    }
+
+    .onMobilePlus {
+        font-size: 36px !important;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Gestion du RESPONSIVE mobile et tablette */
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 @media only screen and (max-width: 992px) {
 
@@ -425,19 +1495,35 @@ textarea#p6_generalbundle_ad_place_0_mobility {
         text-align: justify;
     }
 
-    /* Modification de la couleur du bouton d'ajout d'annonce */
-    .logoColor-background {background-color: #6200ea !important}
-    .border-logoColor-border {border-color: #6200ea !important}
-    .border-white-border { border-color: white !important}
+    /* Texte centré */
+    .center-sm {
+        text-align: center;
+    }
 
     /* Texte justifié */
     .justify {
         text-align: justify;
     }
 
-    /* Modif taille police H2 */
+    /* Texte souligné */
+    .underline {
+        text-decoration: underline !important;
+    }
+
+    /* Modif taille police H2 V0 Phrase courte */
     .resize-sm-h2 {
         font-size: 25px !important;
+    }
+
+    /* Modif taille police H2 V1 Phrase courte */
+    .resize-sm-h2-1 {
+        font-size: 23px !important;
+    }
+
+    /* Modif taille police H2 V2 Phrase longue */
+    .resize-sm-h2-2 {
+        font-size: 20px !important;
+        text-align: left !important;
     }
 
     /* Modif taille police H5 */
@@ -448,5 +1534,76 @@ textarea#p6_generalbundle_ad_place_0_mobility {
     /* Gestion des icones user */
     .resize-icon {
         font-size: 20px !important;
+    }
+
+    /* Centrage des div selon la taille du smartphone utilisé */
+    .div-centered-mobile {
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width: 100% !important;
+    }
+
+    /* Cacher des div inutiles en version mobile */
+    .mobile_hidden {
+        display: none !important;
+    }
+
+    /* Modif de la taille des champs de formulaires Inscription et Connexion */
+    #login_form__username, #login_form__password, #p6_generalbundle_employer_company, #p6_generalbundle_employer_contact,
+    #p6_generalbundle_employer_email, #p6_generalbundle_employer_plainPassword_first, #p6_generalbundle_employer_plainPassword_second,
+    #p6_generalbundle_seasonal_firstname, #p6_generalbundle_seasonal_lastname, #p6_generalbundle_seasonal_resumeLink,
+    #p6_generalbundle_seasonal_file, #p6_generalbundle_seasonal_email, #p6_generalbundle_seasonal_plainPassword_first,
+    #p6_generalbundle_seasonal_plainPassword_second, #p6_generalbundle_seasonal_profilPicture
+    {
+        width: 100% !important;
+    }
+
+    /* Modif de la taille des champs de formulaire Annonce */
+    #p6_generalbundle_ad_title, select#p6_generalbundle_ad_category_0_name, select#p6_generalbundle_ad_place_0_place,
+    #p6_generalbundle_ad_dateStart, #p6_generalbundle_ad_dateEnd
+    {
+        width: 240px !important;
+    }
+
+    /* Modif de la taille des textarea de formulaire Annonce */
+    textarea#p6_generalbundle_ad_place_0_mobility, textarea#p6_generalbundle_ad_description
+    {
+        width: 240px !important;
+    }
+
+    /* Modif de taille des champs Recherche d'annonce sur la vue des annonces */
+    select#ad_type, #inputRegion {
+        width: 240px !important;
+    }
+
+    /*--------------------------------------*/
+    /* Page de création d'annonce */
+    /*--------------------------------------*/
+
+    /* Centrer le profilPicture sur la vue mobile */
+    .account-circle-adForm {
+        display: inline-block;
+        border: 6px solid var(--main-color-one);
+        width: 180px;
+        height: 180px;
+        border-radius: 100%;
+        overflow: hidden;
+        margin-left: 10% !important;
+        /*margin-bottom: -20% !important;*/
+    }
+    .account-circle-advertForm {
+        display: inline-block;
+        border: 6px solid var(--main-color-one);
+        width: 180px;
+        height: 180px;
+        border-radius: 100%;
+        overflow: hidden;
+        margin-left: 10% !important;
+        /*margin-bottom: -20% !important;*/
+    }
+
+    /* Augmenter les marges du texte lié à l'image de profil */
+    .div-mobile-down {
+        margin-top: 30% !important;
     }
 }
