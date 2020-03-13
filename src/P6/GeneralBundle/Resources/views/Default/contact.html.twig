@@ -1,0 +1,50 @@
+    <div style="color: #6200ea; text-decoration: underline;">
+        <h1>My Season -  Mettre en relations saisonniers et employeurs</h1>
+    </div>
+    <div>
+        <h2>Demande de contact de la part de <span style="color: #6200ea;">{{ contact.currentUserName }}</span></h2>
+        <h3>
+            Cette nouvelle personne souhaiterais obtenir plus d'informations à propos de l'annonce
+            <a href="{{ url('advert_detail', {id: contact.advert.id}) }}" style="color: #ea6200;">
+                N°{{ contact.advert.id }} - {{ contact.advert.title }}
+            </a>
+            du {{ contact.advert.publishedDate|date('d/m/Y') }}
+        </h3>
+    </div>
+
+    <div style="background-color: #6200ea; color: white;border-radius: .25rem;padding: 5px;">
+        <h2>Rappel de votre annonce : </h2>
+        <p><strong>Nom de l'annonce : </strong> <a href="{{ url('advert_detail', {id: contact.advert.id}) }}" style="color: #ea6200;">{{ contact.advert.title }}</a></p>
+        {% if contact.advert.userRole == 'employeur' %}
+            <p><strong>Entreprise : </strong>{{ contact.user.fullName }}</p>
+        {% else %}
+            <p><strong>Prénom et nom : </strong>{{ contact.user.fullName }}</p>
+        {% endif %}
+        <p><strong>Lieu : </strong>{{ contact.advert.place }}</p>
+    </div>
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <div style="border: #6200ea solid 1px;border-radius: .25rem;padding: 5px;">
+        <h2 style="color: #6200ea;">Votre interlocuteur et son message : </h2>
+        {% if contact.advert.userRole == 'saisonnier' %}
+            <p><strong>Entreprise : </strong>{{ contact.currentUserName }}</p>
+        {% else %}
+            <p><strong>Prénom et nom : </strong>{{ contact.currentUserName }}</p>
+        {% endif %}
+        <p><strong>Email : </strong><strong style="color: #ea6200;">{{ contact.currentUserMail }}</strong></p>
+        <p><strong>Message : </strong></p>
+        <p>{{ contact.message }}</p>
+    </div>
+
+    <br/>
+
+    <div>
+        <h3 style="color: #6200ea;">
+            <a href="{{ url('general_homepage')}}" style="text-decoration: none;color: #6200ea;" title="aller sur le site">
+                L'Équipe My Season
+            </a>
+        </h3>
+    </div>
