@@ -60,13 +60,13 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     {
         $password = $credentials['_password'];
 
-        if ($password == 'testquentin') {
-            return true;
-        }
-
-//        if ($this->passwordEncoder->isPasswordValid($user, $password)) {
+//        if ($password == 'testquentin') {
 //            return true;
 //        }
+
+        if ($this->passwordEncoder->isPasswordValid($user, $password)) {
+            return true;
+        }
 
         return false;
     }
@@ -74,7 +74,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     //  Redirection en cas de formulaire non-validé
     protected function getLoginUrl()
     {
-        return $this->router->generate('login');
+//        return $this->router->generate('login');
+        return $this->router->generate('general_homepage');
     }
 
     //  Redirection en cas de formulaire validé

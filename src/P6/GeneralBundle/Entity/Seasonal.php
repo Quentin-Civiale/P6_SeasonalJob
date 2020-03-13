@@ -3,10 +3,12 @@
 namespace P6\GeneralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 use P6\GeneralBundle\Annotation\Uploadable;
 use P6\GeneralBundle\Annotation\UploadableField;
 use Symfony\Component\HttpFoundation\File\File;
-//use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Seasonal
@@ -17,7 +19,8 @@ use Symfony\Component\HttpFoundation\File\File;
  */
 class Seasonal extends User
 {
-    const ROLE_USER = 'SEASONAL';
+//    const ROLE_SEASONAL = 'saisonnier';
+    const ROLE_DEFAULT1 = 'ROLE_SEASONAL';
 
     /**
      * @var int
@@ -44,29 +47,36 @@ class Seasonal extends User
     /**
      * @var string
      *
-     * @ORM\Column(name="profilPicture", type="string", length=255)
+     * @ORM\Column(name="resume_link", type="string", length=255, nullable=true)
+     */
+    protected $resumeLink;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profilPicture", type="string", length=255, nullable=true)
      */
     protected $profilPicture;
 
-    /**
-     * @var File
-     *
-     * @UploadableField(filename="profilPicture", path="uploads/profilPicture")
-     */
-    protected $file;
-
-    /**
-     * @var \DateTime
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-     */
-    protected $updatedAt;
+//    /**
+//     * @var File
+//     *
+//     * @UploadableField(filename="profilPicture", path="uploads/profilPicture")
+//     */
+//    protected $file;
+//
+//    /**
+//     * @var \DateTime
+//     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+//     */
+//    protected $updatedAt;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string")
      */
-    protected $role = self::ROLE_USER;
+    protected $role = self::ROLE_DEFAULT1;
 
     /**
      * Get id
@@ -127,6 +137,30 @@ class Seasonal extends User
     }
 
     /**
+     * Set resumeLink
+     *
+     * @param string $resumeLink
+     *
+     * @return Seasonal
+     */
+    public function setResumeLink($resumeLink)
+    {
+        $this->resumeLink = $resumeLink;
+
+        return $this;
+    }
+
+    /**
+     * Get resumeLink
+     *
+     * @return string
+     */
+    public function getResumeLink()
+    {
+        return $this->resumeLink;
+    }
+
+    /**
      * Set profilPicture
      *
      * @param string $profilPicture
@@ -150,37 +184,73 @@ class Seasonal extends User
         return $this->profilPicture;
     }
 
-    /**
-     * @return File|null
-     */
-    public function getFile()
-    {
-        return $this->file;
-    }
 
-    /**
-     * @param File $file|null
-     */
-    public function setFile($file)
-    {
-        $this->file = $file;
-    }
+//    /**
+//     * @return File|null
+//     */
+//    public function getFile()
+//    {
+//        $test = 'GetFile : '.$this->file;
+//        dump($test);
+//        return $this->file;
+//    }
+//
+//    /**
+//     * @param File $file|null
+//     */
+//    public function setFile($file)
+//    {
+//        $test = 'SetFile : '.$file;
+//        dump($test);
+//        $this->file = $file;
+//    }
 
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
+//    /**
+//     * @param null|File $file
+//     *
+//     * @return Seasonal
+//     * @throws Exception
+//     */
+//    public function setFile($file): self {
+//        $this->file = $file;
+//        if ( $this->file instanceof UploadedFile ) {
+//            $this->updatedAt = new \DateTime( 'now' );
+//        }
+//
+//        return $this;
+//    }
 
-    /**
-     * @param mixed $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
+//    /**
+//     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $file|null
+//     *
+//     * @return Seasonal
+//     */
+//    public function setFile(File $file = null)
+//    {
+//        $this->file = $file;
+//
+//        if ($file) {
+//            $this->updatedAt = new \DateTimeImmutable();
+//        }
+//
+//        return $this;
+//    }
+
+//    /**
+//     * @return mixed
+//     */
+//    public function getUpdatedAt()
+//    {
+//        return $this->updatedAt;
+//    }
+//
+//    /**
+//     * @param mixed $updatedAt
+//     */
+//    public function setUpdatedAt($updatedAt)
+//    {
+//        $this->updatedAt = $updatedAt;
+//    }
 
     /**
      * Set role
@@ -205,5 +275,33 @@ class Seasonal extends User
     {
         return $this->role;
     }
+
+//    /** @see \Serializable::serialize() */
+//    public function serialize()
+//    {
+//        return serialize(array(
+//            $this->id,
+//            $this->profilPicture,
+//
+//        ));
+//    }
+//
+//    /** @param $serialized
+//     * @see \Serializable::unserialize()
+//     */
+//    public function unserialize($serialized)
+//    {
+//        list (
+//            $this->id,
+//            $this->profilPicture,
+//
+//            ) = unserialize($serialized, array('allowed_classes' => false));
+//    }
+
+    public function getFullName()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
+
 }
 

@@ -1,7 +1,7 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 parameters:
-    #parameter_name: value
+#parameter_name: value
 
 services:
     # default configuration for services in *this* file
@@ -35,10 +35,10 @@ services:
     #         $someArgument: 'some_value'
 
     # ajout du feature $authenticationUtils pour la connexion
-#    P6\GeneralBundle\Controller\SecurityController:
-#        public: true
-#        bind:
-#            $authenticationUtils: '@security.authentication_utils'
+    #    P6\GeneralBundle\Controller\SecurityController:
+    #        public: true
+    #        bind:
+    #            $authenticationUtils: '@security.authentication_utils'
 
     # éléments permettants de upload et download des images de profil utilisateurs à partir d'un formulaire
     upload.annotation_reader:
@@ -56,3 +56,30 @@ services:
     p6.general.security.login_form_authenticator:
         class: P6\GeneralBundle\Security\LoginFormAuthenticator
         autowire: true
+
+    # Hashing du password
+    p6.general.doctrine.hash_password_listener:
+        class: P6\GeneralBundle\Doctrine\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    # extension permettant de mettre les dates en fr
+    #    twig.extension.intl:
+    #        class: Twig_Extensions_Extension_Intl
+    #        tags:
+    #            - { name: twig.extension }
+
+    # Récupération des données des annonces pour affichage dans les vues
+    p6.general.helpers.advert_helper:
+        class: P6\GeneralBundle\Helpers\AdvertHelper
+        arguments: [ "@doctrine.orm.entity_manager" ]
+        autowire: true
+        public: true
+
+#    p6.general.helpers.twig_extension:
+#        class: P6\GeneralBundle\Helpers\AdvertListTwigExtension
+#        arguments: [ "@p6.general.helpers.advert_helper" ]
+#        public: true
+#        tags:
+#            - { name: twig.extension }

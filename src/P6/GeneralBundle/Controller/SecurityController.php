@@ -3,10 +3,13 @@
 namespace P6\GeneralBundle\Controller;
 
 use P6\GeneralBundle\Annotation\Uploadable;
+use P6\GeneralBundle\Annotation\UploadableField;
 use P6\GeneralBundle\Entity\Seasonal;
+use P6\GeneralBundle\Entity\User;
 use P6\GeneralBundle\Form\loginFormType;
 use P6\GeneralBundle\Form\SeasonalType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use P6\GeneralBundle\Entity\Employer;
 use P6\GeneralBundle\Form\EmployerType;
@@ -17,7 +20,7 @@ class SecurityController extends Controller
 
     public function userRegistrationAction (Request $request)
     {
-        // Formulaire employeur
+        // Formulaire création employeur
 
         $employer = new Employer();
 
@@ -34,6 +37,7 @@ class SecurityController extends Controller
             if ($formEmployer->isSubmitted() && $formEmployer->isValid()) {
                 /** @var Employer $employer */
                 $employer = $formEmployer->getData();
+                $employer->setProfilPicture(User::getDefaultProfilPicture());
 
                 dump($employer);
 
@@ -43,22 +47,23 @@ class SecurityController extends Controller
 
                 $this->addFlash('registration', 'Votre profil a bien été enregistré !');
 
-//                    return $this->get('security.authentication.guard_handler')
-//                        ->authenticateUserAndHandleSuccess(
-//                            $employer,
-//                            $request,
-//                            $this->get('p6.general.security.login_form_authenticator'),
-//                            'main'
-//                        );
+                // Code permettant la connection lors de la validation de l'inscription
+                return $this->get('security.authentication.guard_handler')
+                    ->authenticateUserAndHandleSuccess(
+                        $employer,
+                        $request,
+                        $this->get('p6.general.security.login_form_authenticator'),
+                        'main'
+                    );
 
-                return $this->redirectToRoute('employer_account', [
-                    'role' => $employer->getRole(),
-                    'id' => $employer->getId(),
-                ]);
+//                    return $this->redirectToRoute('employer_account', [
+//                        'role' => $employer->getRole(),
+//                        'id' => $employer->getId(),
+//                    ]);
             }
         }
 
-        // Formulaire saisonnier
+        // Formulaire création saisonnier
 
         $seasonal = new Seasonal();
 
@@ -73,10 +78,12 @@ class SecurityController extends Controller
             if ($formSeasonal->isSubmitted() && $formSeasonal->isValid()) {
                 /** @var Seasonal $seasonal */
                 $seasonal = $formSeasonal->getData();
+//                    $defaultProfilePictureUrl = $this->get('kernel')->getProjectDir().'\web\Images\Pattern_My_Season.png';
+                $seasonal->setProfilPicture(User::getDefaultProfilPicture());
 
                 dump($seasonal);
 
-                $seasonal->setUpdatedAt(new \DateTime());
+//                    $seasonal->setUpdatedAt(new \DateTime());
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($seasonal);
@@ -84,18 +91,21 @@ class SecurityController extends Controller
 
                 $this->addFlash('registration', 'Votre profil a bien été enregistré !');
 
-//                    return $this->get('security.authentication.guard_handler')
-//                        ->authenticateUserAndHandleSuccess(
-//                            $seasonal,
-//                            $request,
-//                            $this->get('p6.general.security.login_form_authenticator'),
-//                            'main'
-//                        );
+                dump($seasonal->getId());
 
-                return $this->redirectToRoute('seasonal_account', [
-                    'role' => $seasonal->getRole(),
-                    'id' => $seasonal->getId(),
-                ]);
+                // Code permettant la connection sur le compte lors de la validation de l'inscription
+                return $this->get('security.authentication.guard_handler')
+                    ->authenticateUserAndHandleSuccess(
+                        $seasonal,
+                        $request,
+                        $this->get('p6.general.security.login_form_authenticator'),
+                        'main'
+                    );
+
+//                    return $this->redirectToRoute('seasonal_account', [
+//                        'role' => $seasonal->getRole(),
+//                        'id' => $seasonal->getId(),
+//                    ]);
             }
         }
 
@@ -122,30 +132,42 @@ class SecurityController extends Controller
 
         // Formulaire de connexion doc symfony
 
-//        $authenticationUtils = $this->get('security.authentication_utils');
-//
-//        $error = $authenticationUtils->getLastAuthenticationError();
-//
-//        $lastUsername = $authenticationUtils->getLastUsername();
-//
-//        $formLogin = $this->createForm(loginFormType::class, [
-//            '_email' => $lastUsername,
-//            'action' => $this->generateUrl('registerUser'),
-//        ]);
+        $authenticationUtils = $this->get('security.authentication_utils');
+
+//        dump($employer);
+//        dump($seasonal);
+//        dump($authenticationUtils);
+
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+//        dump($error);
+
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+//        dump($lastUsername);
+
+        $formLogin = $this->createForm(loginFormType::class, [
+            '_email' => $lastUsername,
+            'action' => $this->generateUrl('registerUser'),
+        ]);
+
+        dump($formLogin);
 
 //        return $this->render('@General/Default/modalForm.html.twig', [
 //            'last_username' => $lastUsername,
 //            'error' => $error,
 //        ]);
 
-        // Renvoi de vue si les formulaires ne sont pas valides
+//        $this->addFlash('login', 'De retour sur My Season, il y a sûrement de nouvelles annonces faîtes pour vous !');
+
+        // Renvoi de vue des différents formulaires
 
         return $this->render('@General/Default/modalForm.html.twig', [
             'formEmployer' => $formEmployer->createView(),
             'formSeasonal' => $formSeasonal->createView(),
-//            'formLogin' => $formLogin->createView(),
+            'formLogin' => $formLogin->createView(),
 //            'last_username' => $lastUsername,
-//            'error' => $error,
+            'error' => $error,
         ]);
     }
 

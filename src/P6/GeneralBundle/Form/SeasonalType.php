@@ -6,9 +6,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,9 +25,12 @@ class SeasonalType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
 //            ->add('profilPicture', HiddenType::class)
-            ->add('file', FileType::class, ['required' => false])
+            ->add('resumeLink', UrlType::class, ['required' => false])
+//            ->add('file', FileType::class, ['required' => false])
             ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+            ])
             ->add('registration', CheckboxType::class)
             ->getForm();
     }

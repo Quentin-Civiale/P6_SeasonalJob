@@ -6,29 +6,57 @@ general_homepage:
     path:     /MySeason/accueil
     defaults: { _controller: GeneralBundle:Navigation:home }
 
-posting_ad:
-    path:     /MySeason/accueil/publier-une-annonce
-    defaults: { _controller: GeneralBundle:PostingAd:posting }
+#employer_account:
+#    path:     /MySeason/account/{role}/{id}/mon-compte-employeur
+#    defaults: { _controller: GeneralBundle:UserAccount:employerAccount }
+#
+#seasonal_account:
+#    path:     /MySeason/account/{role}/{id}/mon-compte-saisonnier
+#    defaults: { _controller: GeneralBundle:UserAccount:seasonalAccount }
 
-employer_account:
-    path:     /MySeason/{role}/{id}/mon-compte-employeur
-    defaults: { _controller: GeneralBundle:UserAccount:employerAccount }
+#user_account:
+#    path:     /MySeason/account/mon-compte
+#    defaults: { _controller: GeneralBundle:UserAccount:userAccount }
 
-seasonal_account:
-    path:     /MySeason/{role}/{id}/mon-compte-saisonnier
-    defaults: { _controller: GeneralBundle:UserAccount:seasonalAccount }
+user_profil:
+    path:     /MySeason/account/mon-compte-{id}
+    defaults: { _controller: GeneralBundle:UserAccount:userProfil }
+
+#user_edit_profil_picture:
+#    path:     /MySeason/account/mon-compte/image-de-profil
+#    defaults: { _controller: GeneralBundle:UserAccount:editProfilPicture }
+
+edit_seasonal_account:
+    path:     /MySeason/account/mon-compte/édition-de-mon-compte/{id}
+    defaults: { _controller: GeneralBundle:UserAccount:editSeasonalAccount }
 
 user_ad:
-    path:     /MySeason/mon-compte/mes-annonces
-    defaults: { _controller: GeneralBundle:UserAd:userAd }
+    path:     /MySeason/account/mes-annonces-{id}
+    defaults: { _controller: GeneralBundle:UserAd:userAdvertList }
 
-general_ad_list:
-    path:     /MySeason/accueil/les-annonces
-    defaults: { _controller: GeneralBundle:AdList:list }
+new_published_advert:
+    path:     /MySeason/account/nouvelle-annonce-publiée/{id}
+    defaults: { _controller: GeneralBundle:UserAd:createdAdvert }
 
-ad_detail:
-    path:     /MySeason/accueil/les-annonces/annonce
-    defaults: { _controller: GeneralBundle:AdDetail:detail }
+#---------------------------------------------------------------
+#    Page d'annonce et de détail
+#---------------------------------------------------------------
+
+advert_detail:
+    path:     /MySeason/accueil/les-annonces/annonce-{id}
+    defaults: { _controller: GeneralBundle:AdvertDetail:detail }
+
+#---------------------------------------------------------------
+#    Liste et Recherche d'annonces
+#---------------------------------------------------------------
+
+general_advert_list:
+    path:     /MySeason/accueil/les-annonces/
+    defaults: { _controller: GeneralBundle:AdvertList:advertListing }
+
+#---------------------------------------------------------------
+#    Pages d'informations (footer)
+#---------------------------------------------------------------
 
 employer_charter:
     path:     /MySeason/accueil/charte-de-l'employeur
@@ -38,9 +66,33 @@ seasonal_charter:
     path:     /MySeason/accueil/charte-du-saisonnier
     defaults: { _controller: GeneralBundle:Charter:seasonalCharter }
 
-#_______________________________________________________________
+legal_notice:
+    path:     /MySeason/accueil/mentions-legales
+    defaults: { _controller: GeneralBundle:Legal:legalNotice }
+
+privacy_policy:
+    path:     /MySeason/accueil/poltique-de-confidentialité
+    defaults: { _controller: GeneralBundle:Legal:privacyPolicy }
+
+#---------------------------------------------------------------
+#    Création et publication d'annonce
+#---------------------------------------------------------------
+
+posting_advert_no_login:
+    path:     /MySeason/account/publier-une-annonce
+    defaults: { _controller: GeneralBundle:PostingAd:posting }
+
+posting_seasonal_advert:
+    path:     /MySeason/account/seasonal/publier-une-annonce
+    defaults: { _controller: GeneralBundle:PostingAd:postingSeasonalAd }
+
+posting_employer_advert:
+    path:     /MySeason/account/employer/publier-une-annonce
+    defaults: { _controller: GeneralBundle:PostingAd:postingEmployerAd }
+
+#---------------------------------------------------------------
 #    Inscription et Connexion
-#_______________________________________________________________
+#---------------------------------------------------------------
 
 #registerEmployerOneModal:
 #    path:     /MySeason/accueil/inscription/employeur
@@ -56,8 +108,8 @@ registerUser:
 
 login:
     path:     /MySeason/accueil/connexion
-    defaults: { _controller: GeneralBundle:Login:login }
+    defaults: { _controller: GeneralBundle:Security:userRegistration }
 
 logout:
     path:     /MySeason/accueil/déconnexion
-    defaults: { _controller: GeneralBundle:Login:logout }
+    defaults: { _controller: GeneralBundle:Security:userRegistration }

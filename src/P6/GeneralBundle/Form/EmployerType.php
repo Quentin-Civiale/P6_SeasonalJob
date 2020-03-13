@@ -6,6 +6,7 @@ use P6\GeneralBundle\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -25,7 +26,9 @@ class EmployerType extends AbstractType
             ->add('company', TextType::class)
             ->add('contact', TextType::class)
             ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+            ])
             ->add('registration', CheckboxType::class)
             ->getForm();
     }

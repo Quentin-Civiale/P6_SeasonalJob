@@ -24,7 +24,7 @@ class LoginController extends Controller
 //            'action' => $this->generateUrl('login'),
         ]);
 
-        return $this->render('@General/Default/loginForm.html.twig', [
+        return $this->render('@General/Default/modalForm.html.twig', [
             'formLogin' => $formLogin->createView(),
 //            '_username' => $lastUsername,
             'error' => $error,

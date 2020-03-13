@@ -12,7 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Employer extends User
 {
-    const ROLE_USER = 'EMPLOYER';
+//    const ROLE_EMPLOYER = 'employeur';
+    const ROLE_DEFAULT2 = 'ROLE_EMPLOYER';
 
     /**
      * @var int
@@ -39,9 +40,16 @@ class Employer extends User
     /**
      * @var string
      *
+     * @ORM\Column(name="profilPicture", type="string", length=255, nullable=true)
+     */
+    protected $profilPicture;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="string")
      */
-    protected $role = self::ROLE_USER;
+    protected $role = self::ROLE_DEFAULT2;
 
     /**
      * Get id
@@ -102,6 +110,30 @@ class Employer extends User
     }
 
     /**
+     * Set profilPicture
+     *
+     * @param string $profilPicture
+     *
+     * @return Employer
+     */
+    public function setProfilPicture($profilPicture)
+    {
+        $this->profilPicture = $profilPicture;
+
+        return $this;
+    }
+
+    /**
+     * Get profilPicture
+     *
+     * @return string
+     */
+    public function getProfilPicture()
+    {
+        return $this->profilPicture;
+    }
+
+    /**
      * Set role
      *
      * @param string $role
@@ -123,5 +155,10 @@ class Employer extends User
     public function getRole(): string
     {
         return $this->role;
+    }
+
+    public function getFullName()
+    {
+        return $this->company;
     }
 }

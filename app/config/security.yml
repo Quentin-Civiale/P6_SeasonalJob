@@ -1,16 +1,19 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
 security:
-#    encoders:
-#        P6\GeneralBundle\Entity\User: bcrypt
+    role_hierarchy:
+        #            ROLE_ADMIN: ROLE_USER, ROLE_EMPLOYER, ROLE_SEASONAL, EMPLOYER, SEASONAL
+        #            ROLE_ADMIN: employeur, saisonnier
+        ROLE_ADMIN: ROLE_SEASONAL, ROLE_EMPLOYER
+    encoders:
+        P6\GeneralBundle\Entity\User: bcrypt
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-#        in_memory:
-#            memory: ~
+        #        in_memory:
+        #            memory: ~
         our_users:
             entity: { class: P6\GeneralBundle\Entity\User, property: email}
-
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -32,8 +35,17 @@ security:
             #http_basic: ~
 
             # https://symfony.com/doc/current/security/form_login_setup.html
-#            form_login:
-#                login_path: login
-#                check_path: login
-#                username_parameter: "login_form[_username]"
-#                password_parameter: "login_form[_password]"
+    #            form_login:
+    #                login_path: login
+    #                check_path: login
+    #                username_parameter: "login_form[_username]"
+    #                password_parameter: "login_form[_password]"
+
+    access_control:
+        # expression régulière indiquant que l'accés à ce chemin sera autorisé que si le user est enregistré sous EMPLOYER
+        #        - { path: ^/account, roles: ROLE_USER }
+        #        - { path: ^/account, roles: [ROLE_EMPLOYER, ROLE_SEASONAL]}
+        #        - { path: ^/account, roles: ROLE_SEASONAL }
+        #        - { path: ^/account/mon-compte, roles: [ROLE_SEASONAL, ROLE_EMPLOYER] }
+        - { path: ^/account/employer, roles: ROLE_EMPLOYER }
+        - { path: ^/account/seasonal, roles: ROLE_SEASONAL }

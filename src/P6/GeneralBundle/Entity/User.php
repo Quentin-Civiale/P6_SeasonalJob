@@ -2,7 +2,11 @@
 
 namespace P6\GeneralBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use P6\GeneralBundle\Entity\Employer;
+use P6\GeneralBundle\Entity\Seasonal;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -36,11 +40,20 @@ class User implements UserInterface
     protected $email;
 
     /**
+     * The encoded password
+     *
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
     protected $password;
+
+    /**
+     * A non-persisted field that's used to create the encoded password.
+     *
+     * @var string
+     */
+    protected $plainPassword;
 
     /**
      * @var string
@@ -88,14 +101,10 @@ class User implements UserInterface
      * Set password
      *
      * @param string $password
-     *
-     * @return User
      */
     public function setPassword($password)
     {
         $this->password = $password;
-
-        return $this;
     }
 
     /**
@@ -132,6 +141,11 @@ class User implements UserInterface
         return $this->registration;
     }
 
+    public static function getDefaultProfilPicture()
+    {
+        return 'Images/Pattern_My_Season.png';
+    }
+
 //    ---------- Méthode pour la gestion de la connexion ----------
 
     public function getUsername()
@@ -141,7 +155,9 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return array($this->role);
+//        return ['ROLE_DEFAULT'];
+//        return ['ROLE_EMPLOYER', 'ROLE_SEASONAL'];
 //        return ['EMPLOYER', 'SEASONAL'];
     }
 
@@ -152,7 +168,23 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
-
+        $this->plainPassword = null;
     }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+
+        $this->password = null;
+    }
+
+    public function getFullName() {
+        return "";
+    }
+
 }
 

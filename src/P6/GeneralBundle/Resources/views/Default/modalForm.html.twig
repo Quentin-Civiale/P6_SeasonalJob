@@ -7,7 +7,8 @@
                     <div class="row">
                         <p>&nbsp;&nbsp;&nbsp;</p>
                         <a class="navbar-brand" href="{{ path('general_homepage') }}">
-                            <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">
+                            {#                            <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">#}
+                            <img src="{{ asset('Images/My_Season_Icon_reverse3.0.png') }}" width="55" height="45" class="d-inline-block align-top logo" alt="">
                         </a>
                         <div class="title-modal">
                             <h1>- My -</h1>
@@ -24,21 +25,21 @@
 
             {#            <div class="col-lg-10 offset-lg-1 center">#}
             <ul class="nav" style="margin-left: auto; margin-right: auto;" role="tablist">
-                <li class="nav-item col-lg-6 center">
-                    <a class="nav-link btn-modal" data-toggle="tab" href="#modalRegister" role="tab">Inscription</a>
+                <li class="nav-item col-lg-6 center modal-choice-class">
+                    <a class="nav-link btn-modal" data-toggle="tab" href="#modalRegister" role="tab"><i class="fas fa-user-plus"></i>&nbsp;Inscription</a>
                 </li>
-                <li class="nav-item col-lg-6 center">
-                    <a class="nav-link btn-modal active" data-toggle="tab" href="#modalLogin" role="tab">Connexion</a>
+                <li class="nav-item col-lg-6 center modal-choice-class">
+                    <a class="nav-link btn-modal active" data-toggle="tab" href="#modalLogin" role="tab"><i class="fas fa-sign-in-alt"></i>&nbsp;Connexion</a>
                 </li>
             </ul>
             {#            </div>#}
 
-            <div class="tab-content">
+            <div class="tab-content background-pattern">
 
                 <div class="tab-pane fade in show" id="modalRegister" role="tabpanel">
                     <div class="modal-body">
 
-                        <div class="col-lg-10 offset-lg-1">
+                        <div class="col-lg-10 offset-lg-1 center">
                             <div class="user-type custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="employer_input" name="user_type_form" class="custom-control-input" value="employer_input" checked>
                                 <label class="custom-control-label" for="employer_input">Je suis professionnel</label>
@@ -55,19 +56,24 @@
                         <div class="col-lg-10 offset-lg-1" id="employer_type">
                             <div class="form-group">
                                 <label>Nom de l'entreprise</label><br/>
-                                {{ form_widget(formEmployer.company) }}
+                                <div class="input-form center">{{ form_widget(formEmployer.company) }}</div>
                             </div>
                             <div class="form-group">
                                 <label>Personne à contacter</label><br/>
-                                {{ form_widget(formEmployer.contact) }}
+                                <div class="input-form center">{{ form_widget(formEmployer.contact) }}</div>
                             </div>
                             <div class="form-group">
                                 <label>Votre e-mail</label><br/>
-                                {{ form_widget(formEmployer.email) }}
+                                <div class="input-form center">{{ form_widget(formEmployer.email) }}</div>
+                                <div class="input-form center">{{ form_errors(formEmployer.email) }}</div>
                             </div>
                             <div class="form-group">
                                 <label>Indiquez un mot de passe</label><br/>
-                                {{ form_widget(formEmployer.password) }}
+                                <div class="input-form center">{{ form_widget(formEmployer.plainPassword.first) }}</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmez votre mot de passe</label><br/>
+                                <div class="input-form center">{{ form_widget(formEmployer.plainPassword.second) }}</div>
                             </div>
                             <div class="form-group justify">
                                 <div class="col-lg-12">
@@ -81,7 +87,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border" name="employerSubmit">S'inscrire</button>
+                            <button type="submit" class="col-lg-12 btn btn-main round-button" name="employerSubmit">S'inscrire</button>
                         </div>
                         {{ form_end(formEmployer) }}
 
@@ -89,23 +95,32 @@
                         <div class="col-lg-10 offset-lg-1" id="seasonal_type">
                             <div class="form-group">
                                 <label>Votre prénom</label><br/>
-                                {{ form_widget(formSeasonal.firstname) }}
+                                <div class="input-form center">{{ form_widget(formSeasonal.firstname) }}</div>
                             </div>
                             <div class="form-group">
                                 <label>Votre nom</label><br/>
-                                {{ form_widget(formSeasonal.lastname) }}
+                                <div class="input-form center">{{ form_widget(formSeasonal.lastname) }}</div>
                             </div>
                             <div class="form-group">
-                                <label>Votre image de profil</label><br/>
-                                {{ form_widget(formSeasonal.file) }}
+                                <label>Lien de votre profil LinkedIn</label><br/>
+                                <div class="input-form center">{{ form_widget(formSeasonal.resumeLink) }}</div>
                             </div>
+                            {#                                    <div class="form-group">#}
+                            {#                                        <label>Votre image de profil</label><br/>#}
+                            {#                                        <div class="input-form center">{{ form_widget(formSeasonal.file) }}</div>#}
+                            {#                                    </div>#}
                             <div class="form-group">
                                 <label>Votre e-mail</label><br/>
-                                {{ form_widget(formSeasonal.email) }}
+                                <div class="input-form center">{{ form_widget(formSeasonal.email) }}</div>
+                                <div class="input-form center">{{ form_errors(formSeasonal.email) }}</div>
                             </div>
                             <div class="form-group">
                                 <label>Indiquez un mot de passe</label><br/>
-                                {{ form_widget(formSeasonal.password) }}
+                                <div class="input-form center">{{ form_widget(formSeasonal.plainPassword.first) }}</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmez votre mot de passe</label><br/>
+                                <div class="input-form center">{{ form_widget(formSeasonal.plainPassword.second) }}</div>
                             </div>
                             <div class="form-group justify">
                                 <div class="col-lg-12">
@@ -119,7 +134,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border" name="seasonalSubmit">S'inscrire</button>
+                            <button type="submit" class="col-lg-12 btn btn-main round-button" name="seasonalSubmit">S'inscrire</button>
                         </div>
                         {{ form_end(formSeasonal) }}
 
@@ -128,35 +143,47 @@
                     <div class="modal-footer">
                         <div class="col-lg-12">
                             <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2 row center no-account">
-                                <p>Déjà inscrit ? <a class="logoColor-text log" data-toggle="tab" href="#modalLogin">Connectez-vous</a>.</p>
+                                <p>Déjà inscrit ? <a class="login-text log" data-toggle="tab" href="#modalLogin">Connectez-vous</a>.</p>
                             </div>
                         </div>
                     </div>
+
+                    {#                    <div class="modal-footer">#}
+                    {#                        <div class="col-lg-12">#}
+                    {#                            <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2 nav row center no-account" role="tablist">#}
+                    {#                                <p>Vous avez déjà un compte ? <a class="login-text log nav-link active" data-toggle="tab" href="#modalLogin" role="tab">Connectez-vous</a>.</p>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
 
                 </div>
 
                 <div class="tab-pane fade in show active" id="modalLogin" role="tabpanel">
                     <div class="modal-body">
 
-                        {#                        {% if error %}#}
-                        {#                            <div class="alert alert-danger">#}
-                        {#                                {{ error.messageKey|trans(error.messageData, 'security') }}#}
-                        {#                            </div>#}
-                        {#                        {% endif %}#}
+                        <form action="{{ path('login') }}" method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">
+                                    {#                                    {{ error.messageKey|trans(error.messageData, 'security') }}#}
+                                    Votre e-mail ou votre mot de passe est incorrect !
+                                </div>
+                            {% endif %}
 
-                        {#                        {{ form_start(formLogin) }}#}
-                        {#                        <div class="col-lg-10 offset-lg-1" id="login_type">#}
-                        {#                            <div class="form-group">#}
-                        {#                                <label>Votre e-mail:</label><br/>#}
-                        {#                                {{ form_widget(formLogin._username) }}#}
-                        {#                            </div>#}
-                        {#                            <div class="form-group">#}
-                        {#                                <label>Votre mot de passe:</label><br/>#}
-                        {#                                {{ form_widget(formLogin._password) }}#}
-                        {#                            </div>#}
-                        {#                            <button type="submit" class="col-lg-12 btn btn-primary logoColor-background border-logoColor-border">Se connecter</button>#}
-                        {#                        </div>#}
-                        {#                        {{ form_end(formLogin) }}#}
+                            {{ form_start(formLogin) }}
+                            <div class="col-lg-10 offset-lg-1" id="login_type">
+                                <div class="form-group">
+                                    <label>Votre e-mail :</label><br/>
+                                    <div class="input-form center">{{ form_widget(formLogin._username) }}</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Votre mot de passe :</label><br/>
+                                    <div class="input-form center">{{ form_widget(formLogin._password) }}</div>
+                                </div>
+                                <br/>
+                                <button type="submit" class="col-lg-12 btn btn-connect round-button">Se connecter</button>
+                            </div>
+                            {{ form_end(formLogin) }}
+                        </form>
 
                     </div>
 
@@ -167,6 +194,14 @@
                             </div>
                         </div>
                     </div>
+
+                    {#                    <div class="modal-footer">#}
+                    {#                        <div class="col-lg-12">#}
+                    {#                            <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2 nav row center no-account" role="tablist">#}
+                    {#                                <p>Vous n'avez pas encore de compte ? <a class="logoColor-text log nav-link" data-toggle="tab" href="#modalRegister" role="tab">Inscrivez-vous</a>.</p>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
 
                 </div>
 
