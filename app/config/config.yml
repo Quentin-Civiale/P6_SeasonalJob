@@ -8,6 +8,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    # lien pour récupérer la nouvelle image de profil lors de l'édition du profil saisonnier
+    profil_picture_directory: '%kernel.project_dir%/web/uploads/profilPicture'
 
 framework:
     #esi: ~
@@ -19,7 +21,7 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    serializer: { enable_annotations: true }
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -68,5 +70,5 @@ swiftmailer:
     spool: { type: memory }
 
 sensio_framework_extra:
-   router:
+    router:
         annotations: false
