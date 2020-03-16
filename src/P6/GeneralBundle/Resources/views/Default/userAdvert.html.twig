@@ -43,11 +43,13 @@
                                 <p>&nbsp;&nbsp;&nbsp;</p>
                                 {% if advert.userRole == 'employeur' %}
                                     <i class="fas fa-user-tie resize-icon white-text"></i>
+                                    <p>&nbsp;&nbsp;&nbsp;</p>
+                                    <p class="white-text italic"><strong>{{ employer.company }}</strong></p>
                                 {% else %}
                                     <i class="far fa-user resize-icon white-text"></i>
+                                    <p>&nbsp;&nbsp;&nbsp;</p>
+                                    <p class="white-text italic"><strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</strong></p>
                                 {% endif %}
-                                <p>&nbsp;&nbsp;&nbsp;</p>
-                                <p class="white-text italic"><strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</strong></p>
                             </div>
                         </div>
                         <div class="col right-align">
