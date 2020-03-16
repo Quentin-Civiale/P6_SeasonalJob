@@ -127,5 +127,4 @@ class Contact {
         return $this;
     }
 
-
 }

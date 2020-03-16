@@ -6,13 +6,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class AdvertSearch
 {
-//    public function __construct(string $userRoleSearch, string $categorySearch, string $placeSearch)
-//    {
-//        $this->userRoleSearch = $userRoleSearch;
-//        $this->categorySearch = $categorySearch;
-//        $this->placeSearch = $placeSearch;
-//    }
-
     /**
      * @var string
      *

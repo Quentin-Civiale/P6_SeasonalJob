@@ -3,12 +3,7 @@
 namespace P6\GeneralBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 use P6\GeneralBundle\Annotation\Uploadable;
-use P6\GeneralBundle\Annotation\UploadableField;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Seasonal
@@ -19,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Seasonal extends User
 {
-//    const ROLE_SEASONAL = 'saisonnier';
     const ROLE_DEFAULT1 = 'ROLE_SEASONAL';
 
     /**

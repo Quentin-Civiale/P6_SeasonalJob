@@ -2,11 +2,7 @@
 
 namespace P6\GeneralBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use P6\GeneralBundle\Entity\Employer;
-use P6\GeneralBundle\Entity\Seasonal;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -156,9 +152,6 @@ class User implements UserInterface
     public function getRoles()
     {
         return array($this->role);
-//        return ['ROLE_DEFAULT'];
-//        return ['ROLE_EMPLOYER', 'ROLE_SEASONAL'];
-//        return ['EMPLOYER', 'SEASONAL'];
     }
 
     public function getSalt()

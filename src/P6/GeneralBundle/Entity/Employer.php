@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Employer extends User
 {
-//    const ROLE_EMPLOYER = 'employeur';
     const ROLE_DEFAULT2 = 'ROLE_EMPLOYER';
 
     /**
