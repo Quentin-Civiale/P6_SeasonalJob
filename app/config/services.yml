@@ -34,12 +34,6 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    # ajout du feature $authenticationUtils pour la connexion
-    #    P6\GeneralBundle\Controller\SecurityController:
-    #        public: true
-    #        bind:
-    #            $authenticationUtils: '@security.authentication_utils'
-
     # éléments permettants de upload et download des images de profil utilisateurs à partir d'un formulaire
     upload.annotation_reader:
         class: P6\GeneralBundle\Annotation\UploadAnnotationReader
@@ -64,22 +58,9 @@ services:
         tags:
             - { name: doctrine.event_subscriber }
 
-    # extension permettant de mettre les dates en fr
-    #    twig.extension.intl:
-    #        class: Twig_Extensions_Extension_Intl
-    #        tags:
-    #            - { name: twig.extension }
-
     # Récupération des données des annonces pour affichage dans les vues
     p6.general.helpers.advert_helper:
         class: P6\GeneralBundle\Helpers\AdvertHelper
         arguments: [ "@doctrine.orm.entity_manager" ]
         autowire: true
         public: true
-
-#    p6.general.helpers.twig_extension:
-#        class: P6\GeneralBundle\Helpers\AdvertListTwigExtension
-#        arguments: [ "@p6.general.helpers.advert_helper" ]
-#        public: true
-#        tags:
-#            - { name: twig.extension }
