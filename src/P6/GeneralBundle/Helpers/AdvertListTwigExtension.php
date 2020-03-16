@@ -5,10 +5,10 @@ namespace P6\GeneralBundle\Helpers;
 use Twig\Extension\AbstractExtension as TwigExtension;
 use Twig\TwigFunction;
 
-
 class AdvertListTwigExtension extends TwigExtension
 {
     private $container;
+
     public function __construct(AdvertHelper $container=null)
     {
         $this->container = $container;
@@ -21,8 +21,10 @@ class AdvertListTwigExtension extends TwigExtension
         ];
     }
 
-    public function getUser($advert = null) {
+    public function getUser($advert = null)
+    {
         $user = $this->container->getUser($advert);
+
         return $user->getFullName();
     }
 

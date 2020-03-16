@@ -3,10 +3,8 @@
 
 namespace P6\GeneralBundle\Helpers;
 
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use P6\GeneralBundle\Entity\Advert;
-
 
 class AdvertHelper
 {

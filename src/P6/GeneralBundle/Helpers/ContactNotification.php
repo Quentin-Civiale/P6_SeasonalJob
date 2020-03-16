@@ -12,7 +12,6 @@ use Twig\Environment;
  */
 class ContactNotification
 {
-
     /**
      * @var \Swift_Mailer
      */
