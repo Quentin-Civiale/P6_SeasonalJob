@@ -87,7 +87,6 @@
                             {{ advert.description }}
                         </p>
                         <br/>
-                        {# <h6 class="white-text"><strong>Lieu</strong></h6> #}
                         <div class="row">
                             <p>&nbsp;&nbsp;&nbsp;</p>
                             <i class="fas fa-map-marker-alt resize-icon white-text"></i>
@@ -110,25 +109,15 @@
                                 <br/>
                             {% endif %}
                         {% endif %}
-                        {# <h6 class="white-text"><strong>Disponibilité</strong></h6> #}
                         <div class="row">
                             <p>&nbsp;&nbsp;&nbsp;</p>
                             <i class="far fa-calendar-alt resize-icon white-text"></i>
                             <p>&nbsp;&nbsp;&nbsp;</p>
                             <p class="white-text">Du {{ advert.dateStart|date('d/m/Y') }} au {{ advert.dateEnd|date('d/m/Y') }}</p>
                         </div>
-                        {#                        <br/>#}
-                        {#                        {% if advert.userRole == 'employeur' %}#}
-                        {#                            <p class="white-text italic">Pour plus d'informations, veuillez nous contacter.</p>#}
-                        {#                        {% else %}#}
-                        {#                            <p class="white-text italic">Pour plus d'informations, veuillez me contacter.</p>#}
-                        {#                        {% endif %}#}
                     </div>
                 </div>
                 <br/>
-                {#                <div class="center">#}
-                {#                    <a class="btn btn-userContact round-button" href="#" role="button"><strong>Contacter l'annonceur</strong></a>#}
-                {#                </div>#}
             </div>
         </div>
 

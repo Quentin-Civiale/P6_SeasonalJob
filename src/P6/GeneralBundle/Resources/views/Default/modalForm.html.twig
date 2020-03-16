@@ -7,7 +7,6 @@
                     <div class="row">
                         <p>&nbsp;&nbsp;&nbsp;</p>
                         <a class="navbar-brand" href="{{ path('general_homepage') }}">
-                            {#                            <img src="{{ asset('Images/rdv_logo3.png') }}" width="35" height="35" class="d-inline-block align-top" alt="">#}
                             <img src="{{ asset('Images/My_Season_Icon_reverse3.0.png') }}" width="55" height="45" class="d-inline-block align-top logo" alt="">
                         </a>
                         <div class="title-modal">
@@ -23,7 +22,6 @@
 
             <br/>
 
-            {#            <div class="col-lg-10 offset-lg-1 center">#}
             <ul class="nav" style="margin-left: auto; margin-right: auto;" role="tablist">
                 <li class="nav-item col-lg-6 center modal-choice-class">
                     <a class="nav-link btn-modal" data-toggle="tab" href="#modalRegister" role="tab"><i class="fas fa-user-plus"></i>&nbsp;Inscription</a>
@@ -32,7 +30,6 @@
                     <a class="nav-link btn-modal active" data-toggle="tab" href="#modalLogin" role="tab"><i class="fas fa-sign-in-alt"></i>&nbsp;Connexion</a>
                 </li>
             </ul>
-            {#            </div>#}
 
             <div class="tab-content background-pattern">
 
@@ -105,10 +102,6 @@
                                 <label>Lien de votre profil LinkedIn</label><br/>
                                 <div class="input-form center">{{ form_widget(formSeasonal.resumeLink) }}</div>
                             </div>
-                            {#                                    <div class="form-group">#}
-                            {#                                        <label>Votre image de profil</label><br/>#}
-                            {#                                        <div class="input-form center">{{ form_widget(formSeasonal.file) }}</div>#}
-                            {#                                    </div>#}
                             <div class="form-group">
                                 <label>Votre e-mail</label><br/>
                                 <div class="input-form center">{{ form_widget(formSeasonal.email) }}</div>
@@ -148,14 +141,6 @@
                         </div>
                     </div>
 
-                    {#                    <div class="modal-footer">#}
-                    {#                        <div class="col-lg-12">#}
-                    {#                            <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2 nav row center no-account" role="tablist">#}
-                    {#                                <p>Vous avez déjà un compte ? <a class="login-text log nav-link active" data-toggle="tab" href="#modalLogin" role="tab">Connectez-vous</a>.</p>#}
-                    {#                            </div>#}
-                    {#                        </div>#}
-                    {#                    </div>#}
-
                 </div>
 
                 <div class="tab-pane fade in show active" id="modalLogin" role="tabpanel">
@@ -164,7 +149,6 @@
                         <form action="{{ path('login') }}" method="post">
                             {% if error %}
                                 <div class="alert alert-danger">
-                                    {#                                    {{ error.messageKey|trans(error.messageData, 'security') }}#}
                                     Votre e-mail ou votre mot de passe est incorrect !
                                 </div>
                             {% endif %}
@@ -194,14 +178,6 @@
                             </div>
                         </div>
                     </div>
-
-                    {#                    <div class="modal-footer">#}
-                    {#                        <div class="col-lg-12">#}
-                    {#                            <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2 nav row center no-account" role="tablist">#}
-                    {#                                <p>Vous n'avez pas encore de compte ? <a class="logoColor-text log nav-link" data-toggle="tab" href="#modalRegister" role="tab">Inscrivez-vous</a>.</p>#}
-                    {#                            </div>#}
-                    {#                        </div>#}
-                    {#                    </div>#}
 
                 </div>
 

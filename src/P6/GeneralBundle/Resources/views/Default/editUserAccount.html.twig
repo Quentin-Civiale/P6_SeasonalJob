@@ -29,7 +29,6 @@
                             <h5 class="card-title logoColor-text">ID :</h5>
                             &nbsp;
                             <p class="card-text justify">
-                                {#                            {{ employer.id }}#}
                                 {{ app.user.id }}
                             </p>
                         </div>
@@ -38,7 +37,6 @@
                             <h5 class="card-title logoColor-text">Entreprise :</h5>
                             &nbsp;
                             <p class="card-text justify">
-                                {#                            {{ employer.company }}#}
                                 {{ app.user.company }}
                             </p>
                         </div>
@@ -47,7 +45,6 @@
                             <h5 class="card-title logoColor-text">Contact :</h5>
                             &nbsp;
                             <p class="card-text justify">
-                                {#                            {{ employer.contact }}#}
                                 {{ app.user.contact }}
                             </p>
                         </div>
@@ -56,7 +53,6 @@
                             <h5 class="card-title logoColor-text">Mail :</h5>
                             &nbsp;
                             <p class="card-text justify">
-                                {#                            {{ employer.email }}#}
                                 {{ app.user.email }}
                             </p>
                         </div>
@@ -65,7 +61,6 @@
                             <h5 class="card-title logoColor-text">Statut :</h5>
                             &nbsp;
                             <p class="card-text justify">
-                                {#                            {{ employer.role }}#}
                                 Employeur
                             </p>
                         </div>
@@ -81,20 +76,6 @@
                         </div>
 
                     </div>
-
-
-                    {#                    <br/>#}
-                    {#                    <br/>#}
-
-                    {#                    <div class="row col-lg-6 offset-lg-3">#}
-                    {#                        <div class="login col-lg-6">#}
-                    {#                            <a href="{{ path('user_ad') }}" class="btn btn-main border-logoColor-border logoColor-text round-button">Mes annonces</a>#}
-                    {#                        </div>#}
-
-                    {#                        <div class="login col-lg-6">#}
-                    {#                            <a href="{{ path('logout') }}" class="btn btn-danger round-button">Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i></a>#}
-                    {#                        </div>#}
-                    {#                    </div>#}
 
                 </div>
             </div>
@@ -148,65 +129,6 @@
                         {{ form_end(editSeasonalForm) }}
 
                     </div>
-
-                    {#                    <div class="col-lg-8 offset-lg-2">#}
-
-                    {#                        <br/>#}
-
-                    {#                        <div class="row">#}
-                    {#                            <h5 class="card-title logoColor-text">ID :</h5>#}
-                    {#                            &nbsp;#}
-                    {#                            <p class="card-text justify">#}
-                    {#                                {{ app.user.id }}#}
-                    {#                            </p>#}
-                    {#                        </div>#}
-
-                    {#                        <div class="row">#}
-                    {#                            <h5 class="card-title logoColor-text">Prénom et nom :</h5>#}
-                    {#                            &nbsp;#}
-                    {#                            <p class="card-text justify">#}
-                    {#                                {{ app.user.firstname }} {{ app.user.lastname }}#}
-                    {#                            </p>#}
-                    {#                        </div>#}
-
-                    {#                        <div class="row">#}
-                    {#                            <h5 class="card-title logoColor-text">Mail :</h5>#}
-                    {#                            &nbsp;#}
-                    {#                            <p class="card-text justify">#}
-                    {#                                {{ app.user.email }}#}
-                    {#                            </p>#}
-                    {#                        </div>#}
-
-                    {#                        <div class="row">#}
-                    {#                            <h5 class="card-title logoColor-text">Mon LinkedIn :</h5>#}
-                    {#                            &nbsp;#}
-                    {#                            <p class="card-text justify">#}
-                    {#                                <a href="{{ app.user.resumeLink }}" class="my_account_linkedin" target="_blank">voir mon profil linkedin</a>#}
-                    {#                                #}{#                                <a href="{{ app.user.resumeLink }}" target="_blank" class="btn btn-link round-button" title="voir le profil LinkedIn">Accéder au profil&nbsp;#}
-                    {#                                #}{#                                    <i class="fab fa-linkedin linkLogo resize-link center"></i>#}
-                    {#                                #}{#                                </a>#}
-                    {#                            </p>#}
-                    {#                        </div>#}
-
-                    {#                        <div class="row">#}
-                    {#                            <h5 class="card-title logoColor-text">Statut :</h5>#}
-                    {#                            &nbsp;#}
-                    {#                            <p class="card-text justify">#}
-                    {#                                Saisonnier#}
-                    {#                            </p>#}
-                    {#                        </div>#}
-
-                    {#                        <br/>#}
-
-                    {#                        <div class="row">#}
-                    {#                            <h5 class="card-title logoColor-text">Nombre d'annonces publiées :</h5>#}
-                    {#                            &nbsp;#}
-                    {#                            <p class="card-text justify">#}
-
-                    {#                            </p>#}
-                    {#                        </div>#}
-
-                    {#                    </div>#}
 
                 </div>
             </div>

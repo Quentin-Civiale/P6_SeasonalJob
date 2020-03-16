@@ -94,13 +94,11 @@
                 <div class="card-body">
                     <div class="form-group div-centered">
                         <h5>Lieu du poste :</h5>
-                        {# <p>{{ form_widget(formAd.place) }}</p> #}
                     </div>
                     <div class="row form-group">
                         <div class="col-lg-6 vertAlCenter">
                             <br/>
                             <p><input type="search" id="input-map" class="form-control" placeholder="Saisissez le nom ou le CP de la commune"/></p>
-                            {#                            <p>Ville sélectionnée : <strong id="address-city-map" class="logoColor-text">aucune</strong></p>#}
                             <hr/>
                             <p>Ville sélectionnée : {{ form_widget(formAd.place) }}</p>
                         </div>
@@ -156,22 +154,6 @@
         <hr/>
         <hr/>
         <br/>
-
-        {# gestion du nombre de caractères dans la description des annonces limité à 500 caractères (voir AdvertType.php)#}
-        {#        <script>#}
-        {#            function textCounter(field,field2,maxlimit)#}
-        {#            {#}
-        {#                var countfield = document.getElementById(field2);#}
-
-        {#                if ( field.value.length > maxlimit ) {#}
-        {#                    field.value = field.value.substring( 0, maxlimit );#}
-        {#                    return false;#}
-        {#                } else {#}
-        {#                    // countfield.value = maxlimit - field.value.length;#}
-        {#                    countfield.value = field.value.length + "/500";#}
-        {#                }#}
-        {#            }#}
-        {#        </script>#}
 
     {% else %}
 

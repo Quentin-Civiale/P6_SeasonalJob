@@ -51,24 +51,6 @@
                             <p>&nbsp;&nbsp;&nbsp;</p>
                             <i class="fas fa-user-tie resize-icon white-text"></i>
                             <p>&nbsp;&nbsp;&nbsp;</p>
-                            {#                                <p class="userProfilView"><strong>{{ employer.company }}</strong></p>#}
-                            {#                                <p>#}
-                            {#                                    <a class="btn btn-profilView round-button" data-toggle="collapse" href="#employerProfilView" role="button" aria-expanded="false" aria-controls="userProfilView" title="voir mon profil">#}
-                            {#                                        <strong>{{ employer.company }}</strong>#}
-                            {#                                    </a>#}
-                            {#                                </p>#}
-                            {#                                <p>&nbsp;&nbsp;&nbsp;</p>#}
-                            {#                                <div class="collapse" id="employerProfilView">#}
-                            {#                                    <div class="card card-body logoColor-text">#}
-                            {#                                        <p>#}
-                            {#                                            <span class="mx-auto d-block account-circle">#}
-                            {#                                                <img class="account-image" src="{{ asset(employer.profilPicture) }}">#}
-                            {#                                            </span>#}
-                            {#                                        </p>#}
-                            {#                                        <p><strong>Personne à contacter : </strong>{{ employer.contact }}</p>#}
-                            {#                                        <p><strong>Mon mail : </strong>{{ employer.email }}</p>#}
-                            {#                                    </div>#}
-                            {#                                </div>#}
                             <div>
                                 <button class="btn btn-profilView round-button" data-toggle="modal" data-target="#ModalEmployerDataView" title="voir mon profil">
                                     <strong>{{ employer.company }}</strong>
@@ -108,12 +90,6 @@
                             <p>&nbsp;&nbsp;&nbsp;</p>
                             <i class="far fa-user resize-icon white-text"></i>
                             <p>&nbsp;&nbsp;&nbsp;</p>
-                            {#                                <p>#}
-                            {#                                    <a class="btn btn-profilView round-button" data-toggle="collapse" href="#seasonalProfilView" role="button" aria-expanded="false" aria-controls="userProfilView" title="voir mon profil">#}
-                            {#                                        <strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</strong>#}
-                            {#                                    </a>#}
-                            {#                                </p>#}
-                            {#                                <p>&nbsp;&nbsp;&nbsp;</p>#}
                             <div>
                                 <button class="btn btn-profilView round-button" data-toggle="modal" data-target="#ModalSeasonalDataView" title="voir mon profil">
                                     <strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</strong>
@@ -143,19 +119,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {#                                <p>&nbsp;&nbsp;&nbsp;</p>#}
-                            {#                                <div class="collapse" id="seasonalProfilView">#}
-                            {#                                    <div class="card card-body logoColor-text">#}
-                            {#                                        <p>#}
-                            {#                                            <span class="mx-auto d-block account-circle">#}
-                            {#                                                <img class="account-image" src="{{ asset(seasonal.profilPicture) }}">#}
-                            {#                                            </span>#}
-                            {#                                        </p>#}
-                            {#                                        <p><strong>Prénom et nom : </strong>{{ seasonal.firstname }} {{ seasonal.lastname }}</p>#}
-                            {#                                        <p><strong>Mon profil LinkedIn : </strong><a class="linkedinProfil" href="{{ seasonal.resumeLink }}">voir mon compte</a></p>#}
-                            {#                                        <p><strong>Mon mail : </strong>{{ seasonal.email }}</p>#}
-                            {#                                    </div>#}
-                            {#                                </div>#}
                         </div>
                     {% endif %}
 
@@ -172,7 +135,6 @@
                         {{ advert.description|nl2br }}
                     </p>
                     <br/>
-                    {# <h6 class="white-text"><strong>Lieu</strong></h6>#}
                     <div class="row">
                         <p>&nbsp;&nbsp;&nbsp;</p>
                         <i class="fas fa-map-marker-alt resize-icon white-text"></i>
@@ -195,7 +157,6 @@
                             <br/>
                         {% endif %}
                     {% endif %}
-                    {# <h6 class="white-text"><strong>Disponibilité</strong></h6>#}
                     <div class="row">
                         <p>&nbsp;&nbsp;&nbsp;</p>
                         <i class="far fa-calendar-alt resize-icon white-text"></i>

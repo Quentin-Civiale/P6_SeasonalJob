@@ -87,17 +87,14 @@
                 <div class="card-body">
                     <div class="form-group div-centered">
                         <h5>Lieu de recherche de poste :</h5>
-                        {# <p>{{ form_widget(formAd.place) }}</p> #}
                     </div>
                     <div class="row form-group">
                         <div class="col-lg-6 vertAlCenter">
                             <br/>
                             <p><input type="search" id="input-map" class="form-control" placeholder="Saisissez le nom ou le CP de la commune"/></p>
-                            {#                            <p>Ville sélectionnée : <strong id="address-city-map" class="logoColor-text">aucune</strong></p>#}
                             <p>Ville sélectionnée : {{ form_widget(formAd.place) }}</p>
                             <hr/>
                             <div class="mobility">
-                                {#                                <p>Si vous ne choississez pas une ville en particulier alors, êtes-vous dans la capacité de vous déplacer dans toute la France, dans une certaine région ou département ?</p>#}
                                 <p>Êtes-vous dans la capacité de vous déplacer en dehors de cette commune pour un poste ?</p>
                                 <div class="mobility-type custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="yes-mobility_input" name="mobility_type_form" class="custom-control-input" value="yes-mobility_input" checked>
