@@ -24,15 +24,11 @@ class SecurityController extends Controller
 
         $employer = new Employer();
 
-//            dump($employer);
-
         if ($formEmployer = $this->createForm(EmployerType::class, $employer, array(
             'action' => $this->generateUrl('registerUser')
         ))) {
 
             $formEmployer->handleRequest($request);
-
-//                dump($formEmployer);
 
             if ($formEmployer->isSubmitted() && $formEmployer->isValid()) {
                 /** @var Employer $employer */
@@ -56,10 +52,6 @@ class SecurityController extends Controller
                         'main'
                     );
 
-//                    return $this->redirectToRoute('employer_account', [
-//                        'role' => $employer->getRole(),
-//                        'id' => $employer->getId(),
-//                    ]);
             }
         }
 
@@ -73,8 +65,6 @@ class SecurityController extends Controller
 
             $formSeasonal->handleRequest($request);
 
-//                dump($formSeasonal);
-
             if ($formSeasonal->isSubmitted() && $formSeasonal->isValid()) {
                 /** @var Seasonal $seasonal */
                 $seasonal = $formSeasonal->getData();
@@ -82,8 +72,6 @@ class SecurityController extends Controller
                 $seasonal->setProfilPicture(User::getDefaultProfilPicture());
 
                 dump($seasonal);
-
-//                    $seasonal->setUpdatedAt(new \DateTime());
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($seasonal);
@@ -102,49 +90,17 @@ class SecurityController extends Controller
                         'main'
                     );
 
-//                    return $this->redirectToRoute('seasonal_account', [
-//                        'role' => $seasonal->getRole(),
-//                        'id' => $seasonal->getId(),
-//                    ]);
             }
         }
 
-        // Formulaire de connexion
-
-//        $authenticationUtils = $this->get('security.authentication_utils');
-//        dump($request);
-//
-//        // obtention de l'erreur de connexion s'il y en a un
-//        $error = $authenticationUtils->getLastAuthenticationError();
-//
-//        // dernier nom d'utilisateur entré par l'utilisateur
-//        $lastUser = $authenticationUtils->getLastUsername();
-//
-//        $formLogin = $this->createForm(loginFormType::class, [
-//            '_email' => $lastUser,
-//            'action' => $this->generateUrl('registerUser'),
-//        ]);
-
-//        return $this->render('base.html.twig', [
-//            'formLogin' => $formLogin->createView(),
-//            'error' => $error,
-//        ]);
 
         // Formulaire de connexion doc symfony
 
         $authenticationUtils = $this->get('security.authentication_utils');
 
-//        dump($employer);
-//        dump($seasonal);
-//        dump($authenticationUtils);
-
         $error = $authenticationUtils->getLastAuthenticationError();
 
-//        dump($error);
-
         $lastUsername = $authenticationUtils->getLastUsername();
-
-//        dump($lastUsername);
 
         $formLogin = $this->createForm(loginFormType::class, [
             '_email' => $lastUsername,
@@ -152,13 +108,6 @@ class SecurityController extends Controller
         ]);
 
         dump($formLogin);
-
-//        return $this->render('@General/Default/modalForm.html.twig', [
-//            'last_username' => $lastUsername,
-//            'error' => $error,
-//        ]);
-
-//        $this->addFlash('login', 'De retour sur My Season, il y a sûrement de nouvelles annonces faîtes pour vous !');
 
         // Renvoi de vue des différents formulaires
 
@@ -170,34 +119,5 @@ class SecurityController extends Controller
             'error' => $error,
         ]);
     }
-
-
-//    public function loginAction(Request $request)
-//    {
-//        $authenticationUtils = $this->get('security.authentication_utils');
-//        dump($request);
-//
-//        // obtention de l'erreur de connexion s'il y en a un
-//        $error = $authenticationUtils->getLastAuthenticationError();
-//
-//        // dernier nom d'utilisateur entré par l'utilisateur
-//        $lastUsername = $authenticationUtils->getLastUsername();
-//
-//        $formLogin = $this->createForm(loginFormType::class, [
-//            '_username' => $lastUsername,
-//            'action' => $this->generateUrl('login'),
-//        ]);
-//
-//        return $this->render('@General/Default/modalForm.html.twig', [
-//            'formLogin' => $formLogin->createView(),
-////            '_username' => $lastUsername,
-//            'error' => $error,
-//        ]);
-//    }
-//
-//    public function logoutAction()
-//    {
-//        throw new \Exception('Ce message ne devrait pas s\'afficher!');
-//    }
 
 }

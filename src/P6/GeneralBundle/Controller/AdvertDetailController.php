@@ -26,9 +26,6 @@ class AdvertDetailController extends Controller
 
 //        Gestion de l'envoi de mails via swiftmailer -> (ContactNotification $notification)
 
-//        $currentUserName = $this->getUser()->getFullName();
-//        $currentUserEmail = $this->getUser()->getEmail();
-
         if ($this->isGranted('ROLE_EMPLOYER') == true || $this->isGranted('ROLE_SEASONAL') == true) {
 
             $currentUserName = $this->getUser()->getFullName();
@@ -79,68 +76,6 @@ class AdvertDetailController extends Controller
             ]);
         }
 
-//        $contact = new Contact();
-//        $contact->setUser($user);
-//        $contact->setCurrentUserName($currentUserName);
-//        $contact->setCurrentUserMail($currentUserEmail);
-//        $contact->setAdvert($advert);
-//        $contactForm = $this->createForm(ContactType::class, $contact);
-//        $contactForm->handleRequest($request);
-//
-//        dump($currentUserName);
-//        dump($currentUserEmail);
-//        dump($contactForm);
-//        dump($contact);
-//
-//        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
-//
-//            $notification->notify($contact);
-//            $this->addFlash('success', 'Votre message a bien été envoyé !');
-//
-//            return $this->render('@General/Default/advertDetail.html.twig', [
-//                'advert' => $advert,
-//                'user' => $user,
-//                'employer' => $employer,
-//                'seasonal' => $seasonal,
-//                'contactForm' => $contactForm->createView()
-//            ]);
-//        }
-
-        /*------------------------------------------------------------------------------------------------------------*/
-
-//        $employerRepository = $this->getDoctrine()->getRepository('GeneralBundle:Employer');
-//        $employer = AdvertHelper::getEmployer($advert, $employerRepository);
-//
-//        $seasonalRepository = $this->getDoctrine()->getRepository('GeneralBundle:Seasonal');
-//        $seasonal = AdvertHelper::getSeasonal($advert, $seasonalRepository);
-
-//        if ($user->getRoles() == 'ROLE_EMPLOYER') {
-//            return $this->render('@General/Default/advertDetail.html.twig', [
-//                'advert' => $advert,
-//                'user' => $user,
-//                'employer' => $employer
-//            ]);
-//        }
-//        elseif ($user->getRoles() == 'ROLE_SEASONAL') {
-//            return $this->render('@General/Default/advertDetail.html.twig', [
-//                'advert' => $advert,
-//                'user' => $user,
-//                'seasonal' => $seasonal
-//            ]);
-//        }
-//        else {
-//            return $this->render('@General/Default/advertDetail.html.twig', [
-//                'advert' => $advert,
-//            ]);
-//        }
-
-//        return $this->render('@General/Default/advertDetail.html.twig', [
-//            'advert' => $advert,
-//            'user' => $user,
-//            'employer' => $employer,
-//            'seasonal' => $seasonal,
-//            'contactForm' => $contactForm->createView()
-//        ]);
     }
 
 }

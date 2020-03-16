@@ -11,7 +11,7 @@ class PostingAdController extends Controller
 {
     public function postingAction()
     {
-//        return $this->render('@General/Default/postingEmployerAd.html.twig');
+//        ou return $this->render('@General/Default/postingEmployerAd.html.twig');
         return $this->render('@General/Default/postingSeasonalAd.html.twig');
     }
 
