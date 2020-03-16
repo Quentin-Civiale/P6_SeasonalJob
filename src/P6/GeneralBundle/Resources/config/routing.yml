@@ -6,25 +6,9 @@ general_homepage:
     path:     /MySeason/accueil
     defaults: { _controller: GeneralBundle:Navigation:home }
 
-#employer_account:
-#    path:     /MySeason/account/{role}/{id}/mon-compte-employeur
-#    defaults: { _controller: GeneralBundle:UserAccount:employerAccount }
-#
-#seasonal_account:
-#    path:     /MySeason/account/{role}/{id}/mon-compte-saisonnier
-#    defaults: { _controller: GeneralBundle:UserAccount:seasonalAccount }
-
-#user_account:
-#    path:     /MySeason/account/mon-compte
-#    defaults: { _controller: GeneralBundle:UserAccount:userAccount }
-
 user_profil:
     path:     /MySeason/account/mon-compte-{id}
     defaults: { _controller: GeneralBundle:UserAccount:userProfil }
-
-#user_edit_profil_picture:
-#    path:     /MySeason/account/mon-compte/image-de-profil
-#    defaults: { _controller: GeneralBundle:UserAccount:editProfilPicture }
 
 edit_seasonal_account:
     path:     /MySeason/account/mon-compte/édition-de-mon-compte/{id}
@@ -94,17 +78,9 @@ posting_employer_advert:
 #    Inscription et Connexion
 #---------------------------------------------------------------
 
-#registerEmployerOneModal:
-#    path:     /MySeason/accueil/inscription/employeur
-#    defaults: { _controller: GeneralBundle:Security:employerRegistrationOneModal }
-
 registerUser:
     path:     /MySeason/accueil/inscription
     defaults: { _controller: GeneralBundle:Security:userRegistration }
-
-#registerSeasonalTwoModal:
-#    path:     /MySeason/accueil/inscription/saisonnier
-#    defaults: { _controller: GeneralBundle:Security:seasonalRegistrationTwoModal }
 
 login:
     path:     /MySeason/accueil/connexion
