@@ -39,9 +39,6 @@
     background-image: url("../Images/connect.png") !important;
     background-attachment: fixed !important;
     background-color: var(--main-color-one) !important;
-    /*background-image: url("../Images/brushed_alu.png") !important;*/
-    /*background-image: url("../Images/lined_paper.png") !important;*/
-    /*background-image: url("../Images/prism.png") !important;*/
 }
 
 /* Bouton de retour vers le haut de la page */
@@ -251,12 +248,6 @@ a.nav-link {
     box-shadow: 0 0 0 .2rem var(--main-color-one) !important;
 }
 
-/* Modification des liens de boutons dropdown du menu */
-/*.dropdown-item:active {*/
-/*    background-color: #6200ea !important;*/
-/*    color: white; !important;*/
-/*}*/
-
 /* Bouton d'ajout d'annonce modifié lorsque le user est connecté */
 .btn-ad {
     color: var(--white-color) !important;
@@ -353,7 +344,6 @@ a.nav-link {
 }
 
 .carousel-item {
-
     padding: 30px !important;
 }
 
@@ -391,73 +381,6 @@ a.nav-link {
 }
 
 /* Taille de l'affichage du profilPicture de la vue compte utilisateur */
-/*.round-image {*/
-/*    width: 180px !important;*/
-/*    height: 180px !important;*/
-/*    !*position: relative !important;*!*/
-/*    overflow: hidden !important;*/
-/*    border-radius: 50% !important;*/
-/*}*/
-/*.account-profil {*/
-/*    !*display: inline !important;*!*/
-/*    margin: 0 auto !important;*/
-/*    margin-left: -25px !important;*/
-/*    height: 100% !important;*/
-/*    width: auto !important;*/
-/*    !*width: 180px !important;*!*/
-/*    !*height: 180px !important;*!*/
-/*    display: block !important;*/
-/*    !*height: 180px !important;*!*/
-/*    !*width: 180px !important;*!*/
-/*    !*max-width: 220px !important;*!*/
-/*    !*max-height: 220px !important;*!*/
-/*    !*border-radius: 50% !important;*!*/
-/*}*/
-/*.circle {*/
-/*    width: 190px;*/
-/*    height: 190px;*/
-/*    border: 6px solid var(--main-color-one);*/
-/*    border-radius:100%;*/
-/*    !*background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*!*/
-/*    !*background-size: 150%;*!*/
-/*    !*background-position: 50% !important;*!*/
-/*    overflow: hidden !important;*/
-/*}*/
-/*.avatar1 {*/
-/*    width: 180px;*/
-/*    height: 180px;*/
-/*    background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*/
-/*    background-size: 150%;*/
-/*    background-position: 60% !important;*/
-/*    !*margin-top:7px;*!*/
-/*    !*width: 180px;*!*/
-/*    !*height: 180px;*!*/
-/*    !*border-radius: 50%;*!*/
-/*}*/
-/*.avatar2 {*/
-/*    width: 180px !important;*/
-/*    height: 180px !important;*/
-/*    !*background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*!*/
-/*    background-size: 150% !important;*/
-/*    background-position: 60% !important;*/
-/*    !*margin-top:7px;*!*/
-/*    !*width: 180px;*!*/
-/*    !*height: 180px;*!*/
-/*    !*border-radius: 50%;*!*/
-/*}*/
-/*.avatar3 {*/
-/*    !*width: 180px !important;*!*/
-/*    !*height: 180px !important;*!*/
-/*    !*background:url(../uploads/profilPicture/Profil.jpg) center no-repeat;*!*/
-/*    !*background-size: 150% !important;*!*/
-/*    !*background-position: 60% !important;*!*/
-/*    !*margin-left: -15px !important;*!*/
-/*    !*width: 180px;*!*/
-/*    !*height: 180px;*!*/
-/*    !*border-radius: 50%;*!*/
-/*}*/
-
-/* Taille de l'affichage du profilPicture de la vue compte utilisateur */
 .account-circle {
     display: inline-block;
     border: 6px solid var(--main-color-one);
@@ -491,25 +414,25 @@ a.nav-link {
 /*    object-position: right center;*/
 /*}*/
 
-.account-image:hover {
+/*.account-image:hover {*/
     /*animation: shake 0.5s;*/
     /*animation-iteration-count: infinite;*/
     /*onmouseover="this.src='{{ asset("Images/Pattern_My_Season.png") }}'" onmouseout="this.src='{{ asset(seasonal.profilPicture) }}'"*/
-}
+/*}*/
 
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
+/*@keyframes shake {*/
+/*    0% { transform: translate(1px, 1px) rotate(0deg); }*/
+/*    10% { transform: translate(-1px, -2px) rotate(-1deg); }*/
+/*    20% { transform: translate(-3px, 0px) rotate(1deg); }*/
+/*    30% { transform: translate(3px, 2px) rotate(0deg); }*/
+/*    40% { transform: translate(1px, -1px) rotate(1deg); }*/
+/*    50% { transform: translate(-1px, 2px) rotate(-1deg); }*/
+/*    60% { transform: translate(-3px, 1px) rotate(0deg); }*/
+/*    70% { transform: translate(3px, 1px) rotate(-1deg); }*/
+/*    80% { transform: translate(-1px, -1px) rotate(1deg); }*/
+/*    90% { transform: translate(1px, 2px) rotate(0deg); }*/
+/*    100% { transform: translate(1px, -2px) rotate(-1deg); }*/
+/*}*/
 
 /* Modification de la couleur du bouton de déconnexion */
 .btn-logout-home {
@@ -529,13 +452,6 @@ a.nav-link {
 /* Modification de la couleur du bouton d'ajout d'annonce du menu */
 .logoColor-background {background-color: var(--main-color-one) !important}
 .border-logoColor-border {border-color: var(--main-color-one) !important}
-
-/* Btn publication d'annonce du menu */
-/*.btn-primary:hover {*/
-/*    background-color: var(--white-color) !important;*/
-/*    color: var(--main-color-one) !important;*/
-/*    background-image: url("../Images/connect.png");*/
-/*}*/
 
 .white-background {
     background-color: var(--white-color) !important;
@@ -661,28 +577,6 @@ a.footer-link:hover {
     linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%); !important;
     /* background-image: url("../Images/connect.png"); */
 }
-
-/*
-    twitter: #1da1f2 rgba(29,161,242)
-    facebook: #4267b2 rgb(66, 103, 178)
-    instagram: #8a3ab9, #4c68d7, #cd486b, #fbad50, #fccc63, #bc2a8d
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-
-    radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
-    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
-    // left top
-    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
-    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
-    //  right top
-    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
-    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
-    // right bottom
-    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
-
-    // create a base coat to smooth
-    // corner gradients
-    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
-*/
 
 .social-facebook:hover .social-icons, .social-twitter:hover .social-icons, .social-instagram:hover .social-icons {
     color: var(--white-color) !important;
@@ -833,21 +727,6 @@ user_type_form {
 .hidden{
     display: none !important;
 }
-
-/* Bouton radio de mobilité */
-/*input#p6_generalbundle_ad_place_0_mobility_0, #p6_generalbundle_ad_place_0_mobility_1 {*/
-/*    !*border-radius: .25rem !important;*!*/
-/*    border: #6200ea solid 1px !important;*/
-/*    height: 30px !important;*/
-/*    width: 50px !important;*/
-/*}*/
-
-/*input[type="radio"] {*/
-/*    color: #6200ea !important;*/
-/*    border: #6200ea solid 1px !important;*/
-/*    height: 30px !important;*/
-/*    width: 50px !important;*/
-/*}*/
 
 /*--------------Radio Bouton de Mobilité--------------*/
 
@@ -1014,27 +893,6 @@ input#p6_generalbundle_advert_dateStart, #p6_generalbundle_advert_dateEnd {
     margin-left: 75% !important;
     margin-bottom: -13% !important;
 }
-
-/*select#p6_generalbundle_ad_place_0_mobility {*/
-/*    border-radius: .25rem !important;*/
-/*    border: #6200ea solid 1px !important;*/
-/*    height: 30px !important;*/
-/*    width: 75px !important;*/
-/*}*/
-
-/* Retrait des label vue postingAd */
-
-/*#p6_generalbundle_ad_category > .row > .input-field:first-child > label {*/
-/*    display: none !important;*/
-/*}*/
-
-/*#p6_generalbundle_ad_category > div >.row > .input-field:first-child > label {*/
-/*    display: none !important;*/
-/*}*/
-
-/*.input-field > select + label {*/
-/*    display: none !important;*/
-/*}*/
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Design page de l'annonce qui vient d'être créée */
