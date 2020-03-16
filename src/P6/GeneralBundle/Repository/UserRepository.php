@@ -3,7 +3,6 @@
 namespace P6\GeneralBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\QueryBuilder;
 use P6\GeneralBundle\Entity\User;
 
 /**
@@ -15,25 +14,4 @@ use P6\GeneralBundle\Entity\User;
  */
 class UserRepository extends EntityRepository
 {
-//    private function findAllQuery(): QueryBuilder
-//    {
-//        return $this->createQueryBuilder('u');
-//    }
-//
-//    /**
-//     * @param User $user
-//     * @return User[]
-//     */
-//    public function findAllUser(User $user): array
-//    {
-//        $query = $this->findAllQuery();
-//
-//        if ($user->getId()) {
-//            $query = $query
-//                ->andWhere('u.id = :id')
-//                ->setParameter('id', $user->getId());
-//        }
-//
-//        return $query->getQuery()->getResult();
-//    }
 }

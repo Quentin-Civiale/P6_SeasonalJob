@@ -2,13 +2,10 @@
 
 namespace P6\GeneralBundle\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use P6\GeneralBundle\Entity\Advert;
 use P6\GeneralBundle\Entity\AdvertSearch;
-use P6\GeneralBundle\Entity\User;
-use Symfony\Bridge\Doctrine\ManagerRegistry;
 
 /**
  * AdvertRepository
@@ -60,11 +57,6 @@ class AdvertRepository extends EntityRepository
      */
     public function findLatestAdvert(): array
     {
-//        return $this->createQueryBuilder('a')
-//            ->setMaxResults(6)
-//            ->getQuery()
-//            ->getResult();
-
         $query = $this->findAllQuery();
 
         // sélection des 6 dernières annonces décroissantes : 7-6-5-4-3-2
