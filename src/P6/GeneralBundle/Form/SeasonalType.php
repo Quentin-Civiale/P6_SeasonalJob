@@ -24,9 +24,7 @@ class SeasonalType extends AbstractType
         $builder
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
-//            ->add('profilPicture', HiddenType::class)
             ->add('resumeLink', UrlType::class, ['required' => false])
-//            ->add('file', FileType::class, ['required' => false])
             ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,

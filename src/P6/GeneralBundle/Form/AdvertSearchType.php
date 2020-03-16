@@ -4,10 +4,7 @@ namespace P6\GeneralBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\RadioType;
-use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -56,11 +53,6 @@ class AdvertSearchType extends AbstractType
                 ]
             ])
             ->add('place', TextareaType::class, [
-//                'required' => false,
-//                'label' => false,
-//                'attr' => [
-//                    'placeholder' => 'Lieu du poste'
-//                ]
                 'attr' => [ 'readonly' => true,
                     'class' => 'form-control form-control-plaintext selected-city-search-field',
                     'placeholder' => 'Aucune'
@@ -68,12 +60,6 @@ class AdvertSearchType extends AbstractType
                 'label' => 'Lieu du poste :',
                 'data' => '',
             ])
-//            ->add('save', ResetType::class, [
-//                'label' => 'Supprimer les filtres',
-//                'attr' => [
-//                    'class' => 'save'
-//                ]
-//            ])
         ;
     }
     /**

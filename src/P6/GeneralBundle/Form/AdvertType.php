@@ -2,11 +2,9 @@
 
 namespace P6\GeneralBundle\Form;
 
-use P6\GeneralBundle\Entity\Advert;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -59,12 +57,6 @@ class AdvertType extends AbstractType
                     'class' => 'form-control form-control-plaintext selected-city-field' ],
                 'label' => 'Lieu du poste :',
                 'data' => 'aucune',
-//                'choices' => [
-//                    'Toute la France' => 'France',
-//                    'Région' => 'région',
-//                    'Département' => 'département',
-//                    'DOM-TOM' => 'dom-tom',
-//                ]
             ])
             ->add('mobility', TextareaType::class, [
                 'attr' => [ 'placeholder' => 'Région Auvergne, disponible sur tout le Puy-de-Dôme, rayon de 30km autour de Clermont-Ferrand',
@@ -74,10 +66,7 @@ class AdvertType extends AbstractType
             ])
             ->add('dateStart', DateType::class, [
                 'attr' => array('class' => 'calendar', 'min' => date('Y-m-d')),
-//                'attr' => array('class' => 'calendar', 'data-provide' => 'datepicker'),
                 'widget' => 'single_text',
-//                'label' => 'Date de contrat',
-//                'format' => 'dd/mm/yyyy',
                 'required' => true,
             ])
             ->add('dateEnd', DateType::class, [

@@ -2,7 +2,6 @@
 
 namespace P6\GeneralBundle\Form;
 
-use P6\GeneralBundle\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
