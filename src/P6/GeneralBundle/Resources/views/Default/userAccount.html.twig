@@ -86,12 +86,22 @@
                     <br/>
                     <br/>
 
-                    <div class="row col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
-                        <div class="login col-lg-6 col-md-4 offset-md-1">
+                    <div class="row col-lg-6 offset-lg-3" id="onWeb">
+                        <div class="login col-lg-6">
                             <a href="{{ path('user_ad', {id: app.user.id}) }}" class="btn btn-main round-button">Mes annonces</a>
                         </div>
 
-                        <div class="login col-lg-6 col-md-4 offset-md-1">
+                        <div class="login col-lg-6">
+                            <a href="{{ path('logout') }}" class="btn btn-logout round-button">Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="row col-md-8 offset-md-2" id="onMobileButton">
+                        <div class="login col-md-4 offset-md-1">
+                            <a href="{{ path('user_ad', {id: app.user.id}) }}" class="btn btn-main round-button">Mes annonces</a>
+                        </div>
+
+                        <div class="login col-md-4 offset-md-1">
                             <a href="{{ path('logout') }}" class="btn btn-logout round-button">Déconnexion&nbsp;<i class="fas fa-sign-out-alt"></i></a>
                         </div>
                     </div>
