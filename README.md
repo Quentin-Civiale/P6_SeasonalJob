@@ -1,3 +1,32 @@
+Chef de Projet Multimédia - Développement Web
+========================
+Projet 6 - Contribuez à votre écosystème
+========================
+
+**MY SEASON**: Mettre en relation saisonniers et employeurs
+
+Pour ce Projet 6, étant un ancien saisonnier, j'ai voulu créer un site afin d'aider les saisonniers et les employeurs
+à rentrer en contact, car il n'est pas toujours facile de trouver le bon saisonnier ou le bon job.
+
+**Comment ça marche**: Il suffit simplement de créer un compte sur le site et ensuite il n'y a plus qu'à créer ses annonces
+de recherche d'emploi ou d'offre qui seront publiées sur le site.
+
+Chaque utilisateur pourra, s'il est intéréssé par l'annonce publiée, contacter l'annonceur via un envoi de message sur sa
+boîte mail et ainsi rentrer en contact pour plus tard affiner l'offre entre les deux parties.
+
+**CONFIGURATION** : 
+
+ * **PHP Version** : >=7.0.10
+
+ * **Symfony Version** : 3.4.*
+ 
+ * **Knp Paginator Bundle** : ^3.0
+ 
+ * **Swiftmailer Bundle** : ^2.6.4
+ 
+ **Quentin Civiale - All rights reserved - 2020**
+
+
 Symfony Standard Edition
 ========================
 
